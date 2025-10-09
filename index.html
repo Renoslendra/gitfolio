@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark" />
   <title>Gunadi Renta - GitHub-style Portfolio (Web Dev • Fisheries Tech)</title>
 
-  <!-- Canonical & SEO -->
+  <!-- Kanonis & SEO -->
   <link rel="canonical" href="https://gunadi.tech/" />
   <meta name="description" content="Portfolio style GitHub milik Gunadi Renta (@gunadizz): profil, statistik GitHub, repositori publik, skills lengkap, pengalaman, prestasi, dan kontak." />
   <meta name="keywords" content="Gunadi Renta, gunadizz, portfolio, GitHub, repositori, web developer, fisheries technology, glassmorphism, modern UI, CV online" />
@@ -20,13 +20,12 @@
   <meta property="og:image" content="https://gunadi.tech/Screenshot_2025-10-06-18-17-25-060_com.miui.gallery-edit.jpg" />
   <meta property="og:url" content="https://gunadi.tech/" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter Card () -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Gunadi Renta - GitHub-style Portfolio" />
   <meta name="twitter:description" content="Profil + repositori publik + statistik GitHub + skills + pengalaman milik @gunadizz" />
   <meta name="twitter:image" content="https://gunadi.tech/Screenshot_2025-10-06-18-17-25-060_com.miui.gallery-edit.jpg" />
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -66,12 +65,13 @@
   }
   </script>
 
-  <!-- Fonts --> 
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-  <!-- Icons (Lucide) -->
-<script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Ikon (Lucide) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     /* ========== Reset & Base ========== */
@@ -95,7 +95,7 @@
       --radius: 16px;
       --blur: 15px;
       --container: 1200px;
-      --accent: 79,70,229; 
+      --accent: 79,70,229;
       --header-h: 72px;
       --header-gap: 12px;
     }
@@ -143,7 +143,6 @@
       -webkit-font-smoothing:antialiased;
     }
 
-    /* Improve anchor jump under sticky header */
     :where(section,[id]){ scroll-margin-top: calc(var(--header-h) + var(--header-gap)); }
 
     /* ========== Header ========== */
@@ -205,11 +204,9 @@
     .btn.accent{ background: rgba(var(--accent),.22); border-color: rgba(var(--accent),.45); color:#fff }
     .btn .dot{ width:12px; height:12px; border-radius:999px; background:rgb(var(--accent)); box-shadow:0 0 0 2px rgba(var(--accent),.25) }
 
-    /* Header nav links (desktop) */
     .navlinks{ display:flex; gap:6px; align-items:center; flex-wrap:wrap }
     .navlinks .btn{ padding:8px 10px }
 
-    /* Responsive helpers */
     .hide-sm{ display:inline-flex }
     .show-sm{ display:none }
     @media (max-width: 960px){
@@ -217,7 +214,6 @@
       .show-sm{ display:inline-flex !important }
     }
 
-    /* Hamburger (mobile) */
     .hamburger{
       display:none; align-items:center; justify-content:center;
       width:40px; height:40px; border-radius:12px;
@@ -225,7 +221,6 @@
       border:1px solid var(--border); box-shadow: var(--shadow-1);
     }
 
-    /* Mobile panel (dropdown) */
     .mobile-panel{
       display:none; overflow:hidden;
       max-height:0; transition:max-height .3s ease;
@@ -255,9 +250,9 @@
     }
     @media (max-width: 960px){
       .header-wrap{
-        grid-template-columns: auto 1fr auto; /* burger + brand + right */
+        grid-template-columns: auto 1fr auto;
       }
-      .search{ display:none; } /* desktop search hidden on mobile */
+      .search{ display:none; }
       .hamburger{ display:inline-flex; }
       .brand .subtitle{ display:none; }
       .navlinks{ display:none }
@@ -271,7 +266,6 @@
       border-bottom:1px solid var(--border);
       box-shadow: var(--shadow-2);font-size:15px;
       display:none; opacity:0; max-height:0; overflow:hidden;
-      
       transition: opacity .18s ease, max-height .25s ease;
       z-index:101;
     }
@@ -303,7 +297,7 @@
     .sidebar{ position:sticky; top:calc(var(--header-h) + var(--header-gap)); display:flex; flex-direction:column; gap:14px }
     @media (max-width:1024px){ .sidebar{ position:static } }
 
-    /* ========== Profile ========== */
+    /* ========== Profil ========== */
     .profile-top{ display:flex; gap:14px; align-items:center }
     .avatar{ width:112px; height:112px; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow: var(--shadow-1) }
     .name{ font-size:20px; font-weight:800; margin:0 }
@@ -321,7 +315,6 @@
     .stat .label{ font-size:12px; color:var(--muted); font-weight:600 }
     .tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); background:linear-gradient(180deg,var(--glass-1),var(--glass-2)); font-size:12px; margin:2px 6px 2px 0 }
 
-    /* Quick nav sidebar */
     .quick-nav{ display:grid; gap:8px }
     .quick-nav a{ display:flex; gap:8px; align-items:center; padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:linear-gradient(180deg,var(--glass-1),var(--glass-2)) }
     .quick-nav a:hover{ transform: translateY(-1px) }
@@ -348,7 +341,6 @@
     .pill{ display:inline-flex; gap:6px; align-items:center; font-size:12px; padding:6px 8px; border-radius:999px; border:1px solid var(--border); background:linear-gradient(180deg,var(--glass-1),var(--glass-2)) }
     .lang-dot{ width:10px; height:10px; border-radius:999px; box-shadow:0 0 0 2px var(--border) }
 
-    /* ========== Markdown blocks ========== */
     .markdown{ font-size:14.5px }
     .markdown p{ margin:0 0 10px }
     .markdown ul{ list-style:disc; padding-left:18px }
@@ -371,14 +363,6 @@
     .modal .content{ padding:16px }
     .close{ border-radius:10px; padding:8px }
     .close:hover{ background: rgba(var(--accent),.12) }
-
-    /* AI chat */
-    .chat-wrap{ display:grid; gap:10px; max-height:min(60vh,520px); overflow:auto; border:1px solid var(--border); border-radius:12px; padding:10px; background:linear-gradient(180deg,var(--glass-1),var(--glass-2)); }
-    .msg{ display:flex; gap:10px; align-items:flex-start }
-    .msg .bubble{ padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:var(--bg-2); box-shadow: var(--shadow-1); max-width:100% }
-    .msg.user .bubble{ background: rgba(var(--accent),.10); border-color: rgba(var(--accent),.35) }
-    .msg.assistant .bubble{ }
-    .msg .who{ display:grid; place-items:center; width:28px; height:28px; border-radius:8px; border:1px solid var(--border); background:linear-gradient(180deg,var(--glass-1),var(--glass-2)) }
 
     /* ========== Skeleton ========== */
     .skeleton{ position:relative; overflow:hidden; background: rgba(160,170,190,.18); border-radius:10px; min-height:14px }
@@ -429,7 +413,6 @@
         radial-gradient(800px 450px at 105% 18%, rgba(var(--accent),.10), transparent 55%),
         linear-gradient(180deg,var(--bg),var(--bg));
       transition: opacity .35s ease, visibility .35s ease;
-      
     }
     .splash.hidden{ opacity:0; visibility:hidden }
     .spinner{
@@ -449,307 +432,67 @@
       .spinner{ animation: none }
     }
 
-    /* Utilities */
     .row{ display:flex; align-items:center; gap:10px }
     .space{ flex:1 }
     html{ scroll-behavior: smooth }
     @media (prefers-reduced-motion: reduce){
       *{ animation: none !important; transition: none !important }
     }
-    
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-  gap: 16px;
-  align-items: stretch; 
-  margin-top: 12px;
-}
 
-.pricing-card { 
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  border-radius: 12px;
-}
+    /* Load more button */
+    #loadMoreWrap { margin-top:12px; display:flex; justify-content:center; }
 
-.pricing-card > .card-body {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 12px;
-  flex: 1 1 auto;
-}
+    .btn.load-more {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      min-width:120px;
+      max-height:40px;
+      font-size:14px;
+      line-height:1;
+      background: linear-gradient(90deg, rgba(var(--accent),0.98), rgba(var(--accent),0.86));
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      cursor:pointer;
+      transition: transform .16s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, opacity .12s ease, background .18s ease;
+      box-shadow:
+        0 6px 14px rgba(2,6,23,0.14),
+        0 8px 28px rgba(var(--accent),0.14),
+        inset 0 -3px 6px rgba(0,0,0,0.06);
+    }
 
-.pricing-content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+    .btn.load-more:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 12px 30px rgba(2,6,23,0.16),
+        0 18px 44px rgba(var(--accent),0.20),
+        inset 0 -3px 6px rgba(0,0,0,0.06);
+    }
 
-.pricing-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: auto; 
-  align-items: center;
-  flex-wrap: wrap;
-}
+    .btn.load-more.loading .lm-icon { visibility:hidden; }
+    .btn.load-more.loading .lm-spinner { display:inline-block; }
+    .btn.load-more.all-loaded {
+      background: linear-gradient(90deg, rgba(60,180,100,0.98), rgba(40,150,80,0.92));
+      color: #fff;
+      box-shadow:
+        0 8px 20px rgba(12,50,20,0.14),
+        0 14px 34px rgba(40,150,80,0.18);
+    }
 
-.btn.outline {
-  background: linear-gradient(180deg,var(--glass-1),var(--glass-2));
-  border: 1px solid var(--border);
-}
+    @keyframes lm-spin { to { transform: rotate(360deg); } }
 
-.pricing-actions .buy-btn {
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  .pricing-actions {
-    flex-direction: column;
-  }
-  .pricing-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-#loadMoreWrap { margin-top:12px; display:flex; justify-content:center; }
-
-.btn.load-more {
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 18px;
-  border-radius:999px;
-  min-width:180px;
-  background: linear-gradient(90deg, rgba(var(--accent),0.95), rgba(var(--accent),0.80));
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 8px 22px rgba(79,70,229,0.14);
-  font-weight:800;
-  cursor:pointer;
-  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-  white-space:nowrap;
-}
-
-.btn.load-more:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(79,70,229,0.16);
-}
-
-.btn.load-more:focus {
-  outline: 3px solid rgba(255,255,255,0.08);
-  outline-offset: 4px;
-}
-
-.btn.load-more[disabled],
-.btn.load-more.disabled {
-  opacity: 0.65;
-  pointer-events: none;
-  transform: none;
-  box-shadow: none;
-}
-.btn.load-more .lm-icon {
-  width:18px;
-  height:18px;
-  display:inline-grid;
-  place-items:center;
-  transform-origin:center;
-  transition: transform .45s cubic-bezier(.2,.9,.2,1);
-}
-
-.btn.load-more .lm-spinner {
-  display:none;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,0.24);
-  border-top-color: rgba(255,255,255,0.98);
-  box-sizing:border-box;
-  animation: lm-spin 0.9s linear infinite;
-}
-
-.btn.load-more.loading .lm-icon { visibility:hidden; transform: rotate(0deg); }
-.btn.load-more.loading .lm-spinner { display:inline-block; }
-.btn.load-more.loading .label { opacity:0.95; }
-
-.btn.load-more:active .lm-icon { transform: rotate(12deg) }
-
-@keyframes lm-spin { to { transform: rotate(360deg); } }
-
-@media (max-width:420px){
-  .btn.load-more { min-width: 140px; padding:9px 12px; gap:8px; font-size:14px; }
-}
-
-
-#loadMoreWrap { margin-top:12px; display:flex; justify-content:center; }
-
-.btn.load-more {
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 18px;
-  border-radius:999px;
-  min-width:180px;
-  background: linear-gradient(90deg, rgba(var(--accent),0.95), rgba(var(--accent),0.80));
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 8px 22px rgba(79,70,229,0.14);
-  font-weight:800;
-  cursor:pointer;
-  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-  white-space:nowrap;
-}
-
-.btn.load-more:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(79,70,229,0.16);
-}
-
-.btn.load-more:focus {
-  outline: 3px solid rgba(255,255,255,0.08);
-  outline-offset: 4px;
-}
-
-.btn.load-more[disabled],
-.btn.load-more.disabled {
-  opacity: 0.65;
-  pointer-events: none;
-  transform: none;
-  box-shadow: none;
-}
-
-
-.btn.load-more .lm-icon {
-  width:18px;
-  height:18px;
-  display:inline-grid;
-  place-items:center;
-}
-
-
-.btn.load-more .lm-spinner {
-  display:none;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,0.24);
-  border-top-color: rgba(255,255,255,0.98);
-  box-sizing:border-box;
-  animation: lm-spin 0.9s linear infinite;
-}
-
-.btn.load-more.loading .lm-icon { visibility:hidden; }
-.btn.load-more.loading .lm-spinner { display:inline-block; }
-.btn.load-more.loading .label { opacity:0.98; }
-
-@keyframes lm-spin { to { transform: rotate(360deg); } }
-
-.btn.load-more.all-loaded {
-  background: linear-gradient(90deg, rgba(60,180,100,0.95), rgba(40,150,80,0.9));
-  box-shadow: 0 8px 22px rgba(40,150,80,0.12);
-}
-.btn.load-more.all-loaded .lm-icon-chevrons { display:none; }
-.btn.load-more.all-loaded .lm-icon-check { display:inline-grid; }
-.btn.load-more.all-loaded .label { font-weight:700; }
-
-@media (max-width:420px){
-  .btn.load-more { min-width: 140px; padding:9px 12px; gap:8px; font-size:14px; }
-}
-
-#loadMoreWrap { margin-top:12px; display:flex; justify-content:center; }
-
-.btn.load-more {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;           
-  padding:8px 12px;            
-  border-radius:999px;
-  min-width:120px;             
-  max-height:40px;
-  font-size:14px;              
-  line-height:1;
-  background: linear-gradient(90deg, rgba(var(--accent),0.98), rgba(var(--accent),0.86));
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.12);
-  cursor:pointer;
-  transition: transform .16s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, opacity .12s ease, background .18s ease;
-
-  box-shadow:
-    0 6px 14px rgba(2,6,23,0.14),              
-    0 8px 28px rgba(var(--accent),0.14), 
-    inset 0 -3px 6px rgba(0,0,0,0.06);           
-  display:inline-flex;
-  align-items:center;
-}
-
-.btn.load-more:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 12px 30px rgba(2,6,23,0.16),
-    0 18px 44px rgba(var(--accent),0.20),
-    inset 0 -3px 6px rgba(0,0,0,0.06);
-}
-
-.btn.load-more:focus {
-  outline: none;
-  box-shadow:
-    0 12px 30px rgba(2,6,23,0.18),
-    0 20px 52px rgba(var(--accent),0.24),
-    0 0 0 4px rgba(var(--accent),0.12);
-}
-
-.btn.load-more[disabled],
-.btn.load-more.disabled {
-  opacity: 0.70;
-  pointer-events: none;
-  transform: none;
-  box-shadow: none;
-}
-
-.btn.load-more .lm-icon {
-  width:16px;
-  height:16px;
-  display:inline-grid;
-  place-items:center;
-  color: rgba(255,255,255,0.98);
-}
-
-.btn.load-more .lm-spinner {
-  display:none;
-  width:14px;
-  height:14px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,0.24);
-  border-top-color: rgba(255,255,255,0.98);
-  box-sizing:border-box;
-  animation: lm-spin 0.85s linear infinite;
-}
-
-.btn.load-more.loading .lm-icon { visibility:hidden; }
-.btn.load-more.loading .lm-spinner { display:inline-block; }
-.btn.load-more.all-loaded {
-  background: linear-gradient(90deg, rgba(60,180,100,0.98), rgba(40,150,80,0.92));
-  color: #fff;
-  box-shadow:
-    0 8px 20px rgba(12,50,20,0.14),
-    0 14px 34px rgba(40,150,80,0.18);
-}
-.btn.load-more.all-loaded .lm-icon-chevrons { display:none; }
-.btn.load-more.all-loaded .lm-icon-check { display:inline-grid; }
-
-@keyframes lm-spin { to { transform: rotate(360deg); } }
-
-@media (max-width:420px){
-  .btn.load-more { min-width:110px; padding:7px 10px; gap:6px; font-size:13px; }
-  .btn.load-more .lm-icon { width:14px; height:14px; }
-  .btn.load-more .lm-spinner { width:12px; height:12px; border-width:2px; }
-}
+    @media (max-width:420px){
+      .btn.load-more { min-width:110px; padding:7px 10px; gap:6px; font-size:13px; }
+      .btn.load-more .lm-icon { width:14px; height:14px; }
+      .btn.load-more .lm-spinner { width:12px; height:12px; border-width:2px; }
+    }
 
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
+  <!-- loading -->
   <div id="splash" class="splash" aria-live="polite" aria-busy="true">
     <div style="display:flex; flex-direction:column; align-items:center">
       <div class="spinner" aria-hidden="true"></div>
@@ -757,7 +500,7 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- header -->
   <header class="site-header" role="banner">
     <div class="header-wrap">
       <button id="burger" class="hamburger" aria-label="Menu" aria-controls="mobilePanel" aria-expanded="false">
@@ -769,7 +512,7 @@
         <div class="title">gitfolio <span class="subtitle">@<strong>gunadizz</strong></span></div>
       </div>
 
-      <!-- Desktop search (bigger now) -->
+      <!-- Desktop search -->
       <form style="padding-right:100px;" class="search hide-sm" role="search" aria-label="Search" id="searchForm">
         <i data-lucide="search" aria-hidden="true"></i>
         <input id="searchInput" type="search" placeholder="Cari repositori…" data-i18n-key="search.placeholder" />
@@ -777,7 +520,7 @@
 
       <!-- Desktop toolbar -->
       <nav class="toolbar" aria-label="Toolbar">
-        <!-- Mobile: Search icon button -->
+        <!-- Mobile: Search icon -->
         <button id="searchToggle" class="btn show-sm" aria-expanded="false" aria-controls="searchPopover" aria-label="Cari repositori">
           <i data-lucide="search"></i>
         </button>
@@ -815,10 +558,6 @@
           <span data-i18n-key="controls.dark">Gelap</span>
         </button>
 
-        <button id="aiBtn" class="btn hide-sm" aria-label="Open AI assistant">
-          <i data-lucide="bot"></i><span data-i18n-key="ai.title">Asisten AI</span>
-        </button>
-
         <button id="refreshBtn" class="btn accent hide-sm" aria-label="Refresh data">
           <i data-lucide="refresh-ccw"></i><span data-i18n-key="controls.refresh">Muat Ulang</span>
         </button>
@@ -833,10 +572,9 @@
       </form>
     </div>
 
-    <!-- Mobile drop panel -->
+    <!-- Mobile panel -->
     <div id="mobilePanel" class="mobile-panel" aria-hidden="true">
       <div class="mobile-inner">
-        <!-- (old search hidden on mobile by CSS) -->
         <form class="search" role="search" aria-label="Search (mobile legacy)">
           <i data-lucide="search" aria-hidden="true"></i>
           <input id="searchInputMobile" type="search" placeholder="Cari repositori…" data-i18n-key="search.placeholder" />
@@ -857,7 +595,6 @@
           <button id="liteBtnM" class="btn" aria-pressed="false"><i data-lucide="gauge"></i><span data-i18n-key="controls.lite">Lite</span></button>
           <button id="themeBtnM" class="btn" role="switch" aria-checked="false"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun" style="display:none"></i><span data-i18n-key="controls.dark">Gelap</span></button>
           <button id="refreshBtnM" class="btn accent"><i data-lucide="refresh-ccw"></i><span data-i18n-key="controls.refresh">Muat Ulang</span></button>
-          <button id="aiBtnM" class="btn"><i data-lucide="bot"></i><span data-i18n-key="ai.title">Asisten AI</span></button>
         </div>
 
         <div id="palettePanelM" class="mobile-panel" style="display:none; max-height:none; border-top:none">
@@ -869,7 +606,7 @@
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- Utama -->
   <main class="container" role="main">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -907,7 +644,7 @@
         </div>
       </section>
 
-      <!-- Extra GitHub Stats -->
+      <!-- GitHub Statistik -->
       <section id="stats" class="card reveal" aria-live="polite" aria-busy="true">
         <div class="card-body" id="statsCard">
           <h3 class="section-title"><i data-lucide="bar-chart-3"></i><span data-i18n-key="stats.title">Statistik GitHub</span></h3>
@@ -926,13 +663,13 @@
         </div>
       </section>
 
-      <!-- Contact -->
+      <!-- k0ntak -->
       <section id="contact" class="card reveal">
         <div class="card-body">
           <h3 class="section-title"><i data-lucide="messages-square"></i><span data-i18n-key="contact.title">Kontak</span></h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <a class="link-btn" href="https://github.com/gunadizz" target="_blank" rel="noopener"><i data-lucide="github"></i> GitHub</a>
-       <a class="link-btn" href="https://instagram.com/gunadirnta" target="_blank" rel="noopener"><i data-lucide="instagram"></i> Instagram</a>     
+            <a class="link-btn" href="https://instagram.com/gunadirnta" target="_blank" rel="noopener"><i data-lucide="instagram"></i> Instagram</a>
             <a class="link-btn" href="mailto:gunadirenta@gmail.com" target="_blank" rel="noopener"><i data-lucide="mail"></i> Email</a>
             <a class="link-btn" href="https://wa.me/6285341899229" target="_blank" rel="noopener"><i data-lucide="phone"></i> WhatsApp</a>
             <a class="link-btn" href="https://facebook.com/Jokowi" target="_blank" rel="noopener"><i data-lucide="facebook"></i> Facebook</a>
@@ -940,30 +677,28 @@
           </div>
         </div>
       </section>
-      
+
       <!-- WhatsApp Message CTA + Modal  -->
-<section id="wa-cta" class="card reveal" aria-live="polite">
-  <div class="card-body">
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-      <h3 class="section-title"><i data-lucide="message-square"></i><span data-i18n-key="wa.cta.title">Kirim Pesan via WhatsApp</span></h3>
-      <div class="space"></div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <button id="waMsgBtn" class="btn accent" type="button" aria-haspopup="dialog" aria-controls="waModal" data-i18n-key="wa.btn.open">
-          <i data-lucide="send"></i> <span data-i18n-key="wa.btn.open_label">Kirim Pesan</span>
-        </button>
-        <button id="waQuickBtn" class="btn" type="button" title="Kirim cepat (pesan singkat)" data-i18n-key="wa.btn.quick">
-          <i data-lucide="message-circle"></i> <span data-i18n-key="wa.btn.quick_label">Kirim Cepat</span>
-        </button>
-      </div>
-    </div>
-      </div>
-</section>
+      <section id="wa-cta" class="card reveal" aria-live="polite">
+        <div class="card-body">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <h3 class="section-title"><i data-lucide="message-square"></i><span data-i18n-key="wa.cta.title">Kirim Pesan via WhatsApp</span></h3>
+            <div class="space"></div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button id="waMsgBtn" class="btn accent" type="button" aria-haspopup="dialog" aria-controls="waModal" data-i18n-key="wa.btn.open">
+                <i data-lucide="send"></i> <span data-i18n-key="wa.btn.open_label">Kirim Pesan</span>
+              </button>
+              <button id="waQuickBtn" class="btn" type="button" title="Kirim cepat (pesan singkat)" data-i18n-key="wa.btn.quick">
+                <i data-lucide="message-circle"></i> <span data-i18n-key="wa.btn.quick_label">Kirim Cepat</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </aside>
 
-    
-    
-    <!-- Content -->
+    <!-- Konten Utama -->
     <section class="stack">
       <!-- Repositories -->
       <section id="repos" class="card reveal" aria-live="polite" aria-busy="true">
@@ -985,150 +720,58 @@
           <div id="repoStatus" class="muted"></div>
           <div id="repoList" class="repo-list"></div>
 
-          <!-- GANTI / MASUKKAN ini tepat setelah <div id="repoList" class="repo-list"></div> -->
-<div id="loadMoreWrap" style="margin-top:12px; display:flex; justify-content:center;">
-  <button id="loadMoreBtn" class="btn load-more" type="button" aria-label="Muat lebih banyak repositori" aria-busy="false">
-    <!-- Icon: chevrons-down (default) -->
-    <span class="lm-icon lm-icon-chevrons" aria-hidden="true">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" role="img">
-        <polyline points="7 13 12 18 17 13"></polyline>
-        <polyline points="7 6 12 11 17 6"></polyline>
-      </svg>
-    </span>
-
-    <!-- Icon: check (hidden until all loaded) -->
-    <span class="lm-icon lm-icon-check" aria-hidden="true" style="display:none;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
-        <path d="M20 6L9 17l-5-5"></path>
-      </svg>
-    </span>
-
-    <!-- Spinner (CSS controlled) -->
-    <span class="lm-spinner" aria-hidden="true" style="display:none;"></span>
-
-    <!-- Label -->
-    <span class="label">Muat lebih banyak</span>
-  </button>
-</div>
+          <div id="loadMoreWrap" style="margin-top:12px; display:flex; justify-content:center;">
+            <button id="loadMoreBtn" class="btn load-more" type="button" aria-label="Muat lebih banyak repositori" aria-busy="false">
+              <span class="lm-icon lm-icon-chevrons" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" role="img">
+                  <polyline points="7 13 12 18 17 13"></polyline>
+                  <polyline points="7 6 12 11 17 6"></polyline>
+                </svg>
+              </span>
+              <span class="lm-icon lm-icon-check" aria-hidden="true" style="display:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+              </span>
+              <span class="lm-spinner" aria-hidden="true" style="display:none;"></span>
+              <span class="label">Muat lebih banyak</span>
+            </button>
+          </div>
         </div>
       </section>
+
       <!-- About -->
-    <section id="about" class="card reveal">
-      <div class="card-body">
-        <h3 class="section-title"><i data-lucide="info"></i><span data-i18n-key="about.title">Tentang Saya</span></h3>
-        <div class="markdown" id="aboutContent"></div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="card reveal">
-      <div class="card-body">
-        <h3 class="section-title"><i data-lucide="sparkles"></i><span data-i18n-key="skills.title">Keahlian</span></h3>
-        <div class="markdown" id="skillsContent"></div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="card reveal">
-      <div class="card-body">
-        <h3 class="section-title"><i data-lucide="briefcase"></i><span data-i18n-key="experience.title">Pengalaman</span></h3>
-        <div class="markdown" id="expContent"></div>
-      </div>
-    </section>
-
-    <!-- Achievements -->
-    <section id="achievements" class="card reveal">
-      <div class="card-body">
-        <h3 class="section-title"><i data-lucide="trophy"></i><span data-i18n-key="achievements.title">Prestasi</span></h3>
-        <div class="markdown" id="achContent"></div>
-      </div>
-    </section>
-
-
-    
-<section id="pricing" class="card reveal" aria-labelledby="pricingTitle" style="margin-top:18px">
-  <div class="card-body">
-    <h3 id="pricingTitle" class="section-title"><i data-lucide="credit-card"></i><span data-i18n-key="pricing.title">Ingin membeli source code portfolio ini?</span></h3>
-    <div class="divider"></div>
-
-    <p class="muted" style="margin-bottom:12px">Pilih paket yang sesuai - tombol akan mengarahkan sesuai pilihan.</p>
-
-    <!-- Responsive grid: auto-fit + minmax -> responsive & presisi -->
-    <div class="pricing-grid">
-      <!-- Basic -->
-      <article class="card pricing-card" aria-labelledby="plan-basic">
+      <section id="about" class="card reveal">
         <div class="card-body">
-          <div class="pricing-content">
-            <h4 id="plan-basic" style="margin:0 0 6px">Basic</h4>
-            <div class="muted" style="margin-bottom:8px">Hanya HTML/CSS (tanpa API, tanpa fitur interaktif)</div>
-            <div class="price" style="font-weight:800;font-size:18px;margin-bottom:8px">Rp25.000</div>
-            <ul class="markdown" style="margin:0 0 12px;padding-left:18px">
-              <li>File mentahan</li>
-              <li>Cocok untuk belajar dasar UI</li>
-            </ul>
-          </div>
-
-          <div class="pricing-actions">
-            <button class="btn accent buy-btn" type="button" data-plan="Basic" data-url="https://wa.me/6285341899229?text=Halo%2C%20saya%20ingin%20membeli%20paket%20Basic%20(Rp25.000)%20-%20template%20HTML%2FCSS%20tanpa%20API.%20Mohon%20info%20pembayaran%20dan%20file.%20Terima%20kasih.">
-              <i data-lucide="shopping-cart"></i> Beli Basic
-            </button>
-            <button class="btn outline demo-btn" type="button" data-plan="Basic" data-action="demo">
-              <i data-lucide="book"></i> Lihat demo
-            </button>
-          </div>
+          <h3 class="section-title"><i data-lucide="info"></i><span data-i18n-key="about.title">Tentang Saya</span></h3>
+          <div class="markdown" id="aboutContent"></div>
         </div>
-      </article>
+      </section>
 
-      <!-- Pro -->
-      <article class="card pricing-card" aria-labelledby="plan-pro">
+      <!-- Skills -->
+      <section id="skills" class="card reveal">
         <div class="card-body">
-          <div class="pricing-content">
-            <h4 id="plan-pro" style="margin:0 0 6px">Pro</h4>
-            <div class="muted" style="margin-bottom:8px">File lengkap + API GitHub + Dark Mode</div>
-            <div class="price" style="font-weight:800;font-size:18px;margin-bottom:8px">Rp50.000</div>
-            <ul class="markdown" style="margin:0 0 12px;padding-left:18px">
-              <li>Full code + dokumentasi</li>
-              <li>Responsif & interaktif</li>
-            </ul>
-          </div>
-
-          <div class="pricing-actions">
-            <button class="btn accent buy-btn" type="button" data-plan="Pro" data-url="https://wa.me/6285341899229?text=Halo%2C%20saya%20ingin%20membeli%20paket%20Pro%20(Rp50.000)%20-%20full%20code%20%2B%20dokumentasi%2C%20termasuk%20integrasi%20GitHub%20API%20dan%20Dark%20Mode.%20Mohon%20info%20pembayaran%2C%20lisensi%2C%20dan%20cara%20pengiriman.%20Terima%20kasih" >
-              <i data-lucide="shopping-cart"></i> Beli Pro
-            </button>
-            <button class="btn outline info-btn" type="button" data-plan="Pro" data-action="compare">
-              <i data-lucide="info"></i> Bandingkan fitur
-            </button>
-          </div>
+          <h3 class="section-title"><i data-lucide="sparkles"></i><span data-i18n-key="skills.title">Keahlian</span></h3>
+          <div class="markdown" id="skillsContent"></div>
         </div>
-      </article>
+      </section>
 
-      <!-- Premium -->
-      <article class="card pricing-card" aria-labelledby="plan-premium">
+      <!-- Experience -->
+      <section id="experience" class="card reveal">
         <div class="card-body">
-          <div class="pricing-content">
-            <h4 id="plan-premium" style="margin:0 0 6px">Premium</h4>
-            <div class="muted" style="margin-bottom:8px">Full fitur + izin modifikasi + bantuan setup</div>
-            <div class="price" style="font-weight:800;font-size:18px;margin-bottom:8px">Rp100.000</div>
-            <ul class="markdown" style="margin:0 0 12px;padding-left:18px">
-              <li>Semua fitur + personal support</li>
-              <li>Boleh digunakan untuk project portfolio</li>
-            </ul>
-          </div>
-
-          <div class="pricing-actions">
-            <button class="btn accent buy-btn" type="button" data-plan="Premium" data-url="https://wa.me/6285341899229?text=Halo%2C%20saya%20ingin%20membeli%20paket%20Premium%20(Rp100.000)%20-%20full%20fitur%2C%20izin%20modifikasi%2C%20dan%20bantuan%20setup.%20Mohon%20info%20harga%20final%2C%20layanan%20setup%2C%20dan%20jadwal%20support.%20Terima%20kasih">
-              <i data-lucide="shopping-cart"></i> Beli Premium
-            </button>
-            <button class="btn outline contact-btn" type="button" data-plan="Premium" data-action="contact">
-              <i data-lucide="phone"></i> Minta bantuan setup
-            </button>
-          </div>
+          <h3 class="section-title"><i data-lucide="briefcase"></i><span data-i18n-key="experience.title">Pengalaman</span></h3>
+          <div class="markdown" id="expContent"></div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
+      </section>
+
+      <!-- Achievements -->
+      <section id="achievements" class="card reveal">
+        <div class="card-body">
+          <h3 class="section-title"><i data-lucide="trophy"></i><span data-i18n-key="achievements.title">Prestasi</span></h3>
+          <div class="markdown" id="achContent"></div>
+        </div>
+      </section>
+
     </section>
   </main>
 
@@ -1160,98 +803,58 @@
     </div>
   </div>
 
-
-<!-- WhatsApp Modal (letakkan dekat modal lain seperti repoModal/aiModal) -->
-<div id="waModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
-  <div class="overlay" data-close-modal></div>
-  <div class="dialog" role="document" style="max-width:640px">
-    <div class="header">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <i data-lucide="message-square"></i>
-        <strong id="waModalTitle" data-i18n-key="wa.modal.title">Kirim Pesan ke WhatsApp</strong>
-      </div>
-      <button class="close" aria-label="Close" data-close-modal><i data-lucide="x"></i></button>
-    </div>
-
-    <div class="content">
-      <form id="waForm" novalidate>
-        <div style="display:grid;gap:10px">
-          <label style="display:block">
-            <span data-i18n-key="wa.label.name">Nama</span> <span class="muted" aria-hidden="true">*</span>
-            <input id="waName" class="input" type="text" data-i18n-placeholder="wa.placeholder.name" placeholder="Nama Anda" required />
-          </label>
-
-          <label style="display:block">
-            <span data-i18n-key="wa.label.subject">Subjek</span>
-            <input id="waSubject" class="input" type="text" data-i18n-placeholder="wa.placeholder.subject" placeholder="Judul / maks 80 karakter" maxlength="80" />
-          </label>
-
-          <label style="display:block">
-            <span data-i18n-key="wa.label.message">Pesan</span> <span class="muted" aria-hidden="true">*</span>
-            <textarea id="waMessage" class="textarea" data-i18n-placeholder="wa.placeholder.message" placeholder="Tulis pesan Anda di sini..." required></textarea>
-          </label>
-
-          <label style="display:block">
-            <span data-i18n-key="wa.label.contact">Nomor Kontak (opsional)</span>
-            <input id="waContact" class="input" type="tel" data-i18n-placeholder="wa.placeholder.contact" placeholder="0812xxxx atau +62812xxxx" />
-          </label>
-
-          <div class="muted" style="font-size:13px" data-i18n-key="wa.note.after_send">Setelah klik "Kirim via WhatsApp" halaman baru/tab akan terbuka (atau aplikasi WA jika di ponsel) dengan pesan yang sudah terisi.</div>
-        </div>
-      </form>
-    </div>
-
-    <div class="footer" style="display:flex;justify-content:space-between;align-items:center;gap:10px">
-      <div style="display:flex;gap:8px">
-        <button id="waSendBtn" class="btn accent" type="button" data-i18n-key="wa.btn.send"><i data-lucide="send"></i> <span data-i18n-key="wa.btn.send_label">Kirim via WhatsApp</span></button>
-        <button id="waCancelBtn" class="btn" type="button" data-close-modal data-i18n-key="wa.btn.cancel"><i data-lucide="x-circle"></i> <span data-i18n-key="wa.btn.cancel_label">Batal</span></button>
-      </div>
-      <div class="muted" style="font-size:13px" data-i18n-key="wa.note.number"><strong></strong></div>
-    </div>
-  </div>
-</div>
-
-<!-- AI Chat Modal -->
-  <div id="aiModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="aiModalTitle">
+  <!-- WhatsApp Modal -->
+  <div id="waModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
     <div class="overlay" data-close-modal></div>
-    <div class="dialog">
+    <div class="dialog" role="document" style="max-width:640px">
       <div class="header">
         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <i data-lucide="bot"></i>
-          <strong id="aiModalTitle" data-i18n-key="ai.title">Asisten AI</strong>
-          <span class="pill" id="aiModelBadge">gemini-2.5-flash</span>
+          <i data-lucide="message-square"></i>
+          <strong id="waModalTitle" data-i18n-key="wa.modal.title">Kirim Pesan ke WhatsApp</strong>
         </div>
         <button class="close" aria-label="Close" data-close-modal><i data-lucide="x"></i></button>
       </div>
+
       <div class="content">
-        <div class="row" style="flex-wrap:wrap; gap:8px; margin-bottom:10px">
-          <label class="pill" style="gap:8px">
-            <i data-lucide="sliders"></i>
-            <span data-i18n-key="ai.mode">Mode</span>:
-            <select id="aiDomain" class="select" style="padding:6px 10px">
-              <option value="it" selected data-i18n-key="ai.mode_it">IT/Web Dev</option>
-              <option value="fisheries" data-i18n-key="ai.mode_fish">Perikanan</option>
-            </select>
-          </label>
-          <span class="pill" title="Jawaban: detail/singkat diset di kode">
-            <i data-lucide="type"></i><span id="aiStyleLabel">detail</span>
-          </span>
+        <form id="waForm" novalidate>
+          <div style="display:grid;gap:10px">
+            <label style="display:block">
+              <span data-i18n-key="wa.label.name">Nama</span> <span class="muted" aria-hidden="true">*</span>
+              <input id="waName" class="input" type="text" data-i18n-placeholder="wa.placeholder.name" placeholder="Nama Anda" required />
+            </label>
+
+            <label style="display:block">
+              <span data-i18n-key="wa.label.subject">Subjek</span>
+              <input id="waSubject" class="input" type="text" data-i18n-placeholder="wa.placeholder.subject" placeholder="Judul / maks 80 karakter" maxlength="80" />
+            </label>
+
+            <label style="display:block">
+              <span data-i18n-key="wa.label.message">Pesan</span> <span class="muted" aria-hidden="true">*</span>
+              <textarea id="waMessage" class="textarea" data-i18n-placeholder="wa.placeholder.message" placeholder="Tulis pesan Anda di sini..." required></textarea>
+            </label>
+
+            <label style="display:block">
+              <span data-i18n-key="wa.label.contact">Nomor Kontak (opsional)</span>
+              <input id="waContact" class="input" type="tel" data-i18n-placeholder="wa.placeholder.contact" placeholder="0812xxxx atau +62812xxxx" />
+            </label>
+
+            <div class="muted" style="font-size:13px" data-i18n-key="wa.note.after_send">Setelah klik "Kirim via WhatsApp" halaman baru/tab akan terbuka (atau aplikasi WA jika di ponsel) dengan pesan yang sudah terisi.</div>
+          </div>
+        </form>
+      </div>
+
+      <div class="footer" style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+        <div style="display:flex;gap:8px">
+          <button id="waSendBtn" class="btn accent" type="button" data-i18n-key="wa.btn.send"><i data-lucide="send"></i> <span data-i18n-key="wa.btn.send_label">Kirim via WhatsApp</span></button>
+          <button id="waCancelBtn" class="btn" type="button" data-close-modal data-i18n-key="wa.btn.cancel"><i data-lucide="x-circle"></i> <span data-i18n-key="wa.btn.cancel_label">Batal</span></button>
         </div>
-        <div id="aiMessages" class="chat-wrap" aria-live="polite" aria-busy="false">
-          <!-- messages injected here -->
-        </div>
-        <div class="row" style="margin-top:10px; gap:8px">
-          <input id="aiInput" class="input" placeholder="Tanyakan sesuatu…" aria-label="AI prompt" style="flex:1" />
-          <button id="aiSend" class="btn accent"><i data-lucide="send"></i><span data-i18n-key="ai.send">Kirim</span></button>
-        </div>
-        <div class="muted" id="aiHint" style="margin-top:6px">Masukkan API key di kode untuk mulai menggunakan AI.</div>
+        <div class="muted" style="font-size:13px" data-i18n-key="wa.note.number"><strong></strong></div>
       </div>
     </div>
   </div>
 
-  <!-- Floating Actions -->
+  <!-- Floating Button (Share dan to top) -->
   <div class="fab" aria-live="polite">
-    <button id="aiFabBtn" class="btn" title="AI Assistant" aria-label="AI Assistant"><i data-lucide="bot"></i></button>
     <button id="shareBtn" class="btn" title="Share" aria-label="Share this page"><i data-lucide="share-2"></i></button>
     <button id="toTopBtn" class="btn hidden" title="Scroll to top" aria-label="Scroll to top"><i data-lucide="arrow-up"></i></button>
   </div>
@@ -1276,7 +879,6 @@
 
   if (!isIOSDevice) return;
 
-  // Ambil / buat meta viewport
   let meta = document.querySelector('meta[name="viewport"]');
   if (!meta) {
     meta = document.createElement('meta');
@@ -1284,7 +886,6 @@
     document.head.appendChild(meta);
   }
 
-  // Pecah konten lama (jika ada) supaya kita tidak kehilangan parameter lain.
   const existing = meta.getAttribute('content') || '';
   const parts = existing.split(',').map(p => p.trim()).filter(Boolean);
   const map = {};
@@ -1293,221 +894,195 @@
     if (k) map[k]=v===undefined?true:v;
   });
 
-  // Override / set nilai yang diinginkan
   map['width'] = 'device-width';
   map['initial-scale'] = '0.8';
-
-  // (Opsional) tetap pertahankan viewport-fit agar aman di notch
   if (!('viewport-fit' in map)) {
     map['viewport-fit'] = 'cover';
   }
 
-  // map['user-scalable'] = 'no';
-
-  // Susun kembali
   const rebuilt = Object.entries(map)
     .map(([k,v]) => v===true ? k : `${k}=${v}`)
     .join(', ');
 
   meta.setAttribute('content', rebuilt);
-
-  // Tambahkan kelas di <html> atau <body> jika ingin styling kondisional
   document.documentElement.classList.add('is-ios-scale-08');
 })();
 </script>
-  <script>
-    /* ===================== Config & Helpers ===================== */
-    const GITHUB_USER = "gunadizz";
-    const API_USER = `https://api.github.com/users/${GITHUB_USER}`;
-    const API_REPOS = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
-    const API_GISTS = `https://api.github.com/users/${GITHUB_USER}/gists?per_page=10`;
-    const API_ORGS = `https://api.github.com/users/${GITHUB_USER}/orgs`;
-    const GH_HEADERS = {
-      "Accept": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28"
-    };
 
-    // AI config (set your Gemini API key here)
-    let GEMINI_API_KEY = "AIzaSyD60PIrIH6El6XIRGXYUjfXyjRIZFVTsFU"; // <-- MASUKKAN API KEY ANDA DI SINI (Google AI Studio)
-    const GEMINI_MODEL_PRIMARY = "gemini-2.5-flash";
-    const GEMINI_MODEL_FALLBACK = "gemini-2.0-flash";
-    const AI_RESPONSE_STYLE = "detailed"; // "detailed" | "concise"
-    const AI_MAX_TURNS = 20;
+<script>
+/* ===================== Config & Helpers ===================== */
+const GITHUB_USER = "gunadizz";
+const API_USER = `https://api.github.com/users/${GITHUB_USER}`;
+const API_REPOS = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
+const API_GISTS = `https://api.github.com/users/${GITHUB_USER}/gists?per_page=10`;
+const API_ORGS = `https://api.github.com/users/${GITHUB_USER}/orgs`;
+const GH_HEADERS = {
+  "Accept": "application/vnd.github+json",
+  "X-GitHub-Api-Version": "2022-11-28"
+};
 
-    // Many accents
-    const ACCENTS = [
-      {name:"Indigo", rgb:"79,70,229", hex:"#4f46e5"},
-      {name:"Purple", rgb:"124,58,237", hex:"#7c3aed"},
-      {name:"Violet", rgb:"109,40,217", hex:"#6d28d9"},
-      {name:"Fuchsia", rgb:"217,70,239", hex:"#d946ef"},
-      {name:"Pink", rgb:"236,72,153", hex:"#ec4899"},
-      {name:"Rose", rgb:"225,29,72", hex:"#e11d48"},
-      {name:"Red", rgb:"239,68,68", hex:"#ef4444"},
-      {name:"Orange", rgb:"249,115,22", hex:"#f97316"},
-      {name:"Amber", rgb:"245,158,11", hex:"#f59e0b"},
-      {name:"Yellow", rgb:"234,179,8", hex:"#eab308"},
-      {name:"Lime", rgb:"132,204,22", hex:"#84cc16"},
-      {name:"Green", rgb:"22,163,74", hex:"#16a34a"},
-      {name:"Emerald", rgb:"16,185,129", hex:"#10b981"},
-      {name:"Teal", rgb:"13,148,136", hex:"#0d9488"},
-      {name:"Cyan", rgb:"6,182,212", hex:"#06b6d4"},
-      {name:"Sky", rgb:"14,165,233", hex:"#0ea5e9"},
-      {name:"Blue", rgb:"59,130,246", hex:"#3b82f6"},
-      {name:"Slate", rgb:"100,116,139", hex:"#64748b"}
-    ];
+const ACCENTS = [
+  {name:"Indigo", rgb:"79,70,229", hex:"#4f46e5"},
+  {name:"Purple", rgb:"124,58,237", hex:"#7c3aed"},
+  {name:"Violet", rgb:"109,40,217", hex:"#6d28d9"},
+  {name:"Fuchsia", rgb:"217,70,239", hex:"#d946ef"},
+  {name:"Pink", rgb:"236,72,153", hex:"#ec4899"},
+  {name:"Rose", rgb:"225,29,72", hex:"#e11d48"},
+  {name:"Red", rgb:"239,68,68", hex:"#ef4444"},
+  {name:"Orange", rgb:"249,115,22", hex:"#f97316"},
+  {name:"Amber", rgb:"245,158,11", hex:"#f59e0b"},
+  {name:"Yellow", rgb:"234,179,8", hex:"#eab308"},
+  {name:"Lime", rgb:"132,204,22", hex:"#84cc16"},
+  {name:"Green", rgb:"22,163,74", hex:"#16a34a"},
+  {name:"Emerald", rgb:"16,185,129", hex:"#10b981"},
+  {name:"Teal", rgb:"13,148,136", hex:"#0d9488"},
+  {name:"Cyan", rgb:"6,182,212", hex:"#06b6d4"},
+  {name:"Sky", rgb:"14,165,233", hex:"#0ea5e9"},
+  {name:"Blue", rgb:"59,130,246", hex:"#3b82f6"},
+  {name:"Slate", rgb:"100,116,139", hex:"#64748b"}
+];
 
-    const I18N = {
-      id:{
-        "search.placeholder":"Cari repositori…",
-        "controls.accent":"Aksen",
-        "controls.refresh":"Muat Ulang",
-        "controls.dark":"Gelap",
-        "controls.light":"Terang",
-        "controls.lite":"Lite",
-        "contact.title":"Kontak",
-        "repos.title":"Repositori",
-        "filter.placeholder":"Filter…",
-        "sort.updated":"Terbaru diperbarui",
-        "sort.stars":"Bintang terbanyak",
-        "sort.name":"Nama (A-Z)",
-        "repos.updated":"Diperbarui",
-        "repos.stars":"Bintang",
-        "repos.language":"Bahasa",
-        "repos.no_description":"Tidak ada deskripsi.",
-        "profile.location":"Lokasi",
-        "profile.followers":"Pengikut",
-        "profile.following":"Mengikuti",
-        "profile.joined":"Bergabung",
-        "profile.repos":"Repos publik",
-        "profile.gists":"Gist publik",
-        "profile.top_langs":"Bahasa Teratas",
-        "profile.view_on_github":"Lihat di GitHub",
-        "about.title":"Tentang Saya",
-        "skills.title":"Keahlian",
-        "experience.title":"Pengalaman",
-        "achievements.title":"Prestasi",
-        "quicknav.title":"Navigasi",
-        "modal.view_repo":"Buka di GitHub",
-        "modal.last_updated":"Pembaruan terakhir",
-        "footer.made_with":"Dibuat dengan",
-        "footer.powered":"Portfolio CV ini tersinkron dengan akun GitHub pribadi @",
-        "stats.title":"Statistik GitHub",
-        "stats.total_stars":"Total bintang",
-        "stats.total_forks":"Total fork",
-        "stats.repos_count":"Repos",
-        "stats.popular_repo":"Repo populer",
-        "stats.top_topics":"Topik teratas",
-        "stats.orgs":"Organisasi",
-        "stats.gists":"Gist terbaru",
-        "ai.title":"Asisten AI",
-        "ai.mode":"Mode",
-        "ai.mode_it":"IT/Web Dev",
-        "ai.mode_fish":"Perikanan",
-        "ai.send":"Kirim",
-        "wa.cta.title": "Kirim Pesan via WhatsApp",
-"wa.cta.muted": "Gunakan formulir untuk mengirim pesan yang akan diteruskan ke WhatsApp nomor 085341899229",
-"wa.modal.title": "Kirim Pesan ke WhatsApp",
-"wa.label.name": "Nama",
-"wa.label.subject": "Subjek",
-"wa.label.message": "Pesan",
-"wa.label.contact": "Nomor Kontak (opsional)",
-"wa.btn.open": "Buka Form",
-"wa.btn.open_label": "Kirim Pesan",
-"wa.btn.quick": "Kirim Cepat (ID)",
-"wa.btn.quick_label": "Kirim Cepat",
-"wa.btn.send": "Kirim via WhatsApp",
-"wa.btn.send_label": "Kirim via WhatsApp",
-"wa.btn.cancel": "Batal",
-"wa.btn.cancel_label": "Batal",
-"wa.placeholder.name": "Nama Anda",
-"wa.placeholder.subject": "Judul / maks 80 karakter",
-"wa.placeholder.message": "Tulis pesan Anda di sini...",
-"wa.placeholder.contact": "0812xxxx atau +62812xxxx",
-"wa.note.after_send": "Setelah klik \"Kirim via WhatsApp\" halaman baru/tab akan terbuka (atau aplikasi WA jika di ponsel) dengan pesan yang sudah terisi.",
-"wa.note.number": "",
-"wa.quick_text": "Halo,",
-"wa.validation.name_required": "Nama diperlukan",
-"wa.validation.message_required": "Tulis pesan minimal 3 karakter"
-        
-      },
-      en:{
-        "search.placeholder":"Search repositories…",
-        "controls.accent":"Accent",
-        "controls.refresh":"Refresh",
-        "controls.dark":"Dark",
-        "controls.light":"Light",
-        "controls.lite":"Lite",
-        "contact.title":"Contact",
-        "repos.title":"Repositories",
-        "filter.placeholder":"Filter…",
-        "sort.updated":"Recently updated",
-        "sort.stars":"Most stars",
-        "sort.name":"Name (A-Z)",
-        "repos.updated":"Updated",
-        "repos.stars":"Stars",
-        "repos.language":"Language",
-        "repos.no_description":"No description provided.",
-        "profile.location":"Location",
-        "profile.followers":"Followers",
-        "profile.following":"Following",
-        "profile.joined":"Joined",
-        "profile.repos":"Public repos",
-        "profile.gists":"Public gists",
-        "profile.top_langs":"Top Languages",
-        "profile.view_on_github":"View on GitHub",
-        "about.title":"About Me",
-        "skills.title":"Skills",
-        "experience.title":"Experience",
-        "achievements.title":"Achievements",
-        "quicknav.title":"Quick Nav",
-        "modal.view_repo":"View on GitHub",
-        "modal.last_updated":"Last updated",
-        "footer.made_with":"Made with",
-        "footer.powered":"This CV portfolio is powered by personal GitHub account @",
-        "stats.title":"GitHub Stats",
-        "stats.total_stars":"Total stars",
-        "stats.total_forks":"Total forks",
-        "stats.repos_count":"Repos",
-        "stats.popular_repo":"Popular repo",
-        "stats.top_topics":"Top topics",
-        "stats.orgs":"Organizations",
-        "stats.gists":"Latest gists",
-        "ai.title":"AI Assistant",
-        "ai.mode":"Mode",
-        "ai.mode_it":"IT/Web Dev",
-        "ai.mode_fish":"Fisheries",
-        "ai.send":"Send",
-        "wa.cta.title": "Send message via WhatsApp",
-"wa.cta.muted": "Use the form to send a message that will be forwarded to WhatsApp number 085341899229.",
-"wa.modal.title": "Send message to WhatsApp",
-"wa.label.name": "Name",
-"wa.label.subject": "Subject",
-"wa.label.message": "Message",
-"wa.label.contact": "Contact number (optional)",
-"wa.btn.open": "Open Form",
-"wa.btn.open_label": "Send Message",
-"wa.btn.quick": "Quick Send (EN)",
-"wa.btn.quick_label": "Quick send",
-"wa.btn.send": "Send via WhatsApp",
-"wa.btn.send_label": "Send via WhatsApp",
-"wa.btn.cancel": "Cancel",
-"wa.btn.cancel_label": "Cancel",
-"wa.placeholder.name": "Your name",
-"wa.placeholder.subject": "Subject / max 80 chars",
-"wa.placeholder.message": "Write your message here...",
-"wa.placeholder.contact": "0812xxxx or +62812xxxx",
-"wa.note.after_send": "After clicking \"Send via WhatsApp\" a new tab/window (or app on mobile) will open with the prefilled message.",
-"wa.note.number": "",
-"wa.quick_text": "Hi.",
-"wa.validation.name_required": "Name is required",
-"wa.validation.message_required": "Write at least 3 characters"
-      }
-    };
+const I18N = {
+  id:{
+    "search.placeholder":"Cari repositori…",
+    "controls.accent":"Aksen",
+    "controls.refresh":"Muat Ulang",
+    "controls.dark":"Gelap",
+    "controls.light":"Terang",
+    "controls.lite":"Lite",
+    "contact.title":"Kontak",
+    "repos.title":"Repositori",
+    "filter.placeholder":"Filter…",
+    "sort.updated":"Terbaru diperbarui",
+    "sort.stars":"Bintang terbanyak",
+    "sort.name":"Nama (A-Z)",
+    "repos.updated":"Diperbarui",
+    "repos.stars":"Bintang",
+    "repos.language":"Bahasa",
+    "repos.no_description":"Tidak ada deskripsi.",
+    "profile.location":"Lokasi",
+    "profile.followers":"Pengikut",
+    "profile.following":"Mengikuti",
+    "profile.joined":"Bergabung",
+    "profile.repos":"Repos publik",
+    "profile.gists":"Gist publik",
+    "profile.top_langs":"Bahasa Teratas",
+    "profile.view_on_github":"Lihat di GitHub",
+    "about.title":"Tentang Saya",
+    "skills.title":"Keahlian",
+    "experience.title":"Pengalaman",
+    "achievements.title":"Prestasi",
+    "quicknav.title":"Navigasi",
+    "modal.view_repo":"Buka di GitHub",
+    "modal.last_updated":"Pembaruan terakhir",
+    "footer.made_with":"Dibuat dengan",
+    "footer.powered":"Portfolio CV ini tersinkron dengan akun GitHub pribadi @",
+    "stats.title":"Statistik GitHub",
+    "stats.total_stars":"Total bintang",
+    "stats.total_forks":"Total fork",
+    "stats.repos_count":"Repos",
+    "stats.popular_repo":"Repo populer",
+    "stats.top_topics":"Topik teratas",
+    "stats.orgs":"Organisasi",
+    "stats.gists":"Gist terbaru",
+    "wa.cta.title": "Kirim Pesan via WhatsApp",
+    "wa.cta.muted": "Gunakan formulir untuk mengirim pesan yang akan diteruskan ke WhatsApp nomor 085341899229",
+    "wa.modal.title": "Kirim Pesan ke WhatsApp",
+    "wa.label.name": "Nama",
+    "wa.label.subject": "Subjek",
+    "wa.label.message": "Pesan",
+    "wa.label.contact": "Nomor Kontak (opsional)",
+    "wa.btn.open": "Buka Form",
+    "wa.btn.open_label": "Kirim Pesan",
+    "wa.btn.quick": "Kirim Cepat (ID)",
+    "wa.btn.quick_label": "Kirim Cepat",
+    "wa.btn.send": "Kirim via WhatsApp",
+    "wa.btn.send_label": "Kirim via WhatsApp",
+    "wa.btn.cancel": "Batal",
+    "wa.btn.cancel_label": "Batal",
+    "wa.placeholder.name": "Nama Anda",
+    "wa.placeholder.subject": "Judul / maks 80 karakter",
+    "wa.placeholder.message": "Tulis pesan Anda di sini...",
+    "wa.placeholder.contact": "0812xxxx atau +62812xxxx",
+    "wa.note.after_send": "Setelah klik \"Kirim via WhatsApp\" halaman baru/tab akan terbuka (atau aplikasi WA jika di ponsel) dengan pesan yang sudah terisi.",
+    "wa.note.number": "",
+    "wa.quick_text": "Halo,",
+    "wa.validation.name_required": "Nama diperlukan",
+    "wa.validation.message_required": "Tulis pesan minimal 3 karakter"
+  },
+  en:{
+    "search.placeholder":"Search repositories…",
+    "controls.accent":"Accent",
+    "controls.refresh":"Refresh",
+    "controls.dark":"Dark",
+    "controls.light":"Light",
+    "controls.lite":"Lite",
+    "contact.title":"Contact",
+    "repos.title":"Repositories",
+    "filter.placeholder":"Filter…",
+    "sort.updated":"Recently updated",
+    "sort.stars":"Most stars",
+    "sort.name":"Name (A-Z)",
+    "repos.updated":"Updated",
+    "repos.stars":"Stars",
+    "repos.language":"Language",
+    "repos.no_description":"No description provided.",
+    "profile.location":"Location",
+    "profile.followers":"Followers",
+    "profile.following":"Following",
+    "profile.joined":"Joined",
+    "profile.repos":"Public repos",
+    "profile.gists":"Public gists",
+    "profile.top_langs":"Top Languages",
+    "profile.view_on_github":"View on GitHub",
+    "about.title":"About Me",
+    "skills.title":"Skills",
+    "experience.title":"Experience",
+    "achievements.title":"Achievements",
+    "quicknav.title":"Quick Nav",
+    "modal.view_repo":"View on GitHub",
+    "modal.last_updated":"Last updated",
+    "footer.made_with":"Made with",
+    "footer.powered":"This CV portfolio is powered by personal GitHub account @",
+    "stats.title":"GitHub Stats",
+    "stats.total_stars":"Total stars",
+    "stats.total_forks":"Total forks",
+    "stats.repos_count":"Repos",
+    "stats.popular_repo":"Popular repo",
+    "stats.top_topics":"Top topics",
+    "stats.orgs":"Organizations",
+    "stats.gists":"Latest gists",
+    "wa.cta.title": "Send message via WhatsApp",
+    "wa.cta.muted": "Use the form to send a message that will be forwarded to WhatsApp number 085341899229.",
+    "wa.modal.title": "Send message to WhatsApp",
+    "wa.label.name": "Name",
+    "wa.label.subject": "Subject",
+    "wa.label.message": "Message",
+    "wa.label.contact": "Contact number (optional)",
+    "wa.btn.open": "Open Form",
+    "wa.btn.open_label": "Send Message",
+    "wa.btn.quick": "Quick Send (EN)",
+    "wa.btn.quick_label": "Quick send",
+    "wa.btn.send": "Send via WhatsApp",
+    "wa.btn.send_label": "Send via WhatsApp",
+    "wa.btn.cancel": "Cancel",
+    "wa.btn.cancel_label": "Cancel",
+    "wa.placeholder.name": "Your name",
+    "wa.placeholder.subject": "Subject / max 80 chars",
+    "wa.placeholder.message": "Write your message here...",
+    "wa.placeholder.contact": "0812xxxx or +62812xxxx",
+    "wa.note.after_send": "After clicking \"Send via WhatsApp\" a new tab/window (or app on mobile) will open with the prefilled message.",
+    "wa.note.number": "",
+    "wa.quick_text": "Hi.",
+    "wa.validation.name_required": "Name is required",
+    "wa.validation.message_required": "Write at least 3 characters"
+  }
+};
 
-    /* Updated CV + Skills (REPLACED WITH LATEST BIODATA FROM USER) */
-    const CV = {
-      id:{
-        about: `
+/* Updated CV + Skills */
+const CV = {
+  id:{
+    about: `
 <p><strong>Biodata Singkat</strong></p>
 <ul>
   <li><strong>Nama:</strong> Gunadi Renta</li>
@@ -1531,7 +1106,7 @@ Saya adalah mahasiswa S1 Teknologi Hasil Perikanan di Universitas Hasanuddin den
 <p><strong>Pendidikan</strong><br/>
 S1 Teknologi Hasil Perikanan - Universitas Hasanuddin (2022 – Sekarang)</p>
 `,
-        skills: `
+    skills: `
 <ul>
   <li><strong>Perikanan:</strong> Pengawasan mutu hasil perikanan, analisis organoleptik, dokumentasi mutu, HACCP, dasar bioteknologi.</li>
   <li><strong>Web Development:</strong> HTML5, CSS3 (Flex/Grid), JavaScript (vanilla), responsive design, aksesibilitas dasar, UI/UX modern.</li>
@@ -1542,7 +1117,7 @@ S1 Teknologi Hasil Perikanan - Universitas Hasanuddin (2022 – Sekarang)</p>
   <li><strong>Tools:</strong> Git, GitHub Pages, VS Code, Figma, Lucide Icons, EmailJS.</li>
 </ul>
 `,
-        experience: `
+    experience: `
 <ul>
   <li><strong>Founder & Developer - Femmeia Cloth</strong> (2025–Sekarang)<br/>Mengembangkan sistem pemesanan berbasis web terintegrasi WhatsApp dan Firebase; membangun FemmeiaCloth Finance Tracker untuk pembukuan otomatis dengan fitur ekspor CSV dan grafik bulanan.</li>
   <li><strong>Frontend Developer - Calma Indonesia</strong> (2024–2025)<br/>Membangun Calma Finance Tracker, menambahkan fitur ekspor laporan dan grafik interaktif; fokus pada performa dan desain ringan.</li>
@@ -1550,22 +1125,22 @@ S1 Teknologi Hasil Perikanan - Universitas Hasanuddin (2022 – Sekarang)</p>
   <li><strong>AI & Automation Developer (Proyek Pribadi)</strong> (2025–Sekarang)<br/>Membangun context prefix assistant, integrasi AI ringan berbasis JSON/JS, dan prototipe sistem rekomendasi.</li>
   </ul>
 `,
-        achievements: `
+    achievements: `
 <ul>
-  <li>Juara 3 Lomba Bulu Tangkis – Tingkat Kecamatan (2019)</li>
-  <li>Juara 2 Lomba Bulu Tangkis – Tingkat Kabupaten (2019)</li>
+  <li>Juara 3 Lomba Bulu Tangkis - Tingkat Kecamatan (2019)</li>
+  <li>Juara 2 Lomba Bulu Tangkis - Tingkat Kabupaten (2019)</li>
+  <li>Berpartisipasi dalam Kejuaraan Taekwondo Kabupaten Toraja Utara (2019)</li>
   <li>Sertifikat Kursus Python Dasar (2019)</li>
   <li>Sertifikat Kursus HTML & CSS (2019)</li>
-  <li>Google Digital Garage – Fundamentals of Digital Marketing (2019)</li>
-  <li>Sertifikat Web Development (2023) – Frontend modern</li>
-  <li>Sertifikat Quality Control (2024) – Pengawasan mutu hasil perikanan</li>
-  <li>Sertifikat Analisis Data Perikanan (2024)</li>
-  <li>Sertifikat AI (2025) – Pengenalan dan penerapan AI untuk web</li>
+  <li>Google Digital Garage - Fundamentals of Digital Marketing (2019)</li>
+  <li>Sertifikat Web Development (2023) - Frontend modern</li>
+  <li>Sertifikat Firebase Fundamentals (2024)</li>
+  <li>Sertifikat AI (2025) - Pengenalan dan penerapan AI untuk web</li>
 </ul>
 `
-      },
-      en:{
-        about: `
+  },
+  en:{
+    about: `
 <p><strong>Short biodata</strong></p>
 <ul>
   <li><strong>Name:</strong> Gunadi Renta</li>
@@ -1589,7 +1164,7 @@ I am an undergraduate student in Fisheries Product Technology at Hasanuddin Univ
 <p><strong>Education</strong><br/>
 B.Sc. Fisheries Product Technology - Hasanuddin University (2022 – Present)</p>
 `,
-        skills: `
+    skills: `
 <ul>
   <li><strong>Fisheries:</strong> Quality control, organoleptic analysis, documentation, HACCP basics.</li>
   <li><strong>Web Development:</strong> HTML5, CSS3 (Flex/Grid), JavaScript (vanilla), responsive UI/UX, accessibility basics.</li>
@@ -1600,7 +1175,7 @@ B.Sc. Fisheries Product Technology - Hasanuddin University (2022 – Present)</p
   <li><strong>Tools:</strong> Git, GitHub Pages, VS Code, Figma, Lucide Icons, EmailJS.</li>
 </ul>
 `,
-        experience: `
+    experience: `
 <ul>
   <li><strong>Founder & Developer - Femmeia Cloth</strong> (2025–Present)<br/>Built ordering system integrated with WhatsApp and Firebase; developed FemmeiaCloth Finance Tracker with CSV export and monthly finance charts.</li>
   <li><strong>Frontend Developer - Calma Indonesia</strong> (2024–2025)<br/>Built Calma Finance Tracker; added export features and interactive charts; focused on performance and lightweight UI.</li>
@@ -1608,316 +1183,257 @@ B.Sc. Fisheries Product Technology - Hasanuddin University (2022 – Present)</p
   <li><strong>AI & Automation Developer (Personal Projects)</strong> (2025–Present)<br/>Developed context prefix assistants and lightweight AI integration prototypes using JSON/JS.</li>
  </ul>
 `,
-        achievements: `
+    achievements: `
 <ul>
   <li>3rd Place - Badminton Competition (District, 2019)</li>
   <li>2nd Place - Badminton Competition (Regency, 2019)</li>
+  <li>Participated in the North Toraja (Indonesia) Regency Taekwondo Championship (2019)</li>
   <li>Basic Python Course Certificate (2019)</li>
   <li>HTML & CSS Course Certificate (2019)</li>
   <li>Google Digital Garage - Fundamentals of Digital Marketing (2019)</li>
   <li>Web Development Certificate (2023)</li>
-  <li>Quality Control Certificate (2024) - Fisheries product quality</li>
-  <li>Data Analysis in Fisheries Certificate (2024)</li>
+  <li>Firebase Fundamentals Certificate (2024)</li>
   <li>AI Learning Certificate (2025)</li>
 </ul>
 `
-      }
-    };
+  }
+};
 
-    const state = {
-      lang: localStorage.getItem("lang") || "id",
-      theme: localStorage.getItem("theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
-      accent: localStorage.getItem("accent") || "79,70,229",
-      lite: localStorage.getItem("lite")==="1",
-      user: null,
-      allRepos: [],
-      filteredRepos: [],
-      gists: [],
-      orgs: [],
-      ai: { history: [], modelTriedFallback: false },
+const state = {
+  lang: localStorage.getItem("lang") || "id",
+  theme: localStorage.getItem("theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
+  accent: localStorage.getItem("accent") || "79,70,229",
+  lite: localStorage.getItem("lite")==="1",
+  user: null,
+  allRepos: [],
+  filteredRepos: [],
+  gists: [],
+  orgs: [],
+  reposPageSize: 15,
+  reposOffset: 0
+};
 
-      // Pagination for repositories
-      reposPageSize: 15, // show 15 repos per "page"
-      reposOffset: 0
-    };
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => r.querySelectorAll(s);
 
-    const $ = (s, r=document) => r.querySelector(s);
-    const $$ = (s, r=document) => r.querySelectorAll(s);
+function setTheme(mode){
+  document.documentElement.classList.toggle("dark", mode==="dark");
+  state.theme = mode; localStorage.setItem("theme", mode);
+  for(const btn of ["#themeBtn","#themeBtnM"]){
+    const el = $(btn);
+    if(!el) continue;
+    el.setAttribute("aria-checked", mode==="dark"?"true":"false");
+    const moon = el.querySelector(".moon"), sun = el.querySelector(".sun");
+    if(moon) moon.style.display = mode==="dark" ? "none" : "inline";
+    if(sun) sun.style.display  = mode==="dark" ? "inline" : "none";
+    const span = el.querySelector('span[data-i18n-key]');
+    if(span) span.textContent = I18N[state.lang][mode==="dark"?"controls.light":"controls.dark"];
+  }
+  lucide.createIcons();
+}
+function setAccent(rgb){
+  document.documentElement.style.setProperty("--accent", rgb);
+  state.accent = rgb; localStorage.setItem("accent", rgb);
+  [...$$(".dot")].forEach(dot=>{
+    dot.style.background = `rgb(${rgb})`;
+    dot.style.boxShadow = `0 0 0 2px rgba(${rgb},.25)`;
+  });
+}
+function setLiteMode(on){
+  state.lite = !!on; localStorage.setItem("lite", on?"1":"0");
+  document.documentElement.classList.toggle("lite", !!on);
+  for(const btn of ["#liteBtn","#liteBtnM"]){
+    const el=$(btn); if(!el) continue;
+    el.setAttribute("aria-pressed", on?"true":"false");
+  }
+}
+function setLang(newLang){
+  state.lang = newLang; localStorage.setItem("lang", newLang);
+  document.documentElement.lang = newLang==="en"?"en":"id";
+  $$("[data-i18n-key]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-key");
+    const val = I18N[newLang][key];
+    if(val) el.textContent = val;
+  });
+  $("#aboutContent").innerHTML = CV[newLang].about;
+  $("#skillsContent").innerHTML = CV[newLang].skills;
+  $("#expContent").innerHTML = CV[newLang].experience;
+  $("#achContent").innerHTML = CV[newLang].achievements;
+  $("#langLabel").textContent = newLang==="id" ? "ID" : "EN";
+  $("#langLabel2").textContent = newLang==="id" ? "EN" : "ID";
+  $("#langLabelM").textContent = newLang==="id" ? "ID" : "EN";
+  $("#langLabel2M").textContent = newLang==="id" ? "EN" : "ID";
+  const powered = I18N[newLang]["footer.powered"] + GITHUB_USER;
+  $("#poweredByText").textContent = powered;
+  const isDark = document.documentElement.classList.contains("dark");
+  for(const sel of ['#themeBtn span[data-i18n-key]','#themeBtnM span[data-i18n-key]']){
+    const t = $(sel); if(t) t.textContent = I18N[newLang][isDark?"controls.light":"controls.dark"];
+  }
+  if(state.user) renderProfile(state.user);
+  if(state.filteredRepos && state.filteredRepos.length) resetRepoPaging();
+  if(state.allRepos && state.allRepos.length) renderStats();
+  lucide.createIcons();
+}
 
-    function setTheme(mode){
-      document.documentElement.classList.toggle("dark", mode==="dark");
-      state.theme = mode; localStorage.setItem("theme", mode);
-      for(const btn of ["#themeBtn","#themeBtnM"]){
-        const el = $(btn);
-        if(!el) continue;
-        el.setAttribute("aria-checked", mode==="dark"?"true":"false");
-        el.querySelector(".moon").style.display = mode==="dark" ? "none" : "inline";
-        el.querySelector(".sun").style.display  = mode==="dark" ? "inline" : "none";
-        el.querySelector('span[data-i18n-key]').textContent = I18N[state.lang][mode==="dark"?"controls.light":"controls.dark"];
-      }
-      lucide.createIcons();
-    }
-    function setAccent(rgb){
-      document.documentElement.style.setProperty("--accent", rgb);
-      state.accent = rgb; localStorage.setItem("accent", rgb);
-      [...$$(".dot")].forEach(dot=>{
-        dot.style.background = `rgb(${rgb})`;
-        dot.style.boxShadow = `0 0 0 2px rgba(${rgb},.25)`;
-      });
-    }
-    function setLiteMode(on){
-      state.lite = !!on; localStorage.setItem("lite", on?"1":"0");
-      document.documentElement.classList.toggle("lite", !!on);
-      for(const btn of ["#liteBtn","#liteBtnM"]){
-        const el=$(btn); if(!el) continue;
-        el.setAttribute("aria-pressed", on?"true":"false");
-      }
-    }
-    function setLang(newLang){
-      state.lang = newLang; localStorage.setItem("lang", newLang);
-      document.documentElement.lang = newLang==="en"?"en":"id";
-      $$("[data-i18n-key]").forEach(el=>{
-        const key = el.getAttribute("data-i18n-key");
-        const val = I18N[newLang][key];
-        if(val) el.textContent = val;
-      });
-      $("#aboutContent").innerHTML = CV[newLang].about;
-      $("#skillsContent").innerHTML = CV[newLang].skills;
-      $("#expContent").innerHTML = CV[newLang].experience;
-      $("#achContent").innerHTML = CV[newLang].achievements;
-      // label pairs
-      $("#langLabel").textContent = newLang==="id" ? "ID" : "EN";
-      $("#langLabel2").textContent = newLang==="id" ? "EN" : "ID";
-      $("#langLabelM").textContent = newLang==="id" ? "ID" : "EN";
-      $("#langLabel2M").textContent = newLang==="id" ? "EN" : "ID";
-      // powered text
-      const powered = I18N[newLang]["footer.powered"] + GITHUB_USER;
-      $("#poweredByText").textContent = powered;
-      // update theme label
-      const isDark = document.documentElement.classList.contains("dark");
-      for(const sel of ['#themeBtn span[data-i18n-key]','#themeBtnM span[data-i18n-key]']){
-        const t = $(sel); if(t) t.textContent = I18N[newLang][isDark?"controls.light":"controls.dark"];
-      }
-      // ai style label
-      $("#aiStyleLabel").textContent = AI_RESPONSE_STYLE==="concise" ? (newLang==="en"?"concise":"singkat") : (newLang==="en"?"detailed":"detail");
-      // rerender text-only areas
-      if(state.user) renderProfile(state.user);
-      // When language changes, re-render currently visible repo page(s) to update date/labels
-      if(state.filteredRepos && state.filteredRepos.length) resetRepoPaging();
-      if(state.allRepos && state.allRepos.length) renderStats();
-      lucide.createIcons();
-    }
+function fmtDate(iso){
+  try{
+    const d = new Date(iso);
+    return new Intl.DateTimeFormat(state.lang==="en"?"en-US":"id-ID",{year:"numeric",month:"short",day:"2-digit"}).format(d);
+  }catch{ return iso }
+}
+function fmtDateTime(iso){
+  try{
+    const d = new Date(iso);
+    return new Intl.DateTimeFormat(state.lang==="en"?"en-US":"id-ID",{year:"numeric",month:"short",day:"2-digit",hour:"2-digit",minute:"2-digit"}).format(d);
+  }catch{ return iso }
+}
+function fmtNum(n){ return new Intl.NumberFormat(state.lang==="en"?"en-US":"id-ID").format(n||0) }
 
+function langColor(language){
+  const map={JavaScript:"#f1e05a",TypeScript:"#3178c6",Python:"#3572A5",HTML:"#e34c26",CSS:"#563d7c",Shell:"#89e051",Go:"#00ADD8",Ruby:"#701516",PHP:"#4F5D95",C:"#555555","C++":"#f34b7d",Java:"#b07219",Rust:"#dea584",Kotlin:"#A97BFF",Dart:"#00B4AB"};
+  return map[language] || `rgb(${state.accent})`;
+}
 
-    function fmtDate(iso){
-      try{
-        const d = new Date(iso);
-        return new Intl.DateTimeFormat(state.lang==="en"?"en-US":"id-ID",{year:"numeric",month:"short",day:"2-digit"}).format(d);
-      }catch{ return iso }
-    }
-    function fmtDateTime(iso){
-      try{
-        const d = new Date(iso);
-        return new Intl.DateTimeFormat(state.lang==="en"?"en-US":"id-ID",{year:"numeric",month:"short",day:"2-digit",hour:"2-digit",minute:"2-digit"}).format(d);
-      }catch{ return iso }
-    }
-    function fmtNum(n){ return new Intl.NumberFormat(state.lang==="en"?"en-US":"id-ID").format(n||0) }
+function revealObserve(){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); obs.unobserve(e.target); } });
+  },{threshold:.08});
+  $$(".reveal").forEach(el=>obs.observe(el));
+}
 
-    function langColor(language){
-      const map={JavaScript:"#f1e05a",TypeScript:"#3178c6",Python:"#3572A5",HTML:"#e34c26",CSS:"#563d7c",Shell:"#89e051",Go:"#00ADD8",Ruby:"#701516",PHP:"#4F5D95",C:"#555555","C++":"#f34b7d",Java:"#b07219",Rust:"#dea584",Kotlin:"#A97BFF",Dart:"#00B4AB"};
-      return map[language] || `rgb(${state.accent})`;
-    }
+function showRepoSkeleton(n=8){
+  const list = $("#repoList"); list.innerHTML="";
+  for(let i=0;i<n;i++){
+    const wrap = document.createElement("div"); wrap.className="repo";
+    wrap.innerHTML = `
+      <div class="repo-top">
+        <div class="skeleton" style="width:180px;height:16px;border-radius:8px"></div>
+        <div class="skeleton" style="width:80px;height:22px;border-radius:999px"></div>
+      </div>
+      <div class="skeleton" style="width:100%;height:14px;border-radius:8px"></div>
+      <div class="skeleton" style="width:60%;height:14px;border-radius:8px;margin-top:6px"></div>
+      <div class="repo-foot" style="margin-top:6px">
+        <div class="skeleton" style="width:120px;height:22px;border-radius:999px"></div>
+        <div class="skeleton" style="width:100px;height:22px;border-radius:999px"></div>
+        <div class="skeleton" style="width:140px;height:22px;border-radius:999px"></div>
+      </div>`;
+    list.appendChild(wrap);
+  }
+}
 
-    function revealObserve(){
-      const obs = new IntersectionObserver(entries=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); obs.unobserve(e.target); } });
-      },{threshold:.08});
-      $$(".reveal").forEach(el=>obs.observe(el));
-    }
+async function fetchJSON(url, signal){
+  const res = await fetch(url,{headers:GH_HEADERS, signal});
+  if(!res.ok){
+    const rlRemaining = res.headers.get("X-RateLimit-Remaining");
+    const rlReset = res.headers.get("X-RateLimit-Reset");
+    const err = new Error(`HTTP ${res.status}`);
+    err.rateLimited = res.status===403 && rlRemaining==="0";
+    err.resetAt = rlReset ? new Date(parseInt(rlReset,10)*1000) : null;
+    throw err;
+  }
+  return res.json();
+}
 
-    function showRepoSkeleton(n=8){
-      const list = $("#repoList"); list.innerHTML="";
-      for(let i=0;i<n;i++){
-        const wrap = document.createElement("div"); wrap.className="repo";
-        wrap.innerHTML = `
-          <div class="repo-top">
-            <div class="skeleton" style="width:180px;height:16px;border-radius:8px"></div>
-            <div class="skeleton" style="width:80px;height:22px;border-radius:999px"></div>
-          </div>
-          <div class="skeleton" style="width:100%;height:14px;border-radius:8px"></div>
-          <div class="skeleton" style="width:60%;height:14px;border-radius:8px;margin-top:6px"></div>
-          <div class="repo-foot" style="margin-top:6px">
-            <div class="skeleton" style="width:120px;height:22px;border-radius:999px"></div>
-            <div class="skeleton" style="width:100px;height:22px;border-radius:999px"></div>
-            <div class="skeleton" style="width:140px;height:22px;border-radius:999px"></div>
-          </div>`;
-        list.appendChild(wrap);
-      }
-    }
+function renderProfile(user){
+  const card = $("#profileCard");
+  card.setAttribute("aria-busy","false");
+  const joined = user.created_at ? fmtDate(user.created_at) : "";
+  const company = user.company ? `<div class="meta-item"><i data-lucide="building-2"></i><span>${user.company}</span></div>`:"";
+  const blog = user.blog ? `<div class="meta-item"><i data-lucide="link-2"></i><a href="${user.blog.startsWith('http')?user.blog:'https://'+user.blog}" target="_blank" rel="noopener">${user.blog}</a></div>`:"";
+  const twitter = user.twitter_username ? `<div class="meta-item"><i data-lucide="twitter"></i><a target="_blank" rel="noopener" href="https://twitter.com/${user.twitter_username}">@${user.twitter_username}</a></div>`:"";
+  const displayName = user.name || "Gunadi Renta";
+  const displayLogin = user.login || "gunadizz";
+  const avatar = user.avatar_url || "https://gunadi.tech/Screenshot_2025-10-06-18-17-25-060_com.miui.gallery-edit.jpg";
 
+  card.innerHTML = `
+    <div class="profile-top">
+      <img class="avatar" src="${avatar}" alt="${displayName} avatar" />
+      <div>
+        <h1 class="name">${displayName}</h1>
+        <div class="username">@${displayLogin}</div>
+      </div>
+    </div>
+    ${user.bio?`<p class="bio">${user.bio}</p>`:"<p class='bio'>Mahasiswa Teknologi Hasil Perikanan • Web Developer</p>"}
+    <div class="meta">
+      <div class="meta-item"><i data-lucide="map-pin"></i><span><span data-i18n-key="profile.location">Lokasi</span>: <strong>${user.location}</strong></span></div>
+      ${company}${blog}${twitter}
+      <div class="counts">
+        <span><strong>${fmtNum(user.followers||0)}</strong> <span data-i18n-key="profile.followers">Pengikut</span></span>
+        <span><strong>${fmtNum(user.following||0)}</strong> <span data-i18n-key="profile.following">Mengikuti</span></span>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><span class="label" data-i18n-key="profile.repos">Repos publik</span><strong>${fmtNum(user.public_repos || 0)}</strong></div>
+      <div class="stat"><span class="label" data-i18n-key="profile.gists">Gist publik</span><strong>${fmtNum(user.public_gists || 0)}</strong></div>
+      <div class="stat"><span class="label" data-i18n-key="profile.joined">Bergabung</span><strong>${joined}</strong></div>
+    </div>
+    <div id="topLangs" style="margin-top:10px"></div>
+    <div class="profile-actions">
+      <a class="link-btn" href="${user.html_url || 'https://github.com/gunadizz'}" target="_blank" rel="noopener"><i data-lucide="github"></i><span data-i18n-key="profile.view_on_github">Lihat di GitHub</span></a>
+      <a class="link-btn" href="https://github.com/${displayLogin}?tab=repositories" target="_blank" rel="noopener"><i data-lucide="folder-open"></i> Repos</a>
+      <a class="link-btn" href="https://wa.me/6285341899229?text=Halo%2C%20saya%20ingin%20menyewa%20jasa%20Anda." target="_blank" rel="noopener"><i data-lucide="phone"></i> Hire Me</a>
+    </div>
+  `;
+  lucide.createIcons();
+}
 
-    async function fetchJSON(url, signal){
-      const res = await fetch(url,{headers:GH_HEADERS, signal});
-      if(!res.ok){
-        const rlRemaining = res.headers.get("X-RateLimit-Remaining");
-        const rlReset = res.headers.get("X-RateLimit-Reset");
-        const err = new Error(`HTTP ${res.status}`);
-        err.rateLimited = res.status===403 && rlRemaining==="0";
-        err.resetAt = rlReset ? new Date(parseInt(rlReset,10)*1000) : null;
-        throw err;
-      }
-      return res.json();
-    }
+function computeTopLanguages(repos){
+  const counts = {};
+  repos.forEach(r=>{ if(r.language){ counts[r.language]=(counts[r.language]||0)+1; } });
+  const arr = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const holder = $("#topLangs");
+  if(!holder) return;
+  if(arr.length){
+    const label = `<div class="meta-item" style="margin-top:6px"><i data-lucide="languages"></i><strong style="font-size:14px" data-i18n-key="profile.top_langs">Bahasa Teratas</strong></div>`;
+    const chips = arr.map(([lang,c])=>`<span class="tag"><span class="lang-dot" style="background:${langColor(lang)}"></span>${lang} • ${c}</span>`).join("");
+    holder.innerHTML = label + `<div style="margin-top:6px">${chips}</div>`;
+    lucide.createIcons();
+  } else {
+    holder.innerHTML = "";
+  }
+}
 
-    function renderProfile(user){
-      const card = $("#profileCard");
-      card.setAttribute("aria-busy","false");
-      const joined = user.created_at ? fmtDate(user.created_at) : "";
-      const company = user.company ? `<div class="meta-item"><i data-lucide="building-2"></i><span>${user.company}</span></div>`:"";
-      const blog = user.blog ? `<div class="meta-item"><i data-lucide="link-2"></i><a href="${user.blog.startsWith('http')?user.blog:'https://'+user.blog}" target="_blank" rel="noopener">${user.blog}</a></div>`:"";
-      const twitter = user.twitter_username ? `<div class="meta-item"><i data-lucide="twitter"></i><a target="_blank" rel="noopener" href="https://twitter.com/${user.twitter_username}">@${user.twitter_username}</a></div>`:"";
-      // If GitHub user exists, prefer GitHub data for avatar/name/login; otherwise fallback to local CV details
-      const displayName = user.name || "Gunadi Renta";
-      const displayLogin = user.login || "gunadizz";
-      const avatar = user.avatar_url || "https://gunadi.tech/Screenshot_2025-10-06-18-17-25-060_com.miui.gallery-edit.jpg";
+function renderRepoItem(repo){
+  const item = document.createElement("article");
+  item.className = "repo reveal";
+  const stars = repo.stargazers_count>0 ? `<span class="pill"><i data-lucide="star"></i>${fmtNum(repo.stargazers_count)}</span>` : "";
+  const forks = repo.forks_count>0 ? `<span class="pill"><i data-lucide="git-branch"></i>${fmtNum(repo.forks_count)}</span>` : "";
+  const issues = repo.open_issues_count>0 ? `<span class="pill"><i data-lucide="alert-circle"></i>${fmtNum(repo.open_issues_count)}</span>` : "";
+  const lang = repo.language ? `<span class="pill"><span class="lang-dot" style="background:${langColor(repo.language)}"></span>${repo.language}</span>` : "";
+  const license = repo.license && repo.license.spdx_id ? `<span class="pill"><i data-lucide="scale"></i>${repo.license.spdx_id}</span>` : "";
+  const flags = `
+    ${repo.archived?`<span class="pill"><i data-lucide="archive"></i>Archived</span>`:""}
+    ${repo.fork?`<span class="pill"><i data-lucide="git-fork"></i>Fork</span>`:""}
+  `;
+  const topics = Array.isArray(repo.topics) && repo.topics.length
+    ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">${repo.topics.slice(0,6).map(t=>`<span class="pill">#${t}</span>`).join("")}</div>` : "";
 
-      card.innerHTML = `
-        <div class="profile-top">
-          <img class="avatar" src="${avatar}" alt="${displayName} avatar" />
-          <div>
-            <h1 class="name">${displayName}</h1>
-            <div class="username">@${displayLogin}</div>
-          </div>
-        </div>
-        ${user.bio?`<p class="bio">${user.bio}</p>`:"<p class='bio'>Mahasiswa Teknologi Hasil Perikanan • Web Developer</p>"}
-        <div class="meta">
-          <div class="meta-item"><i data-lucide="map-pin"></i><span><span data-i18n-key="profile.location">Lokasi</span>: <strong>${user.location}</strong></span></div>
-          ${company}${blog}${twitter}
-          <div class="counts">
-            <span><strong>${fmtNum(user.followers||0)}</strong> <span data-i18n-key="profile.followers">Pengikut</span></span>
-            <span><strong>${fmtNum(user.following||0)}</strong> <span data-i18n-key="profile.following">Mengikuti</span></span>
-          </div>
-        </div>
-        <div class="stat-grid">
-          <div class="stat"><span class="label" data-i18n-key="profile.repos">Repos publik</span><strong>${fmtNum(user.public_repos || 0)}</strong></div>
-          <div class="stat"><span class="label" data-i18n-key="profile.gists">Gist publik</span><strong>${fmtNum(user.public_gists || 0)}</strong></div>
-          <div class="stat"><span class="label" data-i18n-key="profile.joined">Bergabung</span><strong>${joined}</strong></div>
-        </div>
-        <div id="topLangs" style="margin-top:10px"></div>
-        <div class="profile-actions">
-          <a class="link-btn" href="${user.html_url || 'https://github.com/gunadizz'}" target="_blank" rel="noopener"><i data-lucide="github"></i><span data-i18n-key="profile.view_on_github">Lihat di GitHub</span></a>
-          <a class="link-btn" href="https://github.com/${displayLogin}?tab=repositories" target="_blank" rel="noopener"><i data-lucide="folder-open"></i> Repos</a>
-<a class="link-btn" href="https://wa.me/6285341899229?text=Halo%2C%20saya%20ingin%20menyewa%20jasa%20Anda." target="_blank" rel="noopener"><i data-lucide="phone"></i> Hire Me</a>
-  </div>
-      `;
-      lucide.createIcons();
-    }
+  item.innerHTML = `
+    <div class="repo-top">
+      <div class="repo-name"><i data-lucide="folder"></i><a href="${repo.html_url}" target="_blank" rel="noopener" title="${repo.full_name}">${repo.name}</a></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">${stars}${forks}${issues}</div>
+    </div>
+    <div class="muted">${repo.description || `<em data-i18n-key="repos.no_description">Tidak ada deskripsi.</em>`}</div>
+    ${topics}
+    <div class="repo-foot">
+      ${lang}${license}${flags}
+      <span class="pill"><i data-lucide="clock"></i><span data-i18n-key="repos.updated">Diperbarui</span>: ${fmtDateTime(repo.updated_at)}</span>
+      <a class="pill" href="${repo.html_url}" target="_blank" rel="noopener"><i data-lucide="external-link"></i> GitHub</a>
+    </div>
+  `;
 
-    function computeTopLanguages(repos){
-      const counts = {};
-      repos.forEach(r=>{ if(r.language){ counts[r.language]=(counts[r.language]||0)+1; } });
-      const arr = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);
-      const holder = $("#topLangs");
-      if(!holder) return;
-      if(arr.length){
-        const label = `<div class="meta-item" style="margin-top:6px"><i data-lucide="languages"></i><strong style="font-size:14px" data-i18n-key="profile.top_langs">Bahasa Teratas</strong></div>`;
-        const chips = arr.map(([lang,c])=>`<span class="tag"><span class="lang-dot" style="background:${langColor(lang)}"></span>${lang} • ${c}</span>`).join("");
-        holder.innerHTML = label + `<div style="margin-top:6px">${chips}</div>`;
-        lucide.createIcons();
-      } else {
-        holder.innerHTML = "";
-      }
-    }
+  item.addEventListener("click", e=>{
+    if(e.target.closest("a")) return;
+    openRepoModal(repo);
+  });
+  item.addEventListener("keypress", e=>{
+    if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openRepoModal(repo); }
+  });
 
-    
+  return item;
+}
 
-    function renderRepoItem(repo){
-      const item = document.createElement("article");
-      item.className = "repo reveal";
-      const stars = repo.stargazers_count>0 ? `<span class="pill"><i data-lucide="star"></i>${fmtNum(repo.stargazers_count)}</span>` : "";
-      const forks = repo.forks_count>0 ? `<span class="pill"><i data-lucide="git-branch"></i>${fmtNum(repo.forks_count)}</span>` : "";
-      const issues = repo.open_issues_count>0 ? `<span class="pill"><i data-lucide="alert-circle"></i>${fmtNum(repo.open_issues_count)}</span>` : "";
-      const lang = repo.language ? `<span class="pill"><span class="lang-dot" style="background:${langColor(repo.language)}"></span>${repo.language}</span>` : "";
-      const license = repo.license && repo.license.spdx_id ? `<span class="pill"><i data-lucide="scale"></i>${repo.license.spdx_id}</span>` : "";
-      const flags = `
-        ${repo.archived?`<span class="pill"><i data-lucide="archive"></i>Archived</span>`:""}
-        ${repo.fork?`<span class="pill"><i data-lucide="git-fork"></i>Fork</span>`:""}
-      `;
-      const topics = Array.isArray(repo.topics) && repo.topics.length
-        ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">${repo.topics.slice(0,6).map(t=>`<span class="pill">#${t}</span>`).join("")}</div>` : "";
-
-      item.innerHTML = `
-        <div class="repo-top">
-          <div class="repo-name"><i data-lucide="folder"></i><a href="${repo.html_url}" target="_blank" rel="noopener" title="${repo.full_name}">${repo.name}</a></div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">${stars}${forks}${issues}</div>
-        </div>
-        <div class="muted">${repo.description || `<em data-i18n-key="repos.no_description">Tidak ada deskripsi.</em>`}</div>
-        ${topics}
-        <div class="repo-foot">
-          ${lang}${license}${flags}
-          <span class="pill"><i data-lucide="clock"></i><span data-i18n-key="repos.updated">Diperbarui</span>: ${fmtDateTime(repo.updated_at)}</span>
-          <a class="pill" href="${repo.html_url}" target="_blank" rel="noopener"><i data-lucide="external-link"></i> GitHub</a>
-        </div>
-      `;
-
-      item.addEventListener("click", e=>{
-        if(e.target.closest("a")) return;
-        openRepoModal(repo);
-      });
-      item.addEventListener("keypress", e=>{
-        if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openRepoModal(repo); }
-      });
-
-      return item;
-    }
-
-    function updateLoadMoreButton(){
-      const btn = $("#loadMoreBtn");
-      if(!btn) return;
-      const hasMore = state.reposOffset < (state.filteredRepos || []).length;
-      btn.style.display = hasMore ? "inline-flex" : "none";
-      btn.textContent = hasMore ? (state.lang==="en" ? "Load more" : "Muat lebih banyak") : (state.lang==="en" ? "No more results" : "Tidak ada lagi");
-    }
-
-    // Reset paging (used after initial load, filtering, sorting, lang change)
-    function resetRepoPaging(){
-      state.reposOffset = 0;
-      const list = $("#repoList");
-      list.innerHTML = "";
-      // update total count in UI
-      $("#repoCount span").textContent = fmtNum((state.filteredRepos||[]).length);
-      renderReposPage(); // render first page
-    }
-
-    // Append next page of repos
-    function renderReposPage(){
-      const list = $("#repoList");
-      const start = state.reposOffset;
-      const pageSize = state.reposPageSize;
-      const arr = state.filteredRepos || [];
-      if(!arr.length) { list.innerHTML = `<div class="muted">${state.lang==="en" ? "No repositories found." : "Tidak ada repositori."}</div>`; updateLoadMoreButton(); return; }
-      const slice = arr.slice(start, start + pageSize);
-      const frag = document.createDocumentFragment();
-      slice.forEach(repo => {
-        const node = renderRepoItem(repo);
-        frag.appendChild(node);
-      });
-      list.appendChild(frag);
-      // after appending, update offset
-      state.reposOffset += slice.length;
-
-      // re-run lucide icons and reveal observer for newly added items
-      lucide.createIcons();
-      revealObserve();
-
-      // update count & load more visibility
-      $("#repoCount span").textContent = fmtNum(arr.length);
-      updateLoadMoreButton();
-    }
-
-
-/* Helper DOM getters */
-function getLoadMoreButton(){ return document.getElementById("loadMoreBtn"); }
+function getLoadMoreButton(){ return document.getElementById("LoadMoreBtn") || document.getElementById("loadMoreBtn"); }
 function setLoadMoreLabelText(text){
   const btn = getLoadMoreButton();
   if(!btn) return;
@@ -1939,761 +1455,477 @@ function setLoadMoreBusy(isBusy){
   }
 }
 
-/* Update icon/label depending on whether there are more repos to load */
 function updateLoadMoreButton(){
   const btn = getLoadMoreButton();
   if(!btn) return;
   const total = (state.filteredRepos || []).length;
   const offset = state.reposOffset || 0;
-  const pageSize = state.reposPageSize15|| 5;
   const hasMore = offset < total;
-  // reset classes
   btn.classList.remove("all-loaded");
-  // set label and icon
   if(hasMore){
-    // show chevrons + label depends on language
-    btn.querySelector(".lm-icon-chevrons").style.display = "";
-    btn.querySelector(".lm-icon-check").style.display = "none";
+    const chevrons = btn.querySelector(".lm-icon-chevrons");
+    const check = btn.querySelector(".lm-icon-check");
+    if(chevrons) chevrons.style.display = "";
+    if(check) check.style.display = "none";
     setLoadMoreLabelText(state.lang === "en" ? "Load more" : "Muat lebih banyak");
     btn.disabled = false;
   } else {
-    // no more items
     btn.classList.add("all-loaded");
-    btn.querySelector(".lm-icon-chevrons").style.display = "none";
-    btn.querySelector(".lm-icon-check").style.display = "";
+    const chevrons = btn.querySelector(".lm-icon-chevrons");
+    const check = btn.querySelector(".lm-icon-check");
+    if(chevrons) chevrons.style.display = "none";
+    if(check) check.style.display = "";
     setLoadMoreLabelText(state.lang === "en" ? "All shown" : "Semua repos ditampilkan");
     btn.disabled = true;
   }
 }
 
-/* Enhanced click handler that shows spinner briefly and calls renderReposPage() */
-function enhanceLoadMoreButton(){
-  const btn = getLoadMoreButton();
-  if(!btn) return;
-
-  // ensure initial label matches language
+function renderReposPage(){
+  const list = $("#repoList");
+  const start = state.reposOffset;
+  const pageSize = state.reposPageSize;
+  const arr = state.filteredRepos || [];
+  if(!arr.length) { list.innerHTML = `<div class="muted">${state.lang==="en" ? "No repositories found." : "Tidak ada repositori."}</div>`; updateLoadMoreButton(); return; }
+  const slice = arr.slice(start, start + pageSize);
+  const frag = document.createDocumentFragment();
+  slice.forEach(repo => {
+    const node = renderRepoItem(repo);
+    frag.appendChild(node);
+  });
+  list.appendChild(frag);
+  state.reposOffset += slice.length;
+  lucide.createIcons();
+  revealObserve();
+  $("#repoCount span").textContent = fmtNum(arr.length);
   updateLoadMoreButton();
+}
 
-  btn.addEventListener("click", async (e) => {
-    if(btn.disabled) return;
-    // show spinner
-    setLoadMoreBusy(true);
-    // next frame so spinner is visible
-    await new Promise(requestAnimationFrame);
-    try {
-      // renderReposPage appends the next slice and updates state.reposOffset
-      renderReposPage();
-    } catch (err) {
-      console.error("Failed to load more repos:", err);
-    } finally {
-      // small delay for smoother UX
-      setTimeout(()=> {
-        setLoadMoreBusy(false);
-        updateLoadMoreButton();
-      }, 2000);
+function resetRepoPaging(){
+  state.reposOffset = 0;
+  const list = $("#repoList");
+  list.innerHTML = "";
+  $("#repoCount span").textContent = fmtNum((state.filteredRepos||[]).length);
+  renderReposPage();
+}
+
+function openRepoModal(repo){
+  const modal = $("#repoModal");
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  $("#repoModalTitle").textContent = repo.name;
+  $("#repoModalDesc").textContent = repo.description || I18N[state.lang]["repos.no_description"];
+  $("#repoModalUpdated").textContent = fmtDateTime(repo.updated_at);
+  $("#repoModalCreated").textContent = `Created: ${fmtDate(repo.created_at)}`;
+  $("#repoModalDefaultBranch").textContent = `Default: ${repo.default_branch || "main"}`;
+  $("#repoModalLink").href = repo.html_url;
+
+  const badges = [];
+  if(repo.language) badges.push(`<span class="pill"><span class="lang-dot" style="background:${langColor(repo.language)}"></span>${repo.language}</span>`);
+  if(repo.stargazers_count>0) badges.push(`<span class="pill"><i data-lucide="star"></i>${fmtNum(repo.stargazers_count)}</span>`);
+  if(repo.forks_count>0) badges.push(`<span class="pill"><i data-lucide="git-branch"></i>${fmtNum(repo.forks_count)}</span>`);
+  if(repo.open_issues_count>0) badges.push(`<span class="pill"><i data-lucide="alert-circle"></i>${fmtNum(repo.open_issues_count)}</span>`);
+  if(repo.license && repo.license.spdx_id) badges.push(`<span class="pill"><i data-lucide="scale"></i>${repo.license.spdx_id}</span>`);
+  $("#repoModalBadges").innerHTML = badges.join("");
+  lucide.createIcons();
+
+  const close = (e)=>{
+    if(e.type==="keydown" && e.key!=="Escape") return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden","true");
+    document.removeEventListener("keydown", close);
+  };
+  modal.querySelectorAll("[data-close-modal]").forEach(el=>el.onclick=close);
+  document.addEventListener("keydown", close);
+}
+
+function applyFilters(){
+  const term = $("#filterInput").value.trim().toLowerCase();
+  const sort = $("#sortSelect").value;
+  let arr = [...state.allRepos];
+
+  if(term){
+    arr = arr.filter(r =>
+      (r.name && r.name.toLowerCase().includes(term)) ||
+      (r.description && r.description.toLowerCase().includes(term)) ||
+      (Array.isArray(r.topics) && r.topics.some(t=>t.toLowerCase().includes(term)))
+    );
+  }
+
+  if(sort==="updated") arr.sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at));
+  else if(sort==="stars") arr.sort((a,b)=> (b.stargazers_count||0)-(a.stargazers_count||0));
+  else if(sort==="name") arr.sort((a,b)=> a.name.localeCompare(b.name));
+
+  state.filteredRepos = arr;
+  resetRepoPaging();
+}
+
+function setStatus(msg){ $("#repoStatus").textContent = msg || ""; }
+
+function topTopicsFromRepos(repos, n=6){
+  const map = new Map();
+  (repos||[]).forEach(r=>{
+    if(Array.isArray(r.topics)){
+      r.topics.forEach(t=> map.set(t, (map.get(t)||0)+1));
     }
   });
+  return [...map.entries()].sort((a,b)=>b[1]-a[1]).slice(0,n).map(([t,c])=>`#${t} (${c})`);
 }
 
-/* Hook: call enhanceLoadMoreButton() during init (inside DOMContentLoaded) */
-/* If you already have a DOMContentLoaded block, call enhanceLoadMoreButton() there after loadData() binding. */
-document.addEventListener("DOMContentLoaded", ()=>{
-  // If renderReposPage already rendered initial page, button will be shown/updated there.
-  // Enhance behavior now:
-  setTimeout(()=> {
-    enhanceLoadMoreButton();
-  }, 120); // slight delay to ensure other init code runs first
-});
-
-
-    function openRepoModal(repo){
-      const modal = $("#repoModal");
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden","false");
-      $("#repoModalTitle").textContent = repo.name;
-      $("#repoModalDesc").textContent = repo.description || I18N[state.lang]["repos.no_description"];
-      $("#repoModalUpdated").textContent = fmtDateTime(repo.updated_at);
-      $("#repoModalCreated").textContent = `Created: ${fmtDate(repo.created_at)}`;
-      $("#repoModalDefaultBranch").textContent = `Default: ${repo.default_branch || "main"}`;
-      $("#repoModalLink").href = repo.html_url;
-
-      const badges = [];
-      if(repo.language) badges.push(`<span class="pill"><span class="lang-dot" style="background:${langColor(repo.language)}"></span>${repo.language}</span>`);
-      if(repo.stargazers_count>0) badges.push(`<span class="pill"><i data-lucide="star"></i>${fmtNum(repo.stargazers_count)}</span>`);
-      if(repo.forks_count>0) badges.push(`<span class="pill"><i data-lucide="git-branch"></i>${fmtNum(repo.forks_count)}</span>`);
-      if(repo.open_issues_count>0) badges.push(`<span class="pill"><i data-lucide="alert-circle"></i>${fmtNum(repo.open_issues_count)}</span>`);
-      if(repo.license && repo.license.spdx_id) badges.push(`<span class="pill"><i data-lucide="scale"></i>${repo.license.spdx_id}</span>`);
-      $("#repoModalBadges").innerHTML = badges.join("");
-      lucide.createIcons();
-
-      const close = (e)=>{
-        if(e.type==="keydown" && e.key!=="Escape") return;
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden","true");
-        document.removeEventListener("keydown", close);
-      };
-      modal.querySelectorAll("[data-close-modal]").forEach(el=>el.onclick=close);
-      document.addEventListener("keydown", close);
-    }
-
-    function applyFilters(){
-      const term = $("#filterInput").value.trim().toLowerCase();
-      const sort = $("#sortSelect").value;
-      let arr = [...state.allRepos];
-
-      if(term){
-        arr = arr.filter(r =>
-          (r.name && r.name.toLowerCase().includes(term)) ||
-          (r.description && r.description.toLowerCase().includes(term)) ||
-          (Array.isArray(r.topics) && r.topics.some(t=>t.toLowerCase().includes(term)))
-        );
-      }
-
-      if(sort==="updated") arr.sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at));
-      else if(sort==="stars") arr.sort((a,b)=> (b.stargazers_count||0)-(a.stargazers_count||0));
-      else if(sort==="name") arr.sort((a,b)=> a.name.localeCompare(b.name));
-
-      state.filteredRepos = arr;
-      // Reset pagination so we show first page of filtered/sorted results
-      resetRepoPaging();
-    }
-
-    function setStatus(msg){ $("#repoStatus").textContent = msg || ""; }
-
-    function topTopicsFromRepos(repos, n=6){
-      const map = new Map();
-      (repos||[]).forEach(r=>{
-        if(Array.isArray(r.topics)){
-          r.topics.forEach(t=> map.set(t, (map.get(t)||0)+1));
-        }
-      });
-      return [...map.entries()].sort((a,b)=>b[1]-a[1]).slice(0,n).map(([t,c])=>`#${t} (${c})`);
-    }
-
-    function renderStats(){
-      const repos = state.allRepos || [];
-      const totalStars = repos.reduce((s,r)=> s+(r.stargazers_count||0),0);
-      const totalForks = repos.reduce((s,r)=> s+(r.forks_count||0),0);
-      const popular = repos.slice().sort((a,b)=>(b.stargazers_count||0)-(a.stargazers_count||0))[0];
-      $("#statStars").textContent = fmtNum(totalStars);
-      $("#statForks").textContent = fmtNum(totalForks);
-      $("#statRepos").textContent = fmtNum(repos.length);
-      $("#popularRepo").innerHTML = (popular && (popular.stargazers_count||0)>0)
-        ? `${I18N[state.lang]["stats.popular_repo"]||"Repo populer"}: <strong>${popular.name}</strong> ★${fmtNum(popular.stargazers_count)}`
-        : `${I18N[state.lang]["stats.popular_repo"]||"Repo populer"}: -`;
-      const topics = topTopicsFromRepos(repos);
-      $("#topTopics").innerHTML = `${I18N[state.lang]["stats.top_topics"]||"Topik teratas"}: ${topics.length?topics.map(t=>`<span class="tag">${t}</span>`).join(" "):"-"}`;
-      const orgsTxt = (state.orgs||[]).map(o=>`<a href="https://github.com/${o.login}" target="_blank" rel="noopener">@${o.login}</a>`).join(", ");
-      $("#orgsList").innerHTML = `${I18N[state.lang]["stats.orgs"]||"Organisasi"}: ${orgsTxt||"-"}`;
-      const gistsTxt = (state.gists||[]).slice(0,3).map(g=>`<a href="${g.html_url}" target="_blank" rel="noopener">${g.description || g.files && Object.keys(g.files)[0] || "gist"}</a>`).join(", ");
-      $("#gistsList").innerHTML = `${I18N[state.lang]["stats.gists"]||"Gist terbaru"}: ${gistsTxt||"-"}`;
-      $("#stats").setAttribute("aria-busy","false");
-      lucide.createIcons();
-    
+function renderStats(){
+  const repos = state.allRepos || [];
+  const totalStars = repos.reduce((s,r)=> s+(r.stargazers_count||0),0);
+  const totalForks = repos.reduce((s,r)=> s+(r.forks_count||0),0);
+  const popular = repos.slice().sort((a,b)=>(b.stargazers_count||0)-(a.stargazers_count||0))[0];
+  $("#statStars").textContent = fmtNum(totalStars);
+  $("#statForks").textContent = fmtNum(totalForks);
+  $("#statRepos").textContent = fmtNum(repos.length);
+  $("#popularRepo").innerHTML = (popular && (popular.stargazers_count||0)>0)
+    ? `${I18N[state.lang]["stats.popular_repo"]||"Repo populer"}: <strong>${popular.name}</strong> ★${fmtNum(popular.stargazers_count)}`
+    : `${I18N[state.lang]["stats.popular_repo"]||"Repo populer"}: -`;
+  const topics = topTopicsFromRepos(repos);
+  $("#topTopics").innerHTML = `${I18N[state.lang]["stats.top_topics"]||"Topik teratas"}: ${topics.length?topics.map(t=>`<span class="tag">${t}</span>`).join(" "):"-"}`;
+  const orgsTxt = (state.orgs||[]).map(o=>`<a href="https://github.com/${o.login}" target="_blank" rel="noopener">@${o.login}</a>`).join(", ");
+  $("#orgsList").innerHTML = `${I18N[state.lang]["stats.orgs"]||"Organisasi"}: ${orgsTxt||"-"}`;
+  const gistsTxt = (state.gists||[]).slice(0,3).map(g=>`<a href="${g.html_url}" target="_blank" rel="noopener">${g.description || g.files && Object.keys(g.files)[0] || "gist"}</a>`).join(", ");
+  $("#gistsList").innerHTML = `${I18N[state.lang]["stats.gists"]||"Gist terbaru"}: ${gistsTxt||"-"}`;
+  $("#stats").setAttribute("aria-busy","false");
+  lucide.createIcons();
 }
-    // Paksa page size jadi 4 dan render ulang halaman repo
+
 state.reposPageSize = 4;
 state.reposOffset = 0;
 if (typeof resetRepoPaging === "function") {
   resetRepoPaging();
-  console.log("");
-} else {
-  console.log("");
 }
-    async function loadData(){
-      // skeleton
-      showRepoSkeleton(8);
-      $("#repos").setAttribute("aria-busy","true");
-      $(".sidebar .card").setAttribute("aria-busy","true");
-      setStatus(state.lang==="en"?"Loading…":"Memuat…");
 
+/* ===================== Data Loading ===================== */
+async function loadData(){
+  showRepoSkeleton(8);
+  $("#repos").setAttribute("aria-busy","true");
+  $(".sidebar .card").setAttribute("aria-busy","true");
+  setStatus(state.lang==="en"?"Loading…":"Memuat…");
+
+  try{
+    const [user, repos, gists, orgs] = await Promise.all([
+      fetchJSON(API_USER),
+      fetchJSON(API_REPOS),
+      fetchJSON(API_GISTS).catch(()=>[]),
+      fetchJSON(API_ORGS).catch(()=>[])
+    ]);
+    state.user = user;
+    state.gists = Array.isArray(gists)?gists:[];
+    state.orgs = Array.isArray(orgs)?orgs:[];
+    renderProfile(user);
+
+    (repos||[]).forEach(r=>{ if(!Array.isArray(r.topics)) r.topics = []; });
+
+    state.allRepos = (repos||[]).sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at));
+    state.filteredRepos = state.allRepos;
+    resetRepoPaging();
+    computeTopLanguages(state.allRepos);
+    renderStats();
+    setStatus("");
+  }catch(err){
+    console.error(err);
+    let msg = state.lang==="en" ? "Failed to load GitHub data." : "Gagal memuat data GitHub.";
+    if(err.rateLimited){
+      const when = err.resetAt ? fmtDateTime(err.resetAt.toISOString()) : "";
+      msg += state.lang==="en" ? ` Rate limited. Try after ${when}.` : ` Rate Limited - Kena batas kuota. Coba lagi setelah ${when}.`;
+    }
+    setStatus(msg);
+  }finally{
+    $("#repos").setAttribute("aria-busy","false");
+    $(".sidebar .card").setAttribute("aria-busy","false");
+    const splash = $("#splash");
+    if(splash) splash.classList.add("hidden");
+  }
+}
+
+/* ===================== Events & Init ===================== */
+document.addEventListener("DOMContentLoaded", ()=>{
+  $("#year").textContent = new Date().getFullYear();
+
+  function updateHeaderHeight(){
+    const h = $(".site-header")?.offsetHeight || 72;
+    document.documentElement.style.setProperty("--header-h", h + "px");
+  }
+  updateHeaderHeight();
+  window.addEventListener("resize", ()=>{ updateHeaderHeight(); if(window.innerWidth>960) closeSearchPopover(); });
+
+  setTheme(state.theme);
+  setAccent(state.accent);
+  setLiteMode(state.lite);
+  setLang(state.lang);
+
+  function renderAccents(targetSel){
+    const host = $(targetSel); if(!host) return;
+    host.innerHTML = "";
+    ACCENTS.forEach(a=>{
+      const b = document.createElement("button");
+      b.className = "btn";
+      b.type="button";
+      b.setAttribute("data-accent", a.rgb);
+      b.setAttribute("aria-label", a.name);
+      b.innerHTML = `<span class="dot" style="background:${a.hex}"></span> ${a.name}`;
+      host.appendChild(b);
+    });
+  }
+  renderAccents("#accentChoices");
+  renderAccents("#accentChoicesM");
+
+  revealObserve();
+
+  $("#searchForm").addEventListener("submit", e=>e.preventDefault());
+  $("#searchFormSm").addEventListener("submit", e=>e.preventDefault());
+  const debounce = (fn,ms)=>{ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); } };
+  const onFilter = debounce(()=>applyFilters(), 160);
+  $("#searchInput").addEventListener("input", e=>{ $("#filterInput").value = e.target.value; onFilter(); });
+  $("#searchInputMobile").addEventListener("input", e=>{ $("#filterInput").value = e.target.value; onFilter(); });
+  $("#searchInputSm").addEventListener("input", e=>{ $("#filterInput").value = e.target.value; onFilter(); });
+  $("#filterInput").addEventListener("input", onFilter);
+  $("#sortSelect").addEventListener("change", applyFilters);
+
+  $("#themeBtn").addEventListener("click", ()=> setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark"));
+  $("#themeBtnM").addEventListener("click", ()=> setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark"));
+
+  $("#liteBtn").addEventListener("click", ()=> setLiteMode(!state.lite));
+  $("#liteBtnM").addEventListener("click", ()=> setLiteMode(!state.lite));
+
+  $("#langBtn").addEventListener("click", ()=> setLang(state.lang==="en"?"id":"en"));
+  $("#langBtnM").addEventListener("click", ()=> setLang(state.lang==="en"?"id":"en"));
+
+  const palettePanel = $("#palettePanel");
+  const palettePanelM = $("#palettePanelM");
+  function togglePalette(panel, btn){
+    const open = panel.style.display==="block";
+    panel.style.display = open ? "none" : "block";
+    btn.setAttribute("aria-expanded", open?"false":"true");
+  }
+  $("#accentBtn").addEventListener("click", (e)=>{ e.stopPropagation(); togglePalette(palettePanel, e.currentTarget); });
+  $("#accentBtnM").addEventListener("click", (e)=>{ e.stopPropagation(); palettePanelM.style.display = palettePanelM.style.display==="block" ? "none" : "block"; e.currentTarget.setAttribute("aria-expanded", palettePanelM.style.display==="block"?"true":"false"); });
+
+  [palettePanel, palettePanelM].forEach(panel=>{
+    panel.addEventListener("click", e=>{
+      const btn = e.target.closest(".btn[data-accent]");
+      if(!btn) return;
+      setAccent(btn.getAttribute("data-accent"));
+      panel.style.display = "none";
+      const abtn = $("#accentBtn"); if(abtn) abtn.setAttribute("aria-expanded","false");
+      const abtnm = $("#accentBtnM"); if(abtnm) abtnm.setAttribute("aria-expanded","false");
+    });
+  });
+
+  document.addEventListener("click", (e)=>{
+    if(palettePanel && !palettePanel.contains(e.target) && e.target !== $("#accentBtn")){
+      palettePanel.style.display = "none";
+      $("#accentBtn").setAttribute("aria-expanded","false");
+    }
+    if(palettePanelM && !palettePanelM.contains(e.target) && e.target !== $("#accentBtnM")){
+      palettePanelM.style.display = "none";
+      $("#accentBtnM").setAttribute("aria-expanded","false");
+    }
+  });
+
+  const spin = (iconSel)=>{ const icon=$(iconSel); if(!icon) return; icon.style.transition="transform 600ms cubic-bezier(.2,.7,.25,1)"; icon.style.transform="rotate(-360deg)"; setTimeout(()=> icon.style.transform="", 660); };
+  $("#refreshBtn").addEventListener("click", ()=>{ loadData(); spin("#refreshBtn i"); });
+  $("#refreshBtnM").addEventListener("click", ()=>{ loadData(); spin("#refreshBtnM i"); });
+
+  const burger = $("#burger");
+  const mobile = $("#mobilePanel");
+  function setMobile(open){
+    mobile.classList.toggle("open", open);
+    mobile.setAttribute("aria-hidden", open?"false":"true");
+    burger.setAttribute("aria-expanded", open?"true":"false");
+  }
+  burger.addEventListener("click", ()=> setMobile(!mobile.classList.contains("open")));
+  window.addEventListener("resize", ()=>{ if(window.innerWidth>960) setMobile(false); });
+
+  const toTopBtn = $("#toTopBtn");
+  window.addEventListener("scroll", ()=>{
+    if(window.scrollY > 240){ toTopBtn.classList.remove("hidden"); }
+    else { toTopBtn.classList.add("hidden"); }
+  });
+  toTopBtn.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
+
+  const shareBtn = $("#shareBtn");
+  const shareToast = $("#shareToast");
+  shareBtn.addEventListener("click", async ()=>{
+    const shareData = {
+      title: document.title,
+      text: state.lang==="en" ? "Check out my GitHub-powered portfolio" : "Lihat portfolio saya yang tersinkron GitHub",
+      url: location.href
+    };
+    if(navigator.share){
+      try{ await navigator.share(shareData); }catch{ /* noop */ }
+    }else{
       try{
-        const [user, repos, gists, orgs] = await Promise.all([
-          fetchJSON(API_USER),
-          fetchJSON(API_REPOS),
-          fetchJSON(API_GISTS).catch(()=>[]),
-          fetchJSON(API_ORGS).catch(()=>[])
-        ]);
-        state.user = user;
-        state.gists = Array.isArray(gists)?gists:[];
-        state.orgs = Array.isArray(orgs)?orgs:[];
-        renderProfile(user);
-
-        (repos||[]).forEach(r=>{ if(!Array.isArray(r.topics)) r.topics = []; });
-
-        state.allRepos = (repos||[]).sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at));
-        // initialize filteredRepos to allRepos
-        state.filteredRepos = state.allRepos;
-        // Render first page only (15 repos) and show Load more button
-        resetRepoPaging();
-        computeTopLanguages(state.allRepos);
-        renderStats();
-        setStatus("");
-      }catch(err){
-        console.error(err);
-        let msg = state.lang==="en" ? "Failed to load GitHub data." : "Gagal memuat data GitHub.";
-        if(err.rateLimited){
-          const when = err.resetAt ? fmtDateTime(err.resetAt.toISOString()) : "";
-          msg += state.lang==="en" ? ` Rate limited. Try after ${when}.` : ` Rate Limited - Kena batas kuota. Coba lagi setelah ${when}.`;
-        }
-        setStatus(msg);
-      }finally{
-        $("#repos").setAttribute("aria-busy","false");
-        $(".sidebar .card").setAttribute("aria-busy","false");
-        // hide splash once data is in
-        const splash = $("#splash");
-        if(splash) splash.classList.add("hidden");
+        await navigator.clipboard.writeText(location.href);
+        shareToast.textContent = state.lang==="en" ? "Link copied to clipboard" : "Tautan disalin";
+        shareToast.classList.add("show");
+        setTimeout(()=> shareToast.classList.remove("show"), 1800);
+      }catch{
+        shareToast.textContent = location.href;
+        shareToast.classList.add("show");
+        setTimeout(()=> shareToast.classList.remove("show"), 2200);
       }
     }
+  });
 
-    /* ===================== AI Assistant ===================== */
-    function buildAIContext(){
-      const lang = state.lang==="en" ? "English" : "Indonesian";
-      const user = state.user || {};
-      const repos = state.allRepos || [];
-      const topLangs = (()=> {
-        const c={}; repos.forEach(r=>{ if(r.language) c[r.language]=(c[r.language]||0)+1; });
-        return Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,v])=>`${k} x${v}`).join(", ");
-      })();
-      const topRepos = repos.slice(0,6).map(r=>`- ${r.name}${r.description?`: ${r.description}`:""}`).join("\n");
-      const totalStars = repos.reduce((s,r)=> s+(r.stargazers_count||0),0);
-
-      const itScope = state.lang==="en"
-        ? "Anda bersifat seperti anak gen z, sarkas terus, ngakak, memakai emot batu terus, seperti anak meme dan memakai emot 😭😂🤣😱🙏🖕👊, Web development, vanilla JavaScript, HTML/CSS, UI/UX, performance (lite mode), Firebase basics, Chart.js."
-        : "Anda bersifat seperti anak gen z, sarkas terus, ngakak, memakai emot batu terus, seperti anak meme dan memakai emot 😭😂🤣😱🙏🖕👊, Pengembangan web, JavaScript vanilla, HTML/CSS, UI/UX, performa (mode lite), dasar Firebase, Chart.js.";
-
-      const fishScope = state.lang==="en"
-        ? "Anda bersifat seperti anak gen z, sarkas terus, ngakak, memakai emot batu terus, seperti anak meme dan memakai emot 😭😂🤣😱🙏🖕👊, Fisheries product technology, basic quality control, documentation and inventory."
-        : "Anda bersifat seperti anak gen z, sarkas terus, ngakak, memakai emot batu terus, seperti anak meme dan memakai emot 😭😂🤣😱🙏🖕👊, Teknologi Hasil Perikanan, quality control dasar, dokumentasi dan inventaris.";
-
-      return [
-        `Anda bersifat seperti anak gen z, sarkas terus, ngakak, memakai emot batu terus, seperti anak meme dan memakai emot 😭😂🤣😱🙏🖕👊, usahakan jangan cringe`,
-        `You are an AI assistant for the personal portfolio of Gunadi Renta (@${GITHUB_USER}).`,
-        `Profile: name=${user.name||"Gunadi Renta"}, bio=${user.bio||"-"}, location=${user.location||"-"}.`,
-        `GitHub: public_repos=${user.public_repos||0}, total_stars=${totalStars}, top_languages=${topLangs||"-"}.`,
-        `Recent repos:\n${topRepos || "-"}\n`,
-        `Domains:\n- IT: ${itScope}\n- Fisheries: ${fishScope}\n`,
-        `Requirements:`,
-        `- Always respond in ${lang}.`,
-        `- Match the selected domain mode (IT or Fisheries). If unclear, ask a concise follow-up.`,
-        `- Style: ${AI_RESPONSE_STYLE==="concise"?(state.lang==="en"?"Concise":"Singkat"):(state.lang==="en"?"Detailed":"Detail")}.`,
-        `- Be accurate, structure the answer with bullets or short paragraphs, and include brief code only when necessary.`,
-        `- Avoid making up unverifiable facts; if unknown, say so briefly.`
-      ].join("\n");
+  // Search popover 
+  const searchToggle = $("#searchToggle");
+  const searchPopover = $("#searchPopover");
+  function openSearchPopover(){
+    searchPopover.classList.add("open");
+    searchPopover.setAttribute("aria-hidden","false");
+    searchToggle.setAttribute("aria-expanded","true");
+    setTimeout(()=> $("#searchInputSm")?.focus(), 30);
+    lucide.createIcons();
+  }
+  function closeSearchPopover(){
+    searchPopover.classList.remove("open");
+    searchPopover.setAttribute("aria-hidden","true");
+    searchToggle.setAttribute("aria-expanded","false");
+  }
+  function toggleSearchPopover(){
+    const open = searchPopover.classList.contains("open");
+    open ? closeSearchPopover() : openSearchPopover();
+  }
+  searchToggle.addEventListener("click", (e)=>{ e.stopPropagation(); toggleSearchPopover(); });
+  document.addEventListener("click", (e)=>{
+    if(searchPopover.classList.contains("open")){
+      const inside = searchPopover.contains(e.target) || e.target === searchToggle;
+      if(!inside) closeSearchPopover();
     }
+  });
+  document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeSearchPopover(); });
 
-    function aiAppendMessage(role, text){
-      const wrap = document.createElement("div");
-      wrap.className = `msg ${role}`;
-      wrap.innerHTML = `
-        <div class="who"><i data-lucide="${role==='user'?'user':'bot'}"></i></div>
-        <div class="bubble">${text.replace(/\n/g,"<br/>")}</div>
-      `;
-      $("#aiMessages").appendChild(wrap);
-      $("#aiMessages").scrollTop = $("#aiMessages").scrollHeight;
-      lucide.createIcons();
-    }
-
-    function aiSetBusy(on){
-      $("#aiMessages").setAttribute("aria-busy", on?"true":"false");
-    }
-
-    async function aiGenerate(modelId, contents, systemText){
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(modelId)}:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
-      const body = {
-        contents,
-        systemInstruction: { role: "system", parts: [{text: systemText}] },
-        generationConfig: {
-          temperature: AI_RESPONSE_STYLE==="concise" ? 0.4 : 0.8,
-          topK: 40,
-          topP: 0.95,
-          maxOutputTokens: AI_RESPONSE_STYLE==="concise" ? 512 : 1536
-        },
-        safetySettings: [
-
-        ]
-      };
-      const res = await fetch(endpoint, {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify(body)
-      });
-      if(!res.ok){
-        const text = await res.text().catch(()=> "");
-        const err = new Error(`Gemini HTTP ${res.status} ${text}`);
-        err.status = res.status;
-        throw err;
+  function enhanceLoadMoreButton(){
+    const btn = getLoadMoreButton();
+    if(!btn) return;
+    setTimeout(()=> { updateLoadMoreButton(); }, 0);
+    btn.addEventListener("click", async (e) => {
+      if(btn.disabled) return;
+      setLoadMoreBusy(true);
+      await new Promise(requestAnimationFrame);
+      try {
+        renderReposPage();
+      } catch (err) {
+        console.error("Failed to load more repos:", err);
+      } finally {
+        setTimeout(()=> {
+          setLoadMoreBusy(false);
+          updateLoadMoreButton();
+        }, 600);
       }
-      const data = await res.json();
-      const out = data?.candidates?.[0]?.content?.parts?.map(p=>p.text).join("") || "";
-      return out.trim();
+    });
+  }
+  setTimeout(()=> { enhanceLoadMoreButton(); }, 120);
+
+  // WhatsApp modal wiring
+  (function setupWhatsApp(){
+    const WA_NUMBER = "6285341899229";
+    const selectors = {
+      openBtn: "#waMsgBtn",
+      quickBtn: "#waQuickBtn",
+      modal: "#waModal",
+      form: "#waForm",
+      name: "#waName",
+      subject: "#waSubject",
+      message: "#waMessage",
+      contact: "#waContact",
+      sendBtn: "#waSendBtn",
+      cancelBtn: "#waCancelBtn",
+      closeAttr: "[data-close-modal]"
+    };
+    const $q = (s, r=document) => r.querySelector(s);
+    function i18n(key){
+      try { const lang = (window.state && window.state.lang) || state.lang || "id"; return (window.I18N && window.I18N[lang] && window.I18N[lang][key]) || ""; } catch { return ""; }
     }
-
-    async function aiSendPrompt(){
-      const input = $("#aiInput");
-      const txt = (input.value||"").trim();
-      if(!txt) return;
-      if(!GEMINI_API_KEY){
-        const warn = state.lang==="en"
-          ? "Please set GEMINI_API_KEY in code to use the AI."
-          : "Silakan isi GEMINI_API_KEY di kode untuk menggunakan AI.";
-        aiAppendMessage("assistant", warn);
-        return;
-      }
-
-      const domain = $("#aiDomain").value; // "it" | "fisheries"
-      const prefix = state.lang==="en"
-        ? (domain==="it" ? "[Mode: IT/Web]" : "[Mode: Fisheries]")
-        : (domain==="it" ? "[Mode: IT/Web]" : "[Mode: Perikanan]");
-
-      // Update history
-      state.ai.history.push({role:"user", parts:[{text: `${prefix} ${txt}`}]} );
-      if(state.ai.history.length > AI_MAX_TURNS) state.ai.history = state.ai.history.slice(-AI_MAX_TURNS);
-
-      aiAppendMessage("user", txt);
-      aiSetBusy(true);
-      input.value = "";
-
-      const systemText = buildAIContext();
-
-      try{
-        let answer = await aiGenerate(GEMINI_MODEL_PRIMARY, state.ai.history, systemText);
-        if(!answer && !state.ai.modelTriedFallback){
-          state.ai.modelTriedFallback = true;
-          $("#aiModelBadge").textContent = GEMINI_MODEL_FALLBACK;
-          answer = await aiGenerate(GEMINI_MODEL_FALLBACK, state.ai.history, systemText);
-        }
-        state.ai.history.push({role:"model", parts:[{text: answer||"(no response)"}]});
-        aiAppendMessage("assistant", answer || (state.lang==="en"?"(no response)":"(tidak ada respons)"));
-      }catch(err){
-        console.error(err);
-        const msg = state.lang==="en" ? `Error: ${err.message}` : `Galat: ${err.message}`;
-        aiAppendMessage("assistant", msg);
-      }finally{
-        aiSetBusy(false);
-      }
-    }
-
-    function openAIModal(){
-      const modal = $("#aiModal");
+    function openModal(){
+      const modal = $q(selectors.modal);
+      if(!modal) return;
       modal.classList.add("open");
       modal.setAttribute("aria-hidden","false");
-      const hint = $("#aiHint");
-      hint.textContent = GEMINI_API_KEY
-        ? (state.lang==="en" ? "Type your question and press Send or Enter." : "Tulis pertanyaan dan tekan Kirim atau Enter.")
-        : (state.lang==="en" ? "Insert your Gemini API key in code to enable chatting." : "Masukkan API key Gemini di kode untuk mengaktifkan chat.");
-      const close = (e)=>{
-        if(e.type==="keydown" && e.key!=="Escape") return;
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden","true");
-        document.removeEventListener("keydown", close);
-      };
-      modal.querySelectorAll("[data-close-modal]").forEach(el=>el.onclick=close);
-      document.addEventListener("keydown", close);
-      // Focus input
-      setTimeout(()=> $("#aiInput")?.focus(), 60);
-      lucide.createIcons();
+      setTimeout(()=> $q(selectors.name)?.focus(), 40);
+      document.addEventListener("keydown", onKey);
     }
-
-    /* ===================== Events & Init ===================== */
-    document.addEventListener("DOMContentLoaded", ()=>{
-      $("#year").textContent = new Date().getFullYear();
-
-      // Measure header height for offsets (prevents overlap on anchor jump + sticky sidebar)
-      function updateHeaderHeight(){
-        const h = $(".site-header")?.offsetHeight || 72;
-        document.documentElement.style.setProperty("--header-h", h + "px");
-      }
-      updateHeaderHeight();
-      window.addEventListener("resize", ()=>{
-        updateHeaderHeight();
-        // close mobile search when switching to desktop
-        if(window.innerWidth>960) closeSearchPopover();
-      });
-
-      // Initialize theme, accent, lang, lite
-      setTheme(state.theme);
-      setAccent(state.accent);
-      setLiteMode(state.lite);
-      setLang(state.lang);
-
-      // Build accent choices dynamically
-      function renderAccents(targetSel){
-        const host = $(targetSel); if(!host) return;
-        host.innerHTML = "";
-        ACCENTS.forEach(a=>{
-          const b = document.createElement("button");
-          b.className = "btn";
-          b.type="button";
-          b.setAttribute("data-accent", a.rgb);
-          b.setAttribute("aria-label", a.name);
-          b.innerHTML = `<span class="dot" style="background:${a.hex}"></span> ${a.name}`;
-          host.appendChild(b);
-        });
-      }
-      renderAccents("#accentChoices");
-      renderAccents("#accentChoicesM");
-
-      // Reveal
-      revealObserve();
-
-      // Search handlers
-      $("#searchForm").addEventListener("submit", e=>e.preventDefault());
-      $("#searchFormSm").addEventListener("submit", e=>e.preventDefault());
-      const debounce = (fn,ms)=>{ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); } };
-      const onFilter = debounce(()=>applyFilters(), 160);
-      // Desktop
-      $("#searchInput").addEventListener("input", e=>{ $("#filterInput").value = e.target.value; onFilter(); });
-      // Legacy mobile (kept for safety; hidden by CSS)
-      $("#searchInputMobile").addEventListener("input", e=>{ $("#filterInput").value = e.target.value; onFilter(); });
-      // New mobile popover
-      $("#searchInputSm").addEventListener("input", e=>{ $("#filterInput").value = e.target.value; onFilter(); });
-
-      $("#filterInput").addEventListener("input", onFilter);
-      $("#sortSelect").addEventListener("change", applyFilters);
-
-      // Theme toggle
-      $("#themeBtn").addEventListener("click", ()=> setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark"));
-      $("#themeBtnM").addEventListener("click", ()=> setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark"));
-
-      // Lite toggle
-      $("#liteBtn").addEventListener("click", ()=> setLiteMode(!state.lite));
-      $("#liteBtnM").addEventListener("click", ()=> setLiteMode(!state.lite));
-
-      // Language toggle
-      $("#langBtn").addEventListener("click", ()=> setLang(state.lang==="en"?"id":"en"));
-      $("#langBtnM").addEventListener("click", ()=> setLang(state.lang==="en"?"id":"en"));
-
-      // Accent panels
-      const palettePanel = $("#palettePanel");
-      const palettePanelM = $("#palettePanelM");
-
-      function togglePalette(panel, btn){
-        const open = panel.style.display==="block";
-        panel.style.display = open ? "none" : "block";
-        btn.setAttribute("aria-expanded", open?"false":"true");
-      }
-
-      $("#accentBtn").addEventListener("click", (e)=>{ e.stopPropagation(); togglePalette(palettePanel, e.currentTarget); });
-      $("#accentBtnM").addEventListener("click", (e)=>{ e.stopPropagation(); palettePanelM.style.display = palettePanelM.style.display==="block" ? "none" : "block"; e.currentTarget.setAttribute("aria-expanded", palettePanelM.style.display==="block"?"true":"false"); });
-
-      // Accent choices events
-      [palettePanel, palettePanelM].forEach(panel=>{
-        panel.addEventListener("click", e=>{
-          const btn = e.target.closest(".btn[data-accent]");
-          if(!btn) return;
-          setAccent(btn.getAttribute("data-accent"));
-          panel.style.display = "none";
-          const abtn = $("#accentBtn"); if(abtn) abtn.setAttribute("aria-expanded","false");
-          const abtnm = $("#accentBtnM"); if(abtnm) abtnm.setAttribute("aria-expanded","false");
-        });
-      });
-
-      // Close pop panels on outside click
-      document.addEventListener("click", (e)=>{
-        if(palettePanel && !palettePanel.contains(e.target) && e.target !== $("#accentBtn")){
-          palettePanel.style.display = "none";
-          $("#accentBtn").setAttribute("aria-expanded","false");
-        }
-        if(palettePanelM && !palettePanelM.contains(e.target) && e.target !== $("#accentBtnM")){
-          palettePanelM.style.display = "none";
-          $("#accentBtnM").setAttribute("aria-expanded","false");
-        }
-      });
-
-      // Refresh
-      const spin = (iconSel)=>{ const icon=$(iconSel); if(!icon) return; icon.style.transition="transform 600ms cubic-bezier(.2,.7,.25,1)"; icon.style.transform="rotate(-360deg)"; setTimeout(()=> icon.style.transform="", 660); };
-      $("#refreshBtn").addEventListener("click", ()=>{ loadData(); spin("#refreshBtn i"); });
-      $("#refreshBtnM").addEventListener("click", ()=>{ loadData(); spin("#refreshBtnM i"); });
-
-            // Mobile menu toggle
-      const burger = $("#burger");
-      const mobile = $("#mobilePanel");
-      function setMobile(open){
-        mobile.classList.toggle("open", open);
-        mobile.setAttribute("aria-hidden", open?"false":"true");
-        burger.setAttribute("aria-expanded", open?"true":"false");
-      }
-      burger.addEventListener("click", ()=> setMobile(!mobile.classList.contains("open")));
-      window.addEventListener("resize", ()=>{ if(window.innerWidth>960) setMobile(false); });
-
-      // Floating: Scroll-to-top show/hide
-      const toTopBtn = $("#toTopBtn");
-      window.addEventListener("scroll", ()=>{
-        if(window.scrollY > 240){ toTopBtn.classList.remove("hidden"); }
-        else { toTopBtn.classList.add("hidden"); }
-      });
-      toTopBtn.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
-
-      // Share button
-      const shareBtn = $("#shareBtn");
-      const shareToast = $("#shareToast");
-      shareBtn.addEventListener("click", async ()=>{
-        const shareData = {
-          title: document.title,
-          text: state.lang==="en" ? "Check out my GitHub-powered portfolio" : "Lihat portfolio saya yang tersinkron GitHub",
-          url: location.href
-        };
-        if(navigator.share){
-          try{ await navigator.share(shareData); }catch{ /* noop */ }
-        }else{
-          try{
-            await navigator.clipboard.writeText(location.href);
-            shareToast.textContent = state.lang==="en" ? "Link copied to clipboard" : "Tautan disalin";
-            shareToast.classList.add("show");
-            setTimeout(()=> shareToast.classList.remove("show"), 1800);
-          }catch{
-            shareToast.textContent = location.href;
-            shareToast.classList.add("show");
-            setTimeout(()=> shareToast.classList.remove("show"), 2200);
-          }
-        }
-      });
-
-      // AI buttons
-      const openAI = ()=> openAIModal();
-      $("#aiBtn").addEventListener("click", openAI);
-      $("#aiBtnM").addEventListener("click", openAI);
-      $("#aiFabBtn").addEventListener("click", openAI);
-      $("#aiSend").addEventListener("click", aiSendPrompt);
-      $("#aiInput").addEventListener("keydown", (e)=>{
-        if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); aiSendPrompt(); }
-      });
-
-      aiAppendMessage("assistant", state.lang==="en"
-        ? "Hi! I'm your portfolio AI assistant. Choose a mode (IT or Fisheries) and ask me anything."
-        : "Halo! Saya asisten AI portfolio Anda. Pilih mode (IT atau Perikanan) lalu tanyakan apa saja.");
-
-      const searchToggle = $("#searchToggle");
-      const searchPopover = $("#searchPopover");
-      function openSearchPopover(){
-        searchPopover.classList.add("open");
-        searchPopover.setAttribute("aria-hidden","false");
-        searchToggle.setAttribute("aria-expanded","true");
-        setTimeout(()=> $("#searchInputSm")?.focus(), 30);
-        lucide.createIcons();
-      }
-      function closeSearchPopover(){
-        searchPopover.classList.remove("open");
-        searchPopover.setAttribute("aria-hidden","true");
-        searchToggle.setAttribute("aria-expanded","false");
-      }
-      function toggleSearchPopover(){
-        const open = searchPopover.classList.contains("open");
-        open ? closeSearchPopover() : openSearchPopover();
-      }
-      searchToggle.addEventListener("click", (e)=>{ e.stopPropagation(); toggleSearchPopover(); });
-      document.addEventListener("click", (e)=>{
-        if(searchPopover.classList.contains("open")){
-          const inside = searchPopover.contains(e.target) || e.target === searchToggle;
-          if(!inside) closeSearchPopover();
-        }
-      });
-      document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeSearchPopover(); });
-
-      // Load more button listener
-      $("#loadMoreBtn").addEventListener("click", (e)=>{
-        renderReposPage();
-      });
-
-      // Initial load
-      showRepoSkeleton(8);
-      loadData();
-
-      // Icons
-      lucide.createIcons();
-    });
-
-(function initPricingButtons(){
-  // helper to open a mailto (encoded) as fallback
-  function openMail(subject, body){
-    const mail = `mailto:gunadirenta@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mail;
-  }
-
-  document.querySelectorAll(".buy-btn").forEach(btn=>{
-    btn.addEventListener("click", (e)=>{
-      const url = btn.getAttribute("data-url");
-      const plan = btn.getAttribute("data-plan") || "Package";
-      if(url){
-        // If it's a mailto keep it, otherwise open in new tab
-        if(url.startsWith("mailto:")) window.location.href = url;
-        else window.open(url, "_blank", "noopener");
-      }else{
-        // fallback: open mail to ask for purchase
-        openMail(`Beli ${plan} Template`, `Halo, saya ingin membeli paket ${plan}. Mohon info cara pembayaran dan file.`);
-      }
-    });
-  });
-
-  // Extra small actions for other buttons (demo/compare/contact)
-  document.querySelectorAll(".pricing-card .btn").forEach(btn=>{
-    const action = btn.getAttribute("data-action");
-    if(!action) return;
-    btn.addEventListener("click", (e)=>{
-      const plan = btn.getAttribute("data-plan") || "";
-      if(action === "learn"){
-        const demoUrl = "/index.html";
-        window.open(demoUrl, "_blank", "noopener");
-      } else if(action === "compare"){
-        alert(`Bandingkan fitur paket: ${plan}\n(.)`);
-      } else if(action === "contact"){
-        openMail(`Bantuan setup - ${plan}`, `Halo, saya minta bantuan setup untuk paket ${plan}. Mohon info layanan dan jadwal.`);
-      }
-    });
-  });
-
-  if(window.lucide && typeof window.lucide.createIcons === "function"){
-    window.lucide.createIcons();
-  }
-}
-)();
-
-// WhatsApp modal & send helper (i18n-aware)
-(function(){
-  const WA_NUMBER = "6285341899229"; // format internasional tanpa tanda +
-  const selectors = {
-    openBtn: "#waMsgBtn",
-    quickBtn: "#waQuickBtn",
-    modal: "#waModal",
-    form: "#waForm",
-    name: "#waName",
-    subject: "#waSubject",
-    message: "#waMessage",
-    contact: "#waContact",
-    sendBtn: "#waSendBtn",
-    cancelBtn: "#waCancelBtn",
-    closeAttr: "[data-close-modal]"
-  };
-
-  const $ = (s, r=document) => r.querySelector(s);
-
-  function i18n(key){
-    try {
-      const lang = (window.state && window.state.lang) || "id";
-      return (window.I18N && window.I18N[lang] && window.I18N[lang][key]) || "";
-    } catch { return ""; }
-  }
-
-  function openModal(){
-    const modal = $(selectors.modal);
-    if(!modal) return;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden","false");
-    setTimeout(()=> $(selectors.name)?.focus(), 40);
-    document.addEventListener("keydown", onKey);
-  }
-
-  function closeModal(){
-    const modal = $(selectors.modal);
-    if(!modal) return;
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden","true");
-    document.removeEventListener("keydown", onKey);
-  }
-
-  function onKey(e){
-    if(e.key === "Escape") closeModal();
-  }
-
-  function validateForm(){
-    const nameEl = $(selectors.name);
-    const msgEl = $(selectors.message);
-    const name = (nameEl?.value || "").trim();
-    const message = (msgEl?.value || "").trim();
-    if(!name) return {ok:false, field: selectors.name, reason: i18n("wa.validation.name_required") || "Name required"};
-    if(!message || message.length < 3) return {ok:false, field: selectors.message, reason: i18n("wa.validation.message_required") || "Message too short"};
-    return {ok:true};
-  }
-
-  function buildWhatsAppText(){
-    const name = ($(selectors.name)?.value || "").trim();
-    const subject = ($(selectors.subject)?.value || "").trim();
-    const message = ($(selectors.message)?.value || "").trim();
-    const contact = ($(selectors.contact)?.value || "").trim();
-
-    let lines = [];
-    lines.push(i18n("wa.template.greeting") || `Halo, saya ${name}`);
-    if(subject) lines.push(`${i18n("wa.template.subject_label") || "Subjek"}: ${subject}`);
-    lines.push("");
-    lines.push(message);
-    lines.push("");
-    if(contact) lines.push(`${i18n("wa.template.contact_label") || "Kontak"}: ${contact}`);
-    lines.push(`${i18n("wa.template.source") || "Sumber: Portfolio (gunadi.tech)"}`);
-    return lines.join("\n");
-  }
-
-  function openWhatsAppWithText(text){
-    const encoded = encodeURIComponent(text);
-    const url = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
-    window.open(url, "_blank", "noopener");
-  }
-
-  function onSendClicked(e){
-    e.preventDefault();
-    const v = validateForm();
-    if(!v.ok){
-      const el = document.querySelector(v.field);
-      if(el){
-        el.focus();
-        el.classList.add("shake");
-        setTimeout(()=> el.classList.remove("shake"), 300);
-      }
-      // optionally show alert with reason
-      if(v.reason) alert(v.reason);
-      return;
+    function closeModal(){
+      const modal = $q(selectors.modal);
+      if(!modal) return;
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden","true");
+      document.removeEventListener("keydown", onKey);
     }
-    const text = buildWhatsAppText();
-    openWhatsAppWithText(text);
-    closeModal();
-  }
+    function onKey(e){ if(e.key === "Escape") closeModal(); }
+    function validateForm(){
+      const nameEl = $q(selectors.name);
+      const msgEl = $q(selectors.message);
+      const name = (nameEl?.value || "").trim();
+      const message = (msgEl?.value || "").trim();
+      if(!name) return {ok:false, field: selectors.name, reason: i18n("wa.validation.name_required") || "Name required"};
+      if(!message || message.length < 3) return {ok:false, field: selectors.message, reason: i18n("wa.validation.message_required") || "Message too short"};
+      return {ok:true};
+    }
+    function buildWhatsAppText(){
+      const name = ($q(selectors.name)?.value || "").trim();
+      const subject = ($q(selectors.subject)?.value || "").trim();
+      const message = ($q(selectors.message)?.value || "").trim();
+      const contact = ($q(selectors.contact)?.value || "").trim();
+      let lines = [];
+      lines.push(i18n("wa.quick_text") || `Halo, saya ${name}`);
+      if(subject) lines.push(`${i18n("wa.template.subject_label") || "Subjek"}: ${subject}`);
+      lines.push("");
+      lines.push(message);
+      lines.push("");
+      if(contact) lines.push(`${i18n("wa.template.contact_label") || "Kontak"}: ${contact}`);
+      lines.push(`${i18n("wa.template.source") || "Sumber: Portfolio (gunadi.tech)"}`);
+      return lines.join("\n");
+    }
+    function openWhatsAppWithText(text){
+      const encoded = encodeURIComponent(text);
+      const url = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
+      window.open(url, "_blank", "noopener");
+    }
+    function onSendClicked(e){
+      e.preventDefault();
+      const v = validateForm();
+      if(!v.ok){
+        const el = document.querySelector(v.field);
+        if(el){ el.focus(); el.classList.add("shake"); setTimeout(()=> el.classList.remove("shake"), 300); }
+        if(v.reason) alert(v.reason);
+        return;
+      }
+      const text = buildWhatsAppText();
+      openWhatsAppWithText(text);
+      closeModal();
+    }
+    function onQuickClicked(){
+      const quick = i18n("wa.quick_text") || "Halo";
+      openWhatsAppWithText(quick);
+    }
+    if($q(selectors.openBtn)) $q(selectors.openBtn).addEventListener("click", openModal);
+    if($q(selectors.quickBtn)) $q(selectors.quickBtn).addEventListener("click", onQuickClicked);
+    if($q(selectors.sendBtn)) $q(selectors.sendBtn).addEventListener("click", onSendClicked);
+    if($q(selectors.cancelBtn)) $q(selectors.cancelBtn).addEventListener("click", (e)=>{ e.preventDefault(); closeModal(); });
 
-  function onQuickClicked(){
-    const quick = i18n("wa.quick_text") || "Halo";
-    openWhatsAppWithText(quick);
-  }
-
-  // attach events & wire i18n-aware placeholders / labels if needed
-  document.addEventListener("DOMContentLoaded", ()=>{
-    const openBtn = $(selectors.openBtn);
-    const quickBtn = $(selectors.quickBtn);
-    const modal = $(selectors.modal);
-    const sendBtn = $(selectors.sendBtn);
-    const cancelBtn = $(selectors.cancelBtn);
-
-    if(openBtn) openBtn.addEventListener("click", openModal);
-    if(quickBtn) quickBtn.addEventListener("click", onQuickClicked);
-    if(sendBtn) sendBtn.addEventListener("click", onSendClicked);
-    if(cancelBtn) cancelBtn.addEventListener("click", (e)=>{ e.preventDefault(); closeModal(); });
-
+    const modal = $q(selectors.modal);
     if(modal){
-      modal.querySelectorAll(selectors.closeAttr).forEach(el => {
-        el.addEventListener("click", ()=> closeModal());
-      });
-      modal.addEventListener("click", (e)=>{
-        if(e.target === modal) closeModal();
-      });
+      modal.querySelectorAll(selectors.closeAttr).forEach(el => { el.addEventListener("click", ()=> closeModal()); });
+      modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
     }
 
-    // Update static labels/placeholders once at load, will be updated again by setLang when user switches
     const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
-    placeholders.forEach(el=>{
-      const key = el.getAttribute('data-i18n-placeholder');
-      el.placeholder = i18n(key) || el.placeholder || "";
-    });
+    placeholders.forEach(el=>{ const key = el.getAttribute('data-i18n-placeholder'); el.placeholder = i18n(key) || el.placeholder || ""; });
 
-    // Update any labels/text children that use data-i18n-key (in case wa script loaded later)
     document.querySelectorAll('[data-i18n-key]').forEach(el=>{
       const key = el.getAttribute('data-i18n-key');
       const val = i18n(key);
       if(val !== "") {
-        // If element likely contains HTML, use innerHTML for specific keys, otherwise textContent
         if(["wa.cta.muted","wa.note.after_send","wa.note.number"].includes(key)) el.innerHTML = val;
         else el.textContent = val;
       }
     });
 
-    // optional: small CSS for invalid shake
     const style = document.createElement("style");
     style.textContent = `
       .shake{ animation: shake .28s linear; }
@@ -2706,26 +1938,27 @@ if (typeof resetRepoPaging === "function") {
       }
     `;
     document.head.appendChild(style);
-
     if(window.lucide && typeof window.lucide.createIcons === "function"){
       window.lucide.createIcons();
     }
-  });
-})();
+  })();
+
+  // Load initial data
+  showRepoSkeleton(8);
+  loadData();
+
+  lucide.createIcons();
+});
 
 (function enableGlobalClickSoundFromUrl(){
-  const SOUND_URL = "https://github.com/gunadizz/FemmeiaCloth/raw/refs/heads/main/app/store/assets/ui-pop-sound-316482.mp3";
-  const MIN_INTERVAL_MS = 25; // mencegah spam pemutaran berlebih
+  const SOUND_URL = "https://www.femmeiacloth.me/app/store/assets/ui-pop-sound-316482.mp3";
+  const MIN_INTERVAL_MS = 25;
   let lastPlay = 0;
 
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
   const ctx = AudioCtx ? new AudioCtx() : null;
   let buffer = null;
-  let loading = false;
 
-  
-
-  // Fallback simple Audio element if decode not available or fails
   const fallbackAudio = new Audio(SOUND_URL);
   fallbackAudio.preload = "auto";
   fallbackAudio.volume = 1;
@@ -2737,11 +1970,10 @@ if (typeof resetRepoPaging === "function") {
       const src = ctx.createBufferSource();
       src.buffer = buffer;
       const gain = ctx.createGain();
-      gain.gain.value = 1; // volume (sesuaikan)
+      gain.gain.value = 1;
       src.connect(gain);
       gain.connect(ctx.destination);
       src.start(now);
-      // cleanup
       src.onended = ()=> { try{ src.disconnect(); gain.disconnect(); }catch(e){} };
       return true;
     }catch(err){
@@ -2752,7 +1984,6 @@ if (typeof resetRepoPaging === "function") {
 
   function playFallbackAudio(){
     try{
-      // play a cloned element to allow overlap without interrupting current play
       const a = fallbackAudio.cloneNode(true);
       a.volume = fallbackAudio.volume;
       a.play().catch(()=>{});
@@ -2763,26 +1994,20 @@ if (typeof resetRepoPaging === "function") {
     const nowMs = performance.now();
     if(nowMs - lastPlay < MIN_INTERVAL_MS) return;
     lastPlay = nowMs;
-
-    // Prefer WebAudio if ready
     if(ctx && buffer){
       if(!playViaWebAudio()){
         playFallbackAudio();
       }
     } else {
-      // if still loading, try fallback immediate play (may re-download once if not cached)
       playFallbackAudio();
     }
   }
 
-  // Global click listener: left-click only
   document.addEventListener("click", (e) => {
     if(typeof e.button === "number" && e.button !== 0) return;
-    // Optional: skip if user clicked file input while dragging etc. (keputusan Anda)
     playSound();
   }, {capture: true, passive: true});
 
-  // expose API for debugging in console (opsional)
   window.__globalClickSound = {
     isReady: () => !!buffer,
     useFallback: () => { buffer = null; },

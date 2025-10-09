@@ -11,7 +11,6 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /*  tokens  */
     :root{
       --bg: #f7f8fb;
       --paper: #ffffff;
@@ -158,7 +157,7 @@
           <span class="row"><i data-lucide="clock" aria-hidden="true"></i><span id="tzText">WITA</span></span>
         </div>
 
-        <!-- Social/contacts only (toggles moved to FAB) -->
+        <!-- Kontak -->
         <div class="links" aria-label="Links">
           <a class="icon-btn" href="mailto:gunadirenta@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
           <a class="icon-btn" id="link-github" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
@@ -181,7 +180,7 @@
       </div>
     </section>
 
-    <!-- Work Experience -->
+    <!-- Experience -->
     <section class="card section">
       <h2 id="workTitle">Work Experience</h2>
       <div class="xp-list" id="xpList"></div>
@@ -193,13 +192,13 @@
       <div class="xp" id="eduCard"></div>
     </section>
 
-    <!-- Skills -->
+    <!-- Skill -->
     <section class="card section">
       <h2 id="skillsTitle">Skills</h2>
       <div id="skillsRow" class="techs"></div>
     </section>
 
-    <!-- Projects (data GitHub) -->
+    <!-- Projek (data GitHub) -->
     <section class="card section">
       <h2 id="projectsTitle">Projects</h2>
       <div class="grid" id="projectsGrid"></div>
@@ -284,7 +283,6 @@
 
     const SKILLS = ["JavaScript","TypeScript","React/Next.js","Node.js","GraphQL","UI/UX","Python","Firebase","Chart.js","Excel","Accessibility"];
 
-    // ---------- Helpers ----------
     const $ = (s,r=document)=>r.querySelector(s);
 
     function setTheme(mode){
@@ -316,7 +314,6 @@
       $("#projectsTitle").textContent = t.projects_t;
       $("#backFull").textContent = t.back_full;
 
-      // Experience
       const wrap = $("#xpList"); wrap.innerHTML = "";
       EXPERIENCE[lang].forEach(x=>{
         const el = document.createElement("article");
@@ -333,7 +330,6 @@
         wrap.appendChild(el);
       });
 
-      // Education
       $("#eduCard").innerHTML = `
         <div class="xp-head">
           <div class="company">${t.edu_card_h}</div>
@@ -342,10 +338,8 @@
         <div class="muted">${t.edu_card_p}</div>
       `;
 
-      // Skills
       $("#skillsRow").innerHTML = SKILLS.map(s=>`<span class="chip">${s}</span>`).join("");
 
-      // FAB label
       const fabLabel = $("#fabLangLabel");
       if(fabLabel) fabLabel.textContent = lang==="en" ? "ID" : "EN";
       if(Array.isArray(state.repos) && state.repos.length) renderProjects(state.repos);
@@ -421,7 +415,6 @@
       dock.setAttribute("aria-hidden", isOpen ? "false" : "true");
     }
 
-    // Init
     document.getElementById("year").textContent = new Date().getFullYear();
     setTheme(state.theme);
     setLang(state.lang);
