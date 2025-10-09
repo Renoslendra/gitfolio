@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Gitfolio - Minimalist version</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..900&family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /*  tokens  */
+    :root{
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e5e7eb;
+      --chip: #f1f5f9;
+      --radius: 12px;
+      --w: 860px;
+      --fs: 15px;
+    }
+    
+    .dark{
+      --bg: #0b1020;
+      --paper: #0f172a;
+      --text: #e5e7eb;
+      --muted: #93a3b8;
+      --border: #1f2937;
+      --chip: #111827;
+    }
+
+    *,*::before,*::after{ box-sizing: border-box }
+    html,body{ margin:0; padding:0 }
+    img{ display:block; max-width:100%; height:auto }
+    a{ color: inherit; text-decoration: none }
+    ul{ margin:0; padding:0; list-style:none }
+
+    body{
+      font-family: "Inter Tight", Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      font-size: var(--fs);
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+
+    .container{ max-width: var(--w); margin: 36px auto 84px; padding: 0 16px; }
+
+    .card{ background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius); }
+    .header{
+      display: grid;
+      grid-template-columns: 1fr 112px;
+      gap: 18px;
+      padding: 20px;
+      align-items: start;
+    }
+    @media (max-width: 640px){ .header{ grid-template-columns: 1fr; } }
+
+    .name{
+      font-weight: 800;
+      font-size: clamp(22px, 4vw, 28px);
+      letter-spacing: -0.25px; 
+      line-height: 1.25;
+      margin: 2px 0 6px;
+    }
+    .headline{
+      color: var(--muted);
+      font-weight: 500;
+      margin: 0 0 8px;
+    }
+    .meta{ color: var(--muted); display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .meta i{ width:16px; height:16px }
+
+    .links{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+    .icon-btn{
+      width:34px; height:34px; border-radius:8px; display:inline-grid; place-items:center;
+      background: var(--paper); border:1px solid var(--border);
+    }
+    .icon-btn:hover{ background: color-mix(in oklab, var(--paper) 85%, #d1d5db) }
+
+    .avatar{
+      width:112px; height:112px; border-radius:14px; overflow:hidden; border:1px solid var(--border);
+      background:#fff;
+    }
+
+    .section{ margin-top: 22px; padding: 20px; }
+    .section h2{ font-size: 18px; font-weight: 800; margin: 0 0 10px; letter-spacing: -0.15px; }
+    .prose p{ margin: 0 0 10px }
+    .muted{ color: var(--muted) }
+
+  
+    .xp-list{ display:grid; gap:12px }
+    .xp{ border:1px solid var(--border); border-radius:10px; padding:12px; background: var(--paper); }
+    .xp-head{ display:grid; grid-template-columns: 1fr auto; gap:8px; align-items: baseline; margin-bottom:4px; }
+    .company{ font-weight:700; letter-spacing:-.1px }
+    .xp-meta{ color:var(--muted); font-size:13px }
+    .role{ font-weight:700 }
+    .badge{
+      display:inline-flex; gap:6px; align-items:center; padding:3px 8px; font-size:12px;
+      border-radius:999px; background: var(--chip); border:1px solid var(--border); color: var(--text);
+    }
+    .techs{ display:flex; gap:6px; flex-wrap:wrap; margin-top:8px }
+    .chip{ display:inline-flex; gap:6px; align-items:center; padding:4px 8px; font-size:12px; border-radius:999px; background:var(--chip); border:1px solid var(--border) }
+
+    .grid{ display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+    @media (max-width: 860px){ .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
+    .project{ border:1px solid var(--border); border-radius:12px; background:var(--paper); padding:14px; display:grid; gap:8px; }
+    .project h3{ margin:0; font-size:15px; font-weight:800; letter-spacing:-.1px; display:flex; gap:8px; align-items:center; }
+    .project .desc{ color: var(--muted); font-size:14px }
+    .row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap }
+
+    footer{ margin-top:18px; color:var(--muted); font-size:14px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:8px 2px; }
+
+    .fab{
+      position: fixed;
+      right: clamp(12px, 2vw, 20px);
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      display: grid;
+      gap: 10px;
+      z-index: 50;
+    }
+    .fab-btn, .fab-mini{
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--text);
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: inline-grid; place-items: center;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .fab-btn:hover, .fab-mini:hover{ transform: translateY(-2px); }
+    .fab-dock{
+      display: grid; gap: 8px;
+      justify-items: end;
+      max-height: 0; overflow: hidden;
+      transition: max-height .22s ease;
+    }
+    .fab.open .fab-dock{ max-height: 150px; }
+    .fab-mini{ width: 42px; height: 42px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+    .fab-mini .label{ font-family: "Inter Tight", Inter, system-ui; font-size: 12px }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- Header -->
+    <section class="card header">
+      <div>
+        <h1 class="name" id="name">Gunadi Renta</h1>
+        <p class="headline" id="headline">Full‑stack engineer focused on clean products and details</p>
+        <div class="meta">
+          <span class="row"><i data-lucide="map-pin" aria-hidden="true"></i><span id="locationText">Makassar, Indonesia</span></span>
+          <span class="row"><i data-lucide="clock" aria-hidden="true"></i><span id="tzText">WITA</span></span>
+        </div>
+
+        <!-- Social/contacts only (toggles moved to FAB) -->
+        <div class="links" aria-label="Links">
+          <a class="icon-btn" href="mailto:gunadirenta@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+          <a class="icon-btn" id="link-github" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
+          <a class="icon-btn" href="https://wa.me/6285341899229" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="phone"></i></a>
+          <a class="icon-btn" href="https://gunadi.tech" target="_blank" rel="noopener" aria-label="Website"><i data-lucide="globe-2"></i></a>
+          <a class="icon-btn" href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a class="icon-btn" href="https://instagram.com/gunadirnta" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+      <div class="avatar" id="avatar">
+        <img alt="Foto profil" src="https://github.com/gunadizz.png?size=220" width="112" height="112">
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="card section">
+      <h2 id="aboutTitle">About</h2>
+      <div class="prose" id="aboutBlock">
+        <p>I build clean, fast, and accessible products. I like lightweight front‑end patterns (vanilla/Next.js), data visualization, and simple service integrations.</p>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="card section">
+      <h2 id="workTitle">Work Experience</h2>
+      <div class="xp-list" id="xpList"></div>
+    </section>
+
+    <!-- Education -->
+    <section class="card section">
+      <h2 id="eduTitle">Education</h2>
+      <div class="xp" id="eduCard"></div>
+    </section>
+
+    <!-- Skills -->
+    <section class="card section">
+      <h2 id="skillsTitle">Skills</h2>
+      <div id="skillsRow" class="techs"></div>
+    </section>
+
+    <!-- Projects (data GitHub) -->
+    <section class="card section">
+      <h2 id="projectsTitle">Projects</h2>
+      <div class="grid" id="projectsGrid"></div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> <strong>Gunadi Renta</strong></span>
+      <a class="row" href="index.html"><i data-lucide="arrow-left"></i> <span id="backFull">Back to full version</span></a>
+    </footer>
+  </main>
+
+  <!-- FAB -->
+  <div class="fab" id="fab" aria-live="polite">
+    <button id="fabMain" class="fab-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open controls">
+      <i data-lucide="settings"></i>
+    </button>
+    <div class="fab-dock" id="fabDock" aria-hidden="true">
+      <button id="fabTheme" class="fab-mini" aria-label="Toggle dark mode">
+        <i data-lucide="moon" class="moon"></i>
+        <i data-lucide="sun" class="sun" style="display:none"></i>
+      </button>
+      <button id="fabLang" class="fab-mini" aria-label="Toggle language"><span class="label" id="fabLangLabel">EN</span></button>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Config ----------
+    const GITHUB_USER = "gunadizz";
+    const API_USER  = `https://api.github.com/users/${GITHUB_USER}`;
+    const API_REPOS = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
+    const GH_HEADERS = { "Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28" };
+
+    const state = {
+      lang: localStorage.getItem("lang") || "id",
+      theme: localStorage.getItem("theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
+      repos: []
+    };
+
+    const I18N = {
+      id: {
+        headline: "Engineer web yang fokus pada produk rapi dan detail",
+        about_t: "Tentang",
+        about_p: "Saya membangun produk yang bersih, cepat, dan mudah diakses. Suka pola front‑end ringan (vanilla/Next.js), visualisasi data, dan integrasi layanan sederhana.",
+        work_t: "Pengalaman",
+        edu_t: "Pendidikan",
+        edu_card_h: "Universitas Hasanuddin",
+        edu_card_p: "S1 Teknologi Hasil Perikanan",
+        skills_t: "Keahlian",
+        projects_t: "Proyek",
+        back_full: "Kembali ke versi penuh",
+        no_desc: "Tanpa deskripsi.",
+        side: "Proyek"
+      },
+      en: {
+        headline: "Full‑stack engineer focused on clean products and details",
+        about_t: "About",
+        about_p: "I build clean, fast, and accessible products. I like lightweight front‑end patterns (vanilla/Next.js), data visualization, and simple service integrations.",
+        work_t: "Work Experience",
+        edu_t: "Education",
+        edu_card_h: "Hasanuddin University",
+        edu_card_p: "Bachelor's Degree in Fisheries Product Technology",
+        skills_t: "Skills",
+        projects_t: "Projects",
+        back_full: "Back to full version",
+        no_desc: "No description.",
+        side: "Side Project"
+      }
+    };
+
+    const EXPERIENCE = {
+      id: [
+        { company: "Femmeia Cloth", role: "Founder & Web Developer", remote: true,  period: "2025 - sekarang", desc: "Website pemesanan terintegrasi WhatsApp & Firebase. Bangun Finance Tracker untuk pembukuan.", techs: ["TypeScript","Next.js","Firebase","Tailwind"] },
+        { company: "KKN Tematik (Perpusnas)", role: "Perlengkapan & Dokumentasi", remote: false, period: "2025", desc: "Kelola inventaris dan dokumentasi di Desa Maccini Sombala, Takalar.", techs: ["Dokumentasi","Inventaris"] },
+        { company: "Lab THP", role: "Asisten Praktikum", remote: false, period: "2024", desc: "Pendampingan uji mutu; olah data di Excel untuk laporan.", techs: ["Excel","QC"] }
+      ],
+      en: [
+        { company: "Femmeia Cloth", role: "Founder & Web Developer", remote: true,  period: "2025 - present", desc: "Ordering website integrated with WhatsApp & Firebase. Built a Finance Tracker for bookkeeping.", techs: ["TypeScript","Next.js","Firebase","Tailwind"] },
+        { company: "Thematic KKN (National Library)", role: "Equipment & Documentation", remote: false, period: "2025", desc: "Managed inventory and documentation in Maccini Sombala Village, Takalar.", techs: ["Documentation","Inventory"] },
+        { company: "Fisheries Product Tech Lab", role: "Lab Assistant", remote: false, period: "2024", desc: "Assisted quality tests; processed practicum data in Excel for reports.", techs: ["Excel","QC"] }
+      ]
+    };
+
+    const SKILLS = ["JavaScript","TypeScript","React/Next.js","Node.js","GraphQL","UI/UX","Python","Firebase","Chart.js","Excel","Accessibility"];
+
+    // ---------- Helpers ----------
+    const $ = (s,r=document)=>r.querySelector(s);
+
+    function setTheme(mode){
+      document.documentElement.classList.toggle("dark", mode==="dark");
+      state.theme = mode;
+      localStorage.setItem("theme", mode);
+      const btn = $("#fabTheme");
+      if(btn){
+        const moon = btn.querySelector(".moon");
+        const sun  = btn.querySelector(".sun");
+        if(moon && sun){ moon.style.display = mode==="dark" ? "none" : ""; sun.style.display = mode==="dark" ? "" : "none"; }
+        btn.setAttribute("aria-label", mode==="dark" ? (state.lang==="en"?"Switch to light mode":"Ubah ke mode terang") : (state.lang==="en"?"Switch to dark mode":"Ubah ke mode gelap"));
+      }
+      window.lucide?.createIcons();
+    }
+
+    function setLang(lang){
+      state.lang = lang;
+      localStorage.setItem("lang", lang);
+      document.documentElement.lang = lang==="en" ? "en" : "id";
+      const t = I18N[lang];
+
+      $("#headline").textContent = t.headline;
+      $("#aboutTitle").textContent = t.about_t;
+      $("#aboutBlock").innerHTML = `<p>${t.about_p}</p>`;
+      $("#workTitle").textContent = t.work_t;
+      $("#eduTitle").textContent = t.edu_t;
+      $("#skillsTitle").textContent = t.skills_t;
+      $("#projectsTitle").textContent = t.projects_t;
+      $("#backFull").textContent = t.back_full;
+
+      // Experience
+      const wrap = $("#xpList"); wrap.innerHTML = "";
+      EXPERIENCE[lang].forEach(x=>{
+        const el = document.createElement("article");
+        el.className = "xp";
+        el.innerHTML = `
+          <div class="xp-head">
+            <div class="company">${x.company} ${x.remote?'<span class="badge">Remote</span>':''}</div>
+            <div class="xp-meta">${x.period}</div>
+          </div>
+          <div class="role">${x.role}</div>
+          <div class="muted" style="margin-top:4px">${x.desc}</div>
+          <div class="techs">${x.techs.map(s=>`<span class="chip">${s}</span>`).join("")}</div>
+        `;
+        wrap.appendChild(el);
+      });
+
+      // Education
+      $("#eduCard").innerHTML = `
+        <div class="xp-head">
+          <div class="company">${t.edu_card_h}</div>
+          <div class="xp-meta">2022 — ${lang==="en"?"present":"sekarang"}</div>
+        </div>
+        <div class="muted">${t.edu_card_p}</div>
+      `;
+
+      // Skills
+      $("#skillsRow").innerHTML = SKILLS.map(s=>`<span class="chip">${s}</span>`).join("");
+
+      // FAB label
+      const fabLabel = $("#fabLangLabel");
+      if(fabLabel) fabLabel.textContent = lang==="en" ? "ID" : "EN";
+      if(Array.isArray(state.repos) && state.repos.length) renderProjects(state.repos);
+
+      window.lucide?.createIcons();
+    }
+
+    function langColor(language){
+      const map={JavaScript:"#f1e05a",TypeScript:"#3178c6",Python:"#3572A5",HTML:"#e34c26",CSS:"#563d7c",Shell:"#89e051",Go:"#00ADD8",PHP:"#4F5D95",Java:"#b07219",Ruby:"#701516",C:"#555555","C++":"#f34b7d",Kotlin:"#A97BFF",Dart:"#00B4AB",Rust:"#dea584"};
+      return map[language] || "#94a3b8";
+    }
+
+    function renderHeader(user){
+      $("#name").textContent = user.name || user.login || "Gunadi Renta";
+      $("#locationText").textContent = user.location || "—";
+      $("#link-github").href = user.html_url || `https://github.com/${GITHUB_USER}`;
+      const av = $("#avatar img");
+      if(av && user.avatar_url) av.src = user.avatar_url + "&s=220";
+      try{
+        const parts = new Intl.DateTimeFormat(undefined, { timeZoneName: "short" }).formatToParts(new Date());
+        $("#tzText").textContent = parts.find(p=>p.type==="timeZoneName")?.value || "—";
+      }catch{}
+    }
+
+    function renderProjects(repos){
+      const grid = $("#projectsGrid");
+      const t = I18N[state.lang];
+      grid.innerHTML = "";
+      const sorted = repos.slice()
+        .filter(r => !r.archived)
+        .sort((a,b)=>(b.stargazers_count||0)-(a.stargazers_count||0) || new Date(b.updated_at)-new Date(a.updated_at));
+      const count = window.innerWidth < 641 ? 10 : (window.innerWidth < 861 ? 6 : 9);
+      sorted.slice(0, count).forEach(r=>{
+        const lang = r.language ? `<span class="chip" title="Language"><span style="width:8px;height:8px;border-radius:999px;display:inline-block;background:${langColor(r.language)}"></span> ${r.language}</span>` : "";
+        const stars = (r.stargazers_count||0)>0 ? `<span class="chip"><i data-lucide="star"></i> ${r.stargazers_count}</span>` : "";
+        const license = r.license?.spdx_id ? `<span class="chip">${r.license.spdx_id}</span>` : "";
+        const topics = (Array.isArray(r.topics)?r.topics:[]).slice(0,3).map(tk=>`<span class="chip">#${tk}</span>`).join("");
+        const el = document.createElement("article");
+        el.className = "project";
+        el.innerHTML = `
+          <h3><i data-lucide="folder"></i><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
+          <div class="desc">${r.description || t.no_desc}</div>
+          <div class="row">${lang}${stars}${license}</div>
+          ${topics ? `<div class="row">${topics}</div>` : ``}
+        `;
+        grid.appendChild(el);
+      });
+      window.lucide?.createIcons();
+    }
+
+    async function loadData(){
+      try{
+        const [user, repos] = await Promise.all([
+          fetch(API_USER, {headers:GH_HEADERS}).then(r=>r.json()),
+          fetch(API_REPOS, {headers:GH_HEADERS}).then(r=>r.json())
+        ]);
+        state.repos = Array.isArray(repos) ? repos.map(r=>({...r, topics:r.topics||[]})) : [];
+        renderHeader(user);
+        renderProjects(state.repos);
+      }catch(err){
+        console.error("GitHub fetch error", err);
+        $("#projectsGrid").innerHTML = `<div class="muted">${state.lang==="en" ? "Failed to load GitHub repositories." : "Gagal memuat repositori GitHub."}</div>`;
+      }
+    }
+
+    function toggleFab(open){
+      const fab = $("#fab");
+      const main = $("#fabMain");
+      const dock = $("#fabDock");
+      const isOpen = open ?? !fab.classList.contains("open");
+      fab.classList.toggle("open", isOpen);
+      main.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      dock.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    }
+
+    // Init
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setTheme(state.theme);
+    setLang(state.lang);
+    loadData();
+
+    $("#fabMain").addEventListener("click", (e)=>{ e.stopPropagation(); toggleFab(); });
+    $("#fabTheme").addEventListener("click", (e)=>{
+      e.stopPropagation();
+      setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark");
+    });
+    $("#fabLang").addEventListener("click", (e)=>{
+      e.stopPropagation();
+      setLang(state.lang==="en" ? "id" : "en");
+    });
+    document.addEventListener("click", (e)=>{
+      const fab = $("#fab");
+      if(fab.classList.contains("open")){
+        const inside = fab.contains(e.target);
+        if(!inside) toggleFab(false);
+      }
+    });
+    document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") toggleFab(false); });
+
+    let t;
+    window.addEventListener("resize", ()=>{
+      clearTimeout(t);
+      t = setTimeout(()=> renderProjects(state.repos || []), 160);
+    });
+
+    window.lucide?.createIcons();
+  </script>
+</body>
+</html>
