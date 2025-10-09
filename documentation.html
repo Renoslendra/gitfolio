@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Gitfolio - Dokumentasi Penggunaan</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box }
+    html, body { margin:0; padding:0; overflow-x:hidden }
+    img { max-width:100%; height:auto; display:block }
+    a { color: rgb(var(--accent)); text-decoration: none }
+    :root{
+      --bg: #f6f7fb;
+      --bg-2: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0cc;
+      --glass-1: rgba(255,255,255,.55);
+      --glass-2: rgba(255,255,255,.38);
+      --shadow-1: 0 10px 28px rgba(16,24,40,.10);
+      --shadow-2: 0 18px 50px rgba(16,24,40,.15);
+      --radius: 16px;
+      --blur: 15px;
+      --container: 920px;
+      --accent: 79,70,229; 
+      --header-h: 68px;
+      --code-bg: #0f172a0d;
+    }
+    .dark{
+      --bg: #0a0f1a;
+      --bg-2: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9aa7bd;
+      --border: #273247cc;
+      --glass-1: rgba(17,24,39,.55);
+      --glass-2: rgba(17,24,39,.38);
+      --shadow-1: 0 10px 28px rgba(0,0,0,.40);
+      --shadow-2: 0 18px 50px rgba(0,0,0,.55);
+      --code-bg: #ffffff10;
+    }
+    body{
+      font-family:"Geist",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(1000px 500px at 12% -10%, rgba(var(--accent),.12), transparent 60%),
+        radial-gradient(800px 450px at 105% 18%, rgba(var(--accent),.10), transparent 55%),
+        linear-gradient(180deg,var(--bg),var(--bg));
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      overflow-wrap:anywhere;
+      word-break: break-word;
+    }
+
+    /* ===== Header ===== */
+    .site-header{
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur));
+      background: linear-gradient(180deg,var(--glass-1),var(--glass-2));
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
+    }
+    .header-wrap{
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 10px clamp(12px,3vw,20px);
+      display: flex; gap: 10px; align-items: center; min-height: var(--header-h);
+      min-width:0;
+    }
+    .logo{
+      width:36px;height:36px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(var(--accent),.25), rgba(var(--accent),.12));
+      border:1px solid var(--border);
+      box-shadow: var(--shadow-1);
+      margin-right:10px; flex:0 0 auto;
+    }
+    .title{
+      font-weight:800; letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px; white-space:normal; min-width:0;
+      overflow-wrap:anywhere;
+    }
+    .title small{ color: var(--muted); font-weight:600 }
+    .toolbar{ margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; align-items:center; min-width:0 }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:12px; cursor:pointer;
+      background:linear-gradient(180deg,var(--glass-1),var(--glass-2));
+      border:1px solid var(--border); box-shadow: var(--shadow-1);
+      max-width:100%;
+    }
+    .btn:hover{ transform: translateY(-1px); transition: .2s; box-shadow: var(--shadow-2) }
+    .btn.accent{ background: rgba(var(--accent),.22); border-color: rgba(var(--accent),.45); color:#fff }
+
+    .container{
+      max-width: var(--container);
+      margin: 18px auto;
+      padding: 0 clamp(12px,4vw,22px);
+      display: grid;
+      gap: 14px;
+      min-width:0;
+    }
+    .card{
+      background:linear-gradient(180deg,var(--glass-1),var(--glass-2));
+      border:1px solid var(--border);
+      box-shadow: var(--shadow-1);
+      border-radius: var(--radius);
+      overflow: clip;
+    }
+    .card-body{ padding:18px }
+    h1,h2,h3{ margin:0 0 10px; overflow-wrap:anywhere }
+    h1{ font-size: clamp(22px, 3.2vw, 28px) }
+    h2{ font-size: clamp(18px, 2.6vw, 22px) }
+    h3{ font-size: clamp(16px, 2.2vw, 18px) }
+    .section-title{ display:flex; gap:10px; align-items:center; font-weight:800; min-width:0 }
+    .muted{ color: var(--muted); font-weight:600 }
+    .divider{ height:1px; background:var(--border); margin:12px 0 }
+
+    .list{ padding-left:18px; margin:8px 0 }
+    .list li{ margin:6px 0 }
+
+    .toc{
+      display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center;
+    }
+    .toc a{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:10px;
+      background:linear-gradient(180deg,var(--glass-1),var(--glass-2));
+      border:1px solid var(--border); box-shadow: var(--shadow-1);
+    }
+    code, pre code{
+      font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
+    }
+    pre{
+      margin: 10px 0 0;
+      padding: 12px 14px;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      white-space: pre-wrap;         
+      overflow-wrap: anywhere;       
+      word-break: break-word;        
+    }
+
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; min-width:0 }
+    @media (max-width: 860px){
+      .grid-2{ grid-template-columns: 1fr }
+    }
+
+    footer{
+      max-width:var(--container); margin: 10px auto 22px;
+      padding:0 clamp(12px,4vw,22px);
+      display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+      color:var(--muted);
+      min-width:0;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-wrap">
+      <div class="logo" aria-hidden="true"><i data-lucide="wrench"></i></div>
+      <div class="title">Gitfolio <small>Dokumentasi Developer</small></div>
+      <nav class="toolbar" aria-label="Toolbar">
+        <a class="btn" href="./index.html" title="Kembali ke portfolio"><i data-lucide="arrow-left"></i> Kembali</a>
+        <button id="themeBtn" class="btn" type="button" aria-label="Toggle dark mode">
+          <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun" style="display:none"></i> Tema
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="card">
+      <div class="card-body">
+        <h1 class="section-title"><i data-lucide="info"></i> Ringkasan</h1>
+        <p>Dokumen ini fokus pada konfigurasi dan kustomisasi Gitfolio (single-file HTML). Semua perubahan dilakukan di index.html.</p>
+        <div class="divider"></div>
+        <div class="toc">
+          <a href="#peta-kode"><i data-lucide="map"></i> Peta Kode</a>
+          <a href="#konfigurasi"><i data-lucide="settings-2"></i> Konfigurasi</a>
+          <a href="#konten"><i data-lucide="square-pen"></i> Edit Konten</a>
+          <a href="#repo-data"><i data-lucide="folder-open"></i> Data Repo</a>
+          <a href="#tema-ux"><i data-lucide="paintbrush"></i> Tema & UX</a>
+          <a href="#i18n"><i data-lucide="globe-2"></i> I18N</a>
+          <a href="#seo"><i data-lucide="search-check"></i> SEO</a>
+          <a href="#a11y"><i data-lucide="accessibility"></i> Aksesibilitas</a>
+          <a href="#performa"><i data-lucide="gauge"></i> Performa</a>
+          <a href="#rate-limit"><i data-lucide="shield-alert"></i> Rate Limit</a>
+          <a href="#deploy"><i data-lucide="rocket"></i> Deployment</a>
+          <a href="#checklist"><i data-lucide="check-square"></i> Checklist</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="peta-kode" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="map"></i> Peta Kode (index.html)</h2>
+        <div class="grid-2">
+          <div>
+            <h3 class="section-title"><i data-lucide="blocks"></i> Komponen UI</h3>
+            <ul class="list">
+              <li>Header/Toolbar: <code>#themeBtn</code>, <code>#liteBtn</code>, <code>#langBtn</code>, <code>#accentBtn</code>, <code>#refreshBtn</code>, search.</li>
+              <li>Sidebar: <code>#profileCard</code>, <code>#statsCard</code>, kontak & WA (<code>#waModal</code>).</li>
+              <li>Main: repos (<code>#repoList</code>, <code>#repoStatus</code>, <code>#loadMoreBtn</code>), About/Skills/Experience/Achievements.</li>
+              <li>Modal: <code>#repoModal</code> dan <code>#waModal</code>.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="section-title"><i data-lucide="server-cog"></i> Data & Konstanta</h3>
+            <ul class="list">
+              <li><code>GITHUB_USER</code>, <code>API_USER</code>, <code>API_REPOS</code>, <code>API_GISTS</code>, <code>API_ORGS</code></li>
+              <li><code>GH_HEADERS</code> untuk GitHub REST API</li>
+              <li><code>ACCENTS</code> palet aksen</li>
+              <li><code>I18N</code> string UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="konfigurasi" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="settings-2"></i> Konfigurasi</h2>
+        <ul class="list">
+          <li><strong>Username GitHub</strong></li>
+        </ul>
+        <pre><code>const GITHUB_USER = "gunadizz"; // ganti dengan username kamu
+const API_USER  = `https://api.github.com/users/${GITHUB_USER}`;
+const API_REPOS = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&amp;sort=updated`;
+const API_GISTS = `https://api.github.com/users/${GITHUB_USER}/gists?per_page=10`;
+const API_ORGS  = `https://api.github.com/users/${GITHUB_USER}/orgs`;</code></pre>
+        <ul class="list">
+          <li><strong>Nomor WhatsApp</strong>: ganti semua <code>https://wa.me/6285341899229</code> dengan nomor kamu (format E.164 tanpa plus, contoh: 62812xxxx).</li>
+          <li><strong>Aksen</strong>: edit array <code>ACCENTS</code>; default dikontrol <code>--accent</code> di <code>:root</code>.</li>
+          <li><strong>Bahasa</strong>: tambah/ubah string di objek <code>I18N</code>.</li>
+          <li><strong>SEO</strong>: perbarui meta dan OG tags (lihat bagian SEO).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="konten" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="square-pen"></i> Edit Konten (About/Skills/Experience/Achievements)</h2>
+        <ul class="list">
+          <li>Target elemen: <code>#aboutContent</code>, <code>#skillsContent</code>, <code>#expContent</code>, <code>#achContent</code></li>
+        </ul>
+        <h3 class="section-title"><i data-lucide="bolt"></i> Cara cepat (statik)</h3>
+        <pre><code>&lt;script&gt;
+document.addEventListener('DOMContentLoaded', () =&gt; {
+  document.getElementById('aboutContent').innerHTML = `
+    &lt;p&gt;Halo, saya ...&lt;/p&gt;
+  `;
+  document.getElementById('skillsContent').innerHTML = `
+    &lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;li&gt;JS&lt;/li&gt;&lt;/ul&gt;
+  `;
+  document.getElementById('expContent').innerHTML = `
+    &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Role X&lt;/strong&gt; — Tahun&lt;/li&gt;&lt;/ul&gt;
+  `;
+  document.getElementById('achContent').innerHTML = `
+    &lt;ul&gt;&lt;li&gt;Penghargaan X&lt;/li&gt;&lt;/ul&gt;
+  `;
+});
+&lt;/script&gt;</code></pre>
+
+        <h3 class="section-title"><i data-lucide="cloud"></i> Cara dinamis (lanjutan)</h3>
+        <pre><code>async function loadSection(elId, url){
+  const html = await fetch(url).then(r =&gt; r.text());
+  document.getElementById(elId).innerHTML = html;
+}
+loadSection('aboutContent', 'https://gist.githubusercontent.com/&lt;user&gt;/&lt;id&gt;/raw/about.html');</code></pre>
+        <p class="muted">Hindari menyisipkan script tak tepercaya via <code>innerHTML</code>.</p>
+      </div>
+    </section>
+
+    <section id="repo-data" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="folder-open"></i> Data Repositori & Statistik</h2>
+        <ul class="list">
+          <li>Repos: diambil dari <code>API_REPOS</code> (max 100 per halaman, sort=updated).</li>
+          <li>Filter/sort di client; “Muat lebih banyak” menambah batch (atur ukuran batch di handler tombol).</li>
+          <li>Statistik total (bintang/fork/repos) dihitung agregat dari data repos yang dimuat.</li>
+          <li>Modal repo memuat detail (updated, created, default branch, dll.).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema-ux" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="paintbrush"></i> Tema, Aksen, Lite</h2>
+        <ul class="list">
+          <li>Dark/Light: toggle class <code>dark</code> via tombol header.</li>
+          <li>Lite mode: class <code>lite</code> mengurangi blur/shadow.</li>
+          <li>Aksen: definisikan di <code>ACCENTS</code>, default via <code>--accent</code>.</li>
+          <li>Tokens: <code>--radius</code>, <code>--shadow-*</code>, <code>--blur</code> untuk perubahan global cepat.</li>
+          <li>Breakpoint utama: ~1080/1024/960 px.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="i18n" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="globe-2"></i> I18N (ID/EN)</h2>
+        <ul class="list">
+          <li>String UI ada di objek <code>I18N</code>; gunakan kunci yang sama di tiap bahasa.</li>
+          <li>Elemen memanfaatkan <code>data-i18n-key</code>/<code>data-i18n-placeholder</code>.</li>
+          <li>Toggle bahasa tersedia di header (persist di storage).</li>
+        </ul>
+        <pre><code>// Tambah kunci baru
+I18N.id["hero.tagline"] = "Bangun cepat, tampil modern";
+I18N.en["hero.tagline"] = "Build fast, look modern";</code></pre>
+      </div>
+    </section>
+
+    <section id="seo" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="search-check"></i> SEO & Metatag</h2>
+        <ul class="list">
+          <li>Perbarui: <code>description</code>, <code>keywords</code>, <code>author</code>, <code>theme-color</code>.</li>
+          <li>OG: <code>og:title</code>, <code>og:description</code>, <code>og:image</code>, <code>og:url</code>.</li>
+          <li>Twitter Card: <code>summary_large_image</code>. Schema.org JSON‑LD <code>Person</code>.</li>
+        </ul>
+        <pre><code>&lt;meta property="og:image" content="https://domainmu.com/og-image.jpg" /&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="a11y" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="accessibility"></i> Aksesibilitas</h2>
+        <ul class="list">
+          <li>Gunakan ARIA pada kontrol baru; pertahankan role/aria-* di modal dan tombol.</li>
+          <li>Cek kontras setelah mengubah aksen/latar.</li>
+          <li>Hormati preferensi reduced motion.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="performa" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="gauge"></i> Performa & Praktik Baik</h2>
+        <ul class="list">
+          <li>Hindari set <code>innerHTML</code> berulang dalam loop besar.</li>
+          <li>Debounce input filter/sort jika perlu.</li>
+          <li>Opsional: cache fetch di <code>localStorage</code>, invalidasi via “Muat Ulang”.</li>
+         
+        </ul>
+      </div>
+    </section>
+
+    <section id="rate-limit" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="shield-alert"></i> Batasan & Rate Limit API GitHub</h2>
+        <ul class="list">
+          <li>Tanpa autentikasi: ~60 request/jam per IP.</li>
+          <li>Hindari refresh berulang saat uji.</li>
+          <li>Jangan menaruh token di client; pakai backend/proxy untuk data private.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="deploy" class="card">
+      <div class="card-body">
+        <h2 class="section-title"><i data-lucide="rocket"></i> Deployment</h2>
+        <ul class="list">
+          <li>GitHub Pages: Settings → Pages → Source <code>main</code> / root.</li>
+          <li>Atau host statis lain (Netlify, Vercel).</li>
+          <li>Custom domain: atur DNS + CNAME.</li>
+        </ul>
+      </div>
+    </section>
+
+    
+  </main>
+
+  <footer>
+    <div class="muted">© <span id="year"></span> Gunadi Renta</div>
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const themeBtn = document.getElementById('themeBtn');
+      const root = document.documentElement;
+      const KEY = 'gitfolio-docs-theme';
+      const apply = (mode) => {
+        if(mode === 'dark') root.classList.add('dark');
+        else root.classList.remove('dark');
+        const moon = themeBtn.querySelector('.moon');
+        const sun  = themeBtn.querySelector('.sun');
+        if(mode === 'dark'){ moon.style.display='none'; sun.style.display='inline-block'; }
+        else { moon.style.display='inline-block'; sun.style.display='none'; }
+      };
+      const saved = localStorage.getItem(KEY) || 'light';
+      apply(saved);
+      themeBtn.addEventListener('click', () => {
+        const now = root.classList.contains('dark') ? 'light' : 'dark';
+        localStorage.setItem(KEY, now);
+        apply(now);
+      });
+    });
+  </script>
+</body>
+</html>
