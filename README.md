@@ -1,4 +1,4 @@
-Demo [Gitfolio](https://www.gunadi.tech/app/gitfolio)
+Demo [Gitfolio](https://renoslendra.github.io/gitfolio)
 
 # Gitfolio — Portfolio berbasis profil GitHub
 
@@ -72,7 +72,7 @@ Tidak membutuhkan server — cukup buka file HTML di browser modern.
 
 1. Clone repo:
    ```
-   git clone https://github.com/gunadizz/gitfolio.git
+   git clone https://github.com/Renoslendra/gitfolio.git
    cd gitfolio
    ```
 2. Buka `index.html` (double-click) atau gunakan Live Server.
@@ -90,7 +90,7 @@ Ubah konstanta di awal skrip `index.html`:
 
 ```js
 /* ===================== Config & Helpers ===================== */
-const GITHUB_USER = "gunadizz"; // ganti dengan username kamu
+const GITHUB_USER = "Renoslendra"; // ganti dengan username kamu
 const API_USER  = `https://api.github.com/users/${GITHUB_USER}`;
 const API_REPOS = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
 const API_GISTS = `https://api.github.com/users/${GITHUB_USER}/gists?per_page=10`;
@@ -98,7 +98,7 @@ const API_ORGS  = `https://api.github.com/users/${GITHUB_USER}/orgs`;
 ```
 
 - Ganti `GITHUB_USER` untuk memakai akun GitHub lain.
-- Ganti nomor WhatsApp pada link `https://wa.me/6285341899229` di `index.html` (cari dan ganti semua kemunculannya).
+- Ganti nomor WhatsApp pada link `https://wa.me/6285156064912` di `index.html` (cari dan ganti semua kemunculannya).
 - Sesuaikan string I18N pada objek `I18N` jika perlu.
 
 ---
@@ -120,7 +120,7 @@ const API_ORGS  = `https://api.github.com/users/${GITHUB_USER}/orgs`;
 
 ## Lisensi & Kredit
 
-Hak cipta © Gunadi Renta. Jika ingin membuat varian/templat publik, mohon cantumkan atribusi.
+Hak cipta © Reno Syaelendra. Jika ingin membuat varian/templat publik, mohon cantumkan atribusi.
 
 Kredit:
 - Ikon oleh [Lucide](https://lucide.dev/)

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <title>Gitfolio - Minimalist version</title>
+  <title>Reno Syaelendra - Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..900&family=Inter:wght@400..900&display=swap" rel="stylesheet">
@@ -116,6 +116,46 @@
 
     footer{ margin-top:18px; color:var(--muted); font-size:14px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:8px 2px; }
 
+    .load-msg{ margin:0; padding:10px 0; color:var(--muted); font-size:14px; grid-column:1/-1; }
+    .load-msg.error{ color:#ef4444 }
+
+    /* ===== GitHub Stats Cards ===== */
+    .stats-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    @media (max-width: 640px){ .stats-grid{ grid-template-columns: 1fr; } }
+    .stats-card-wrap{
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--chip);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stats-card-wrap img{
+      width: 100%; height: auto; display: block;
+      border-radius: 12px;
+    }
+    .stats-card-wide{
+      grid-column: 1 / -1;
+    }
+
+    /* ===== Profile Stats Pills ===== */
+    .stat-pills{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .stat-pill{
+      display:flex; flex-direction:column; align-items:center;
+      padding:8px 14px; border-radius:10px;
+      border:1px solid var(--border); background:var(--chip);
+      min-width:64px;
+    }
+    .stat-pill .num{ font-size:18px; font-weight:800; line-height:1.2 }
+    .stat-pill .lbl{ font-size:11px; color:var(--muted); font-weight:600; margin-top:2px }
+
     .fab{
       position: fixed;
       right: clamp(12px, 2vw, 20px);
@@ -143,32 +183,62 @@
     .fab.open .fab-dock{ max-height: 150px; }
     .fab-mini{ width: 42px; height: 42px; border-radius: 12px; font-size: 12px; font-weight: 700; }
     .fab-mini .label{ font-family: "Inter Tight", Inter, system-ui; font-size: 12px }
+
+    /* ===== File:// Banner ===== */
+    .local-banner{
+      position: sticky; top: 0; z-index: 999;
+      background: #f59e0b; color: #1c1917;
+      padding: 10px 16px;
+      font-size: 13px; font-weight: 600;
+      display: none; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap; text-align: center;
+      border-bottom: 2px solid #d97706;
+    }
+    .local-banner code{
+      background: rgba(0,0,0,.15); padding: 2px 7px;
+      border-radius: 5px; font-size: 12px;
+      font-family: ui-monospace, monospace;
+    }
+    .local-banner a{ color: #1c1917; text-decoration: underline; }
   </style>
 </head>
 <body>
+  <!-- File:// Protocol Warning Banner -->
+  <div class="local-banner" id="localBanner">
+    <span>⚠️ Dibuka via <strong>file://</strong> — GitHub API & foto profil mungkin diblokir browser.</span>
+    <span>Jalankan: <code>python -m http.server 8080</code> lalu buka <code>localhost:8080</code></span>
+    <span>atau klik kanan di VS Code → <strong>Open with Live Server</strong></span>
+    <span>| Windows: klik <strong>start.bat</strong> di folder ini</span>
+  </div>
+
   <main class="container">
     <!-- Header -->
     <section class="card header">
       <div>
-        <h1 class="name" id="name">Gunadi Renta</h1>
-        <p class="headline" id="headline">Full‑stack engineer focused on clean products and details</p>
+        <h1 class="name" id="name">Reno Syaelendra</h1>
+        <p class="headline" id="headline">Mahasiswa Teknik Informatika & Web Developer</p>
         <div class="meta">
-          <span class="row"><i data-lucide="map-pin" aria-hidden="true"></i><span id="locationText">Makassar, Indonesia</span></span>
-          <span class="row"><i data-lucide="clock" aria-hidden="true"></i><span id="tzText">WITA</span></span>
+          <span class="row"><i data-lucide="map-pin" aria-hidden="true"></i><span id="locationText">Surabaya, Indonesia</span></span>
+          <span class="row"><i data-lucide="clock" aria-hidden="true"></i><span id="tzText">WIB</span></span>
+        </div>
+        <div class="stat-pills" id="statPills" style="display:none">
+          <div class="stat-pill"><span class="num" id="statRepos">—</span><span class="lbl">Repos</span></div>
+          <div class="stat-pill"><span class="num" id="statFollowers">—</span><span class="lbl">Followers</span></div>
+          <div class="stat-pill"><span class="num" id="statFollowing">—</span><span class="lbl">Following</span></div>
         </div>
 
         <!-- Kontak -->
         <div class="links" aria-label="Links">
-          <a class="icon-btn" href="mailto:gunadirenta@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
-          <a class="icon-btn" id="link-github" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
-          <a class="icon-btn" href="https://wa.me/6285341899229" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="phone"></i></a>
-          <a class="icon-btn" href="https://gunadi.tech" target="_blank" rel="noopener" aria-label="Website"><i data-lucide="globe-2"></i></a>
+          <a class="icon-btn" href="mailto:" aria-label="Email"><i data-lucide="mail"></i></a>
+          <a class="icon-btn" id="link-github" href="https://github.com/Renoslendra" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
+          <a class="icon-btn" href="https://wa.me/6285156064912" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="phone"></i></a>
+          <a class="icon-btn" href="https://github.com/Renoslendra" target="_blank" rel="noopener" aria-label="Website"><i data-lucide="globe-2"></i></a>
           <a class="icon-btn" href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-          <a class="icon-btn" href="https://instagram.com/gunadirnta" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a class="icon-btn" href="https://instagram.com/Renoslendra" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
         </div>
       </div>
       <div class="avatar" id="avatar">
-        <img alt="Foto profil" src="https://github.com/gunadizz.png?size=220" width="112" height="112">
+        <img alt="Foto profil" src="https://github.com/Renoslendra.png?size=220" width="112" height="112">
       </div>
     </section>
 
@@ -176,36 +246,90 @@
     <section class="card section">
       <h2 id="aboutTitle">About</h2>
       <div class="prose" id="aboutBlock">
-        <p>I build clean, fast, and accessible products. I like lightweight front‑end patterns (vanilla/Next.js), data visualization, and simple service integrations.</p>
+        <p>Mahasiswa S1 Teknik Informatika di Universitas Trunojoyo Madura. Fokus pada pengembangan web modern (HTML/CSS/JS, React, PHP), integrasi AI berbasis konteks, dan visualisasi data.</p>
       </div>
     </section>
 
     <!-- Experience -->
     <section class="card section">
       <h2 id="workTitle">Work Experience</h2>
-      <div class="xp-list" id="xpList"></div>
+      <div class="xp-list" id="xpList">
+        <article class="xp">
+          <div class="xp-head">
+            <div class="company">AI &amp; Automation Developer <span class="badge">Remote</span></div>
+            <div class="xp-meta">2025 &ndash; sekarang</div>
+          </div>
+          <div class="role">Proyek Pribadi</div>
+          <div class="muted" style="margin-top:4px">Membangun context prefix assistant, integrasi AI ringan berbasis JSON/JS, dan prototipe sistem rekomendasi.</div>
+          <div class="techs"><span class="chip">JavaScript</span><span class="chip">JSON</span><span class="chip">AI Integration</span></div>
+        </article>
+        <article class="xp">
+          <div class="xp-head">
+            <div class="company">Web Developer <span class="badge">Remote</span></div>
+            <div class="xp-meta">2020</div>
+          </div>
+          <div class="role">Proyek Klien</div>
+          <div class="muted" style="margin-top:4px">Penyesuaian UI/UX dan optimasi performa website berbasis HTML/CSS untuk klien lokal.</div>
+          <div class="techs"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+        </article>
+      </div>
     </section>
 
     <!-- Education -->
     <section class="card section">
       <h2 id="eduTitle">Education</h2>
-      <div class="xp" id="eduCard"></div>
+      <div class="xp" id="eduCard">
+        <div class="xp-head">
+          <div class="company">Universitas Trunojoyo Madura</div>
+          <div class="xp-meta">2024 &mdash; sekarang</div>
+        </div>
+        <div class="muted">S1 Teknik Informatika</div>
+      </div>
     </section>
 
     <!-- Skill -->
     <section class="card section">
       <h2 id="skillsTitle">Skills</h2>
-      <div id="skillsRow" class="techs"></div>
+      <div id="skillsRow" class="techs">
+        <span class="chip">HTML5</span>
+        <span class="chip">CSS3</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">React.js</span>
+        <span class="chip">PHP</span>
+        <span class="chip">Python</span>
+        <span class="chip">Firebase</span>
+        <span class="chip">Chart.js</span>
+        <span class="chip">Git</span>
+        <span class="chip">Figma</span>
+        <span class="chip">UI/UX</span>
+        <span class="chip">AI Integration</span>
+      </div>
+    </section>
+
+    <!-- GitHub Stats Cards -->
+    <section class="card section" id="statsSection">
+      <h2 id="statsTitle">GitHub Stats</h2>
+      <div class="stats-grid">
+        <div class="stats-card-wrap">
+          <img id="statsCardImg" src="" alt="GitHub Stats" loading="lazy" />
+        </div>
+        <div class="stats-card-wrap">
+          <img id="langsCardImg" src="" alt="Top Languages" loading="lazy" />
+        </div>
+        <div class="stats-card-wrap stats-card-wide">
+          <img id="streakCardImg" src="" alt="GitHub Streak" loading="lazy" />
+        </div>
+      </div>
     </section>
 
     <!-- Projek (data GitHub) -->
     <section class="card section">
       <h2 id="projectsTitle">Projects</h2>
-      <div class="grid" id="projectsGrid"></div>
+      <div class="grid" id="projectsGrid"><p class="load-msg">Memuat proyek dari GitHub…</p></div>
     </section>
 
     <footer>
-      <span>© <span id="year"></span> <strong>Gunadi Renta</strong></span>
+      <span>© <span id="year"></span> <strong>Reno Syaelendra</strong></span>
       <a class="row" href="index.html"><i data-lucide="arrow-left"></i> <span id="backFull">Back to full version</span></a>
     </footer>
   </main>
@@ -226,7 +350,7 @@
 
   <script>
     // ---------- Config ----------
-    const GITHUB_USER = "gunadizz";
+    const GITHUB_USER = "Renoslendra";
     const API_USER  = `https://api.github.com/users/${GITHUB_USER}`;
     const API_REPOS = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
     const GH_HEADERS = { "Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28" };
@@ -239,49 +363,49 @@
 
     const I18N = {
       id: {
-        headline: "Engineer web yang fokus pada produk rapi dan detail",
+        headline: "Mahasiswa Teknik Informatika & Web Developer",
         about_t: "Tentang",
-        about_p: "Saya membangun produk yang bersih, cepat, dan mudah diakses. Suka pola front‑end ringan (vanilla/Next.js), visualisasi data, dan integrasi layanan sederhana.",
+        about_p: "Mahasiswa S1 Teknik Informatika di Universitas Trunojoyo Madura. Fokus pada pengembangan web modern (HTML/CSS/JS, React, PHP), integrasi AI berbasis konteks, dan visualisasi data.",
         work_t: "Pengalaman",
         edu_t: "Pendidikan",
-        edu_card_h: "Universitas Hasanuddin",
-        edu_card_p: "S1 Teknologi Hasil Perikanan",
+        edu_card_h: "Universitas Trunojoyo Madura",
+        edu_card_p: "S1 Teknik Informatika",
         skills_t: "Keahlian",
         projects_t: "Proyek",
         back_full: "Kembali ke versi penuh",
         no_desc: "Tanpa deskripsi.",
-        side: "Proyek"
+        side: "Proyek",
+        stats_t: "Statistik GitHub"
       },
       en: {
-        headline: "Full‑stack engineer focused on clean products and details",
+        headline: "Informatics Engineering student & Web Developer",
         about_t: "About",
-        about_p: "I build clean, fast, and accessible products. I like lightweight front‑end patterns (vanilla/Next.js), data visualization, and simple service integrations.",
+        about_p: "Undergraduate student in Informatics Engineering at Universitas Trunojoyo Madura. Focused on modern web development (HTML/CSS/JS, React, PHP), context-based AI integration, and data visualization.",
         work_t: "Work Experience",
         edu_t: "Education",
-        edu_card_h: "Hasanuddin University",
-        edu_card_p: "Bachelor's Degree in Fisheries Product Technology",
+        edu_card_h: "Universitas Trunojoyo Madura",
+        edu_card_p: "B.Sc. in Informatics Engineering",
         skills_t: "Skills",
         projects_t: "Projects",
         back_full: "Back to full version",
         no_desc: "No description.",
-        side: "Side Project"
+        side: "Side Project",
+        stats_t: "GitHub Stats"
       }
     };
 
     const EXPERIENCE = {
       id: [
-        { company: "Femmeia Cloth", role: "Founder & Web Developer", remote: true,  period: "2025 - sekarang", desc: "Website pemesanan terintegrasi WhatsApp & Firebase. Bangun Finance Tracker untuk pembukuan.", techs: ["TypeScript","Next.js","Firebase","Tailwind"] },
-        { company: "KKN Tematik (Perpusnas)", role: "Perlengkapan & Dokumentasi", remote: false, period: "2025", desc: "Kelola inventaris dan dokumentasi di Desa Maccini Sombala, Takalar.", techs: ["Dokumentasi","Inventaris"] },
-        { company: "Lab THP", role: "Asisten Praktikum", remote: false, period: "2024", desc: "Pendampingan uji mutu; olah data di Excel untuk laporan.", techs: ["Excel","QC"] }
+        { company: "AI & Automation Developer", role: "Proyek Pribadi", remote: true, period: "2025 – sekarang", desc: "Membangun context prefix assistant, integrasi AI ringan berbasis JSON/JS, dan prototipe sistem rekomendasi.", techs: ["JavaScript","JSON","AI Integration"] },
+        { company: "Web Developer", role: "Proyek Klien", remote: true, period: "2020", desc: "Penyesuaian UI/UX dan optimasi performa website berbasis HTML/CSS untuk klien lokal.", techs: ["HTML","CSS","JavaScript"] }
       ],
       en: [
-        { company: "Femmeia Cloth", role: "Founder & Web Developer", remote: true,  period: "2025 - present", desc: "Ordering website integrated with WhatsApp & Firebase. Built a Finance Tracker for bookkeeping.", techs: ["TypeScript","Next.js","Firebase","Tailwind"] },
-        { company: "Thematic KKN (National Library)", role: "Equipment & Documentation", remote: false, period: "2025", desc: "Managed inventory and documentation in Maccini Sombala Village, Takalar.", techs: ["Documentation","Inventory"] },
-        { company: "Fisheries Product Tech Lab", role: "Lab Assistant", remote: false, period: "2024", desc: "Assisted quality tests; processed practicum data in Excel for reports.", techs: ["Excel","QC"] }
+        { company: "AI & Automation Developer", role: "Personal Project", remote: true, period: "2025 – present", desc: "Built context prefix assistants, lightweight AI integration based on JSON/JS, and recommendation system prototypes.", techs: ["JavaScript","JSON","AI Integration"] },
+        { company: "Web Developer", role: "Client Project", remote: true, period: "2020", desc: "UI/UX adjustments and performance optimization for HTML/CSS-based websites for local clients.", techs: ["HTML","CSS","JavaScript"] }
       ]
     };
 
-    const SKILLS = ["JavaScript","TypeScript","React/Next.js","Node.js","GraphQL","UI/UX","Python","Firebase","Chart.js","Excel","Accessibility"];
+    const SKILLS = ["HTML5","CSS3","JavaScript","React.js","PHP","Python","Firebase","Chart.js","Git","Figma","UI/UX","AI Integration"];
 
     const $ = (s,r=document)=>r.querySelector(s);
 
@@ -289,6 +413,7 @@
       document.documentElement.classList.toggle("dark", mode==="dark");
       state.theme = mode;
       localStorage.setItem("theme", mode);
+      updateStatsCards();
       const btn = $("#fabTheme");
       if(btn){
         const moon = btn.querySelector(".moon");
@@ -313,6 +438,8 @@
       $("#skillsTitle").textContent = t.skills_t;
       $("#projectsTitle").textContent = t.projects_t;
       $("#backFull").textContent = t.back_full;
+      const st = $("#statsTitle");
+      if(st) st.textContent = t.stats_t;
 
       const wrap = $("#xpList"); wrap.innerHTML = "";
       EXPERIENCE[lang].forEach(x=>{
@@ -333,7 +460,7 @@
       $("#eduCard").innerHTML = `
         <div class="xp-head">
           <div class="company">${t.edu_card_h}</div>
-          <div class="xp-meta">2022 — ${lang==="en"?"present":"sekarang"}</div>
+          <div class="xp-meta">2024 — ${lang==="en"?"present":"sekarang"}</div>
         </div>
         <div class="muted">${t.edu_card_p}</div>
       `;
@@ -353,15 +480,39 @@
     }
 
     function renderHeader(user){
-      $("#name").textContent = user.name || user.login || "Gunadi Renta";
-      $("#locationText").textContent = user.location || "—";
+      if(!user || user.message) return;
+      $("#name").textContent = user.name || user.login || "Reno Syaelendra";
+      $("#locationText").textContent = user.location || "Surabaya, Indonesia";
       $("#link-github").href = user.html_url || `https://github.com/${GITHUB_USER}`;
       const av = $("#avatar img");
-      if(av && user.avatar_url) av.src = user.avatar_url + "&s=220";
+      if(av && user.avatar_url){
+        const avatarBase = user.avatar_url.split('?')[0];
+        av.src = avatarBase + '?size=220';
+      }
+      // Stat pills
+      const pills = $("#statPills");
+      if(pills){
+        $("#statRepos").textContent = user.public_repos || 0;
+        $("#statFollowers").textContent = user.followers || 0;
+        $("#statFollowing").textContent = user.following || 0;
+        pills.style.display = "flex";
+      }
       try{
         const parts = new Intl.DateTimeFormat(undefined, { timeZoneName: "short" }).formatToParts(new Date());
         $("#tzText").textContent = parts.find(p=>p.type==="timeZoneName")?.value || "—";
       }catch{}
+    }
+
+    function updateStatsCards(){
+      const isDark = document.documentElement.classList.contains("dark");
+      const theme = isDark ? "tokyonight" : "default";
+      const u = encodeURIComponent(GITHUB_USER);
+      const statsImg  = $("#statsCardImg");
+      const langsImg  = $("#langsCardImg");
+      const streakImg = $("#streakCardImg");
+      if(statsImg)  statsImg.src  = `https://github-readme-stats.vercel.app/api?username=${u}&show_icons=true&theme=${theme}&hide_border=true&count_private=true`;
+      if(langsImg)  langsImg.src  = `https://github-readme-stats.vercel.app/api/top-langs/?username=${u}&layout=compact&theme=${theme}&hide_border=true&langs_count=8`;
+      if(streakImg) streakImg.src = `https://github-readme-streak-stats.herokuapp.com/?user=${u}&theme=${theme}&hide_border=true`;
     }
 
     function renderProjects(repos){
@@ -371,6 +522,12 @@
       const sorted = repos.slice()
         .filter(r => !r.archived)
         .sort((a,b)=>(b.stargazers_count||0)-(a.stargazers_count||0) || new Date(b.updated_at)-new Date(a.updated_at));
+
+      if(sorted.length === 0){
+        grid.innerHTML = `<p class="load-msg">${state.lang==="en" ? "No public repositories found yet." : "Belum ada repositori publik."}</p>`;
+        return;
+      }
+
       const count = window.innerWidth < 641 ? 10 : (window.innerWidth < 861 ? 6 : 9);
       sorted.slice(0, count).forEach(r=>{
         const lang = r.language ? `<span class="chip" title="Language"><span style="width:8px;height:8px;border-radius:999px;display:inline-block;background:${langColor(r.language)}"></span> ${r.language}</span>` : "";
@@ -391,17 +548,40 @@
     }
 
     async function loadData(){
+      const grid = $("#projectsGrid");
+      grid.innerHTML = `<p class="load-msg">${state.lang==="en" ? "Loading from GitHub…" : "Memuat dari GitHub…"}</p>`;
       try{
         const [user, repos] = await Promise.all([
           fetch(API_USER, {headers:GH_HEADERS}).then(r=>r.json()),
           fetch(API_REPOS, {headers:GH_HEADERS}).then(r=>r.json())
         ]);
+
+        // Handle API error responses (404, rate limit, etc.)
+        if(user && user.message){
+          const isRate = /rate limit/i.test(user.message);
+          const isNotFound = /not found/i.test(user.message);
+          const msgID = isRate
+            ? "Batas API GitHub tercapai (60 req/jam). Coba lagi dalam 1 jam."
+            : isNotFound
+            ? `Akun GitHub “${GITHUB_USER}” tidak ditemukan. Pastikan username sudah benar.`
+            : `GitHub API: ${user.message}`;
+          const msgEN = isRate
+            ? "GitHub API rate limit reached (60 req/hr). Try again in an hour."
+            : isNotFound
+            ? `GitHub account \u201c${GITHUB_USER}\u201d not found. Make sure the username is correct.`
+            : `GitHub API: ${user.message}`;
+          grid.innerHTML = `<p class="load-msg error">${state.lang==="en" ? msgEN : msgID}</p>`;
+          return;
+        }
+
         state.repos = Array.isArray(repos) ? repos.map(r=>({...r, topics:r.topics||[]})) : [];
         renderHeader(user);
         renderProjects(state.repos);
       }catch(err){
         console.error("GitHub fetch error", err);
-        $("#projectsGrid").innerHTML = `<div class="muted">${state.lang==="en" ? "Failed to load GitHub repositories." : "Gagal memuat repositori GitHub."}</div>`;
+        grid.innerHTML = `<p class="load-msg error">${state.lang==="en"
+          ? "Could not connect to GitHub. Check your internet connection."
+          : "Tidak dapat terhubung ke GitHub. Periksa koneksi internet."}</p>`;
       }
     }
 
@@ -416,9 +596,20 @@
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Show banner if opened via file:// protocol
+    if(window.location.protocol === 'file:'){
+      const b = document.getElementById('localBanner');
+      if(b) b.style.display = 'flex';
+    }
+
     setTheme(state.theme);
     setLang(state.lang);
+    updateStatsCards();
     loadData();
+
+    // Ensure lucide icons render after everything is in DOM
+    window.addEventListener('load', () => window.lucide?.createIcons());
 
     $("#fabMain").addEventListener("click", (e)=>{ e.stopPropagation(); toggleFab(); });
     $("#fabTheme").addEventListener("click", (e)=>{
