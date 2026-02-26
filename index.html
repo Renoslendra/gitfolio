@@ -37,7 +37,8 @@
     "sameAs":[
       "https://github.com/Renoslendra",
       "https://wa.me/6285156064912",
-      "https://www.linkedin.com"
+      "https://www.instagram.com/renorenoss/",
+      "https://www.linkedin.com/in/renosyaelendra45"
     ],
     "knowsAbout":[
       "Web Development","HTML","CSS","JavaScript","UI/UX",
@@ -175,7 +176,7 @@
       box-shadow: var(--shadow-1);
       flex:0 0 auto;
     }
-    .brand .title{ font-weight:800; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 320px }
+    .brand .title{ font-weight:800; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: clamp(100px,18vw,260px) }
     .brand .subtitle{ color:var(--muted); font-weight:600; margin-left:6px }
 
     /* Desktop search */
@@ -188,7 +189,7 @@
       min-width: 0;
     }
     .search input{flex:1; background:transparent; border:0; outline:0; color:var(--text); font-size:10px; min-width: 80px}
-    .toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .toolbar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;min-width:0;overflow:hidden}
 
     .btn{
       display:inline-flex; align-items:center; gap:8px;
@@ -203,7 +204,7 @@
     .btn.accent{ background: rgba(var(--accent),.22); border-color: rgba(var(--accent),.45); color:#fff }
     .btn .dot{ width:12px; height:12px; border-radius:999px; background:rgb(var(--accent)); box-shadow:0 0 0 2px rgba(var(--accent),.25) }
 
-    .navlinks{ display:flex; gap:6px; align-items:center; flex-wrap:wrap }
+    .navlinks{ display:flex; gap:4px; align-items:center; flex-wrap:nowrap; overflow:hidden }
     .navlinks .btn{ padding:8px 10px }
 
     .hide-sm{ display:inline-flex }
@@ -668,10 +669,10 @@
           <h3 class="section-title"><i data-lucide="messages-square"></i><span data-i18n-key="contact.title">Kontak</span></h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <a class="link-btn" href="https://github.com/Renoslendra" target="_blank" rel="noopener"><i data-lucide="github"></i> GitHub</a>
-            <a class="link-btn" href="https://instagram.com/renorenos" target="_blank" rel="noopener"><i data-lucide="instagram"></i> Instagram</a>
-            <a class="link-btn" href="mailto:renoslendra@gmail.com" target="_blank" rel="noopener"><i data-lucide="mail"></i> Email</a>
+            <a class="link-btn" href="https://www.instagram.com/renorenoss/" target="_blank" rel="noopener"><i data-lucide="instagram"></i> Instagram</a>
+            <a class="link-btn" href="https://mail.google.com/mail/?view=cm&to=renoslendra@gmail.com" target="_blank" rel="noopener"><i data-lucide="mail"></i> Email</a>
             <a class="link-btn" href="https://wa.me/6285156064912" target="_blank" rel="noopener"><i data-lucide="phone"></i> WhatsApp</a>
-            <a class="link-btn" href="www.linkedin.com/in/renosyaelendra45" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+            <a class="link-btn" href="https://www.linkedin.com/in/renosyaelendra45" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
           </div>
         </div>
       </section>
@@ -1332,8 +1333,9 @@ function renderProfile(user){
   const blog = user.blog ? `<div class="meta-item"><i data-lucide="link-2"></i><a href="${user.blog.startsWith('http')?user.blog:'https://'+user.blog}" target="_blank" rel="noopener">${user.blog}</a></div>`:"";
   const twitter = user.twitter_username ? `<div class="meta-item"><i data-lucide="twitter"></i><a target="_blank" rel="noopener" href="https://twitter.com/${user.twitter_username}">@${user.twitter_username}</a></div>`:"";
   const displayName = user.name || "Reno Syaelendra";
-  const displayLogin = user.login || "renoslendra";
-  const avatar = user.avatar_url || "https://avatars.githubusercontent.com/Renoslendra";
+  const displayLogin = user.login || "Renoslendra";
+  const avatar = user.avatar_url ? user.avatar_url.split('?')[0] + '?size=220' : "https://avatars.githubusercontent.com/Renoslendra?size=220";
+  const displayLocation = (user.location && user.location !== 'null') ? user.location : "Surabaya, Indonesia";
 
   card.innerHTML = `
     <div class="profile-top">
@@ -1343,9 +1345,9 @@ function renderProfile(user){
         <div class="username">@${displayLogin}</div>
       </div>
     </div>
-    ${user.bio?`<p class="bio">${user.bio}</p>`:"<p class='bio'>Mahasiswa Teknologi Hasil Perikanan • Web Developer</p>"}
+    ${user.bio?`<p class="bio">${user.bio}</p>`:"<p class='bio'>Mahasiswa S1 Teknik Informatika • Vibe Coder </p>"}
     <div class="meta">
-      <div class="meta-item"><i data-lucide="map-pin"></i><span><span data-i18n-key="profile.location">Lokasi</span>: <strong>${user.location}</strong></span></div>
+      <div class="meta-item"><i data-lucide="map-pin"></i><span><span data-i18n-key="profile.location">Lokasi</span>: <strong>${displayLocation}</strong></span></div>
       ${company}${blog}${twitter}
       <div class="counts">
         <span><strong>${fmtNum(user.followers||0)}</strong> <span data-i18n-key="profile.followers">Pengikut</span></span>
