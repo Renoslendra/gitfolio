@@ -1763,13 +1763,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
   });
 
   document.addEventListener("click", (e)=>{
-    if(palettePanel && !palettePanel.contains(e.target) && e.target !== $("#accentBtn")){
+    const accentBtn = $("#accentBtn");
+    if(palettePanel && !palettePanel.contains(e.target) && accentBtn && !accentBtn.contains(e.target)){
       palettePanel.style.display = "none";
-      $("#accentBtn").setAttribute("aria-expanded","false");
+      accentBtn.setAttribute("aria-expanded","false");
     }
-    if(palettePanelM && !palettePanelM.contains(e.target) && e.target !== $("#accentBtnM")){
+    const accentBtnM = $("#accentBtnM");
+    if(palettePanelM && !palettePanelM.contains(e.target) && accentBtnM && !accentBtnM.contains(e.target)){
       palettePanelM.style.display = "none";
-      $("#accentBtnM").setAttribute("aria-expanded","false");
+      accentBtnM.setAttribute("aria-expanded","false");
     }
   });
 
